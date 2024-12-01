@@ -25,7 +25,8 @@ void PA_InputGetAndSend(){
 	// TODO (AntonioND)
 
 	// Temperature
-	msg.InputMsg.temperature = tscReadTemperature();
+	msg.InputMsg.temperature = 0; //tscReadTemperature();
+	// TODO (AntonioND)
 	msg.InputMsg.tdiode1 = 0;
 	msg.InputMsg.tdiode2 = 0;
 
