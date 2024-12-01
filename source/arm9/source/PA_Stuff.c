@@ -1,5 +1,6 @@
 #include <PA9.h>
 #include <dirent.h>
+#include <sys/stat.h>
 
 void PA_SetVideoMode(u8 screen, u8 mode) {
 	// NEW version
