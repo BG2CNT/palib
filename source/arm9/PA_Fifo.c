@@ -14,8 +14,6 @@ void PA_FifoMsgHandler(int bytes, void* dummy){
 			// Extra input data from the ARM7
 		case PA_MSG_INPUT:
 			// Copy the data to the transfer region
-			PA_Transfer->tdiode1 = msg.InputMsg.tdiode1;
-			PA_Transfer->tdiode2 = msg.InputMsg.tdiode2;
 			PA_Transfer->temperature = msg.InputMsg.temperature;
 			PA_Transfer->battery = msg.InputMsg.battery;
 			PA_Transfer->micvol = msg.InputMsg.micvol;

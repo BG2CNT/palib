@@ -30,7 +30,7 @@ LIBDIRS		:= $(BLOCKSDS)/libs/libnds \
 # Build artifacts
 # ---------------
 
-NAME		:= test7
+NAME		:= pa7
 BUILDDIR	:= build/$(NAME)
 ARCHIVE		:= lib/lib$(NAME).a
 
@@ -121,7 +121,7 @@ $(BUILDDIR)/%.s.o : %.s
 $(BUILDDIR)/%.c.o : %.c
 	@echo "  CC.7    $<"
 	@$(MKDIR) -p $(@D)
-	$(V)$(CC) $(CFLAGS) -MMD -MP -c -o $@ $<
+	$(V)case $< in *"helix"*) $(CC) $(CFLAGS) -MMD -MP -marm -mlong-calls -c -o $@ $< ;; *) $(CC) $(CFLAGS) -MMD -MP -c -o $@ $< ;; esac
 
 $(BUILDDIR)/%.arm.c.o : %.arm.c
 	@echo "  CC.7    $<"

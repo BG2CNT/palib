@@ -21,14 +21,14 @@ void PA_InputGetAndSend(){
 	msg.type = PA_MSG_INPUT;
 
 	// Battery
-	msg.InputMsg.battery = touchRead(TSC_MEASURE_BATTERY);
+	msg.InputMsg.battery = 15; //touchRead(TSC_MEASURE_BATTERY);
+	// TODO (AntonioND)
 
 	// Temperature
-	int t1, t2;
-	msg.InputMsg.temperature = touchReadTemperature(&t1, &t2);
-	msg.InputMsg.tdiode1 = t1;
-	msg.InputMsg.tdiode2 = t2;
-	
+	msg.InputMsg.temperature = tscReadTemperature();
+	msg.InputMsg.tdiode1 = 0;
+	msg.InputMsg.tdiode2 = 0;
+
 	// Microphone volume
 	msg.InputMsg.micvol = PA_ReadMicVol();
 
