@@ -30,7 +30,7 @@ endif
 # Targets
 # -------
 
-.PHONY: all arm7 arm9 clean install
+.PHONY: all arm7 arm9 clean install install-lib sys
 
 all: arm9 arm7
 
@@ -43,9 +43,18 @@ arm7:
 clean:
 	@echo "  CLEAN"
 	@$(RM) $(VERSION_HEADER) lib build
+	@+$(MAKE) -C sys clean
 
-install: all
-	@echo "  INSTALL $(BLOCKSDSEXT)/$(INSTALLNAME)/"
+install-lib: arm9 arm7
+	@echo "  INSTALL LIB $(BLOCKSDSEXT)/$(INSTALLNAME)/"
 	$(V)$(RM) $(BLOCKSDSEXT)/$(INSTALLNAME)/
 	$(V)$(INSTALL) -d $(BLOCKSDSEXT)/$(INSTALLNAME)/
 	$(V)$(CP) -r include lib $(BLOCKSDSEXT)/$(INSTALLNAME)/
+
+sys: install-lib
+	@+$(MAKE) -C sys
+
+install: sys
+	@echo "  INSTALL SYS $(BLOCKSDSEXT)/$(INSTALLNAME)/"
+	$(V)$(INSTALL) -d $(BLOCKSDSEXT)/$(INSTALLNAME)/
+	+$(MAKE) -C sys install INSTALLDIR=$(BLOCKSDSEXT)/$(INSTALLNAME)/sys

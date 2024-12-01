@@ -133,15 +133,14 @@ clean:
 	@echo "  CLEAN"
 	$(V)$(RM) $(ELF) $(DUMP) $(MAP) $(BUILDDIR)
 
-INSTALLDIR	?= /opt/blocksds/core/sys/default_arm7
+INSTALLDIR	?= $(BLOCKSDSEXT)/palib/sys/
 INSTALLDIR_ABS	:= $(abspath $(INSTALLDIR))
 
 install: all
 	@echo "  INSTALL $(INSTALLDIR_ABS)"
 	@test $(INSTALLDIR_ABS)
-	$(V)$(RM) $(INSTALLDIR_ABS)
 	$(V)$(INSTALL) -d $(INSTALLDIR_ABS)
-	$(V)$(CP) -r arm7.elf COPYING $(INSTALLDIR_ABS)
+	$(V)$(CP) -r $(ELF) $(INSTALLDIR_ABS)
 
 # Rules
 # -----
