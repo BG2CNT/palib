@@ -13,7 +13,7 @@ ARM_NONE_EABI_PATH	?= $(WONDERFUL_TOOLCHAIN)/toolchain/gcc-arm-none-eabi/bin/
 
 SOURCEDIRS	:= source/arm7
 INCLUDEDIRS	:= source/arm7 source/arm7/helix source/arm7/helix/real \
-		   include/nds include/nds/arm7
+		   include include/arm7
 
 # Defines passed to all files
 # ---------------------------
