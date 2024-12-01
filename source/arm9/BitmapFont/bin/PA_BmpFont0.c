@@ -1,16 +1,16 @@
 #include <PA_BgStruct.h>
 
-extern const char PA_BmpFont0_Tiles[];
-extern const char PA_BmpFont0_Map[];
-extern const char PA_BmpFont0_Sizes[];
+#include "PA_BmpFont0_Tiles_bin.h"
+#include "PA_BmpFont0_Map_bin.h"
+#include "PA_BmpFont0_Sizes_bin.h"
 
 const PA_BgStruct PA_BmpFont0 = {
 	PA_Font1bit,
 	256, 64,
 
-	PA_BmpFont0_Tiles,
-	PA_BmpFont0_Map,
-	{PA_BmpFont0_Sizes},
+	PA_BmpFont0_Tiles_bin,
+	PA_BmpFont0_Map_bin,
+	{PA_BmpFont0_Sizes_bin},
 
 	6400,
 	{6}

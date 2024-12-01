@@ -1,17 +1,17 @@
 #include <PA9.h>
 
-extern u8 PA_BmpFont0_Tiles[];
-extern u8 PA_BmpFont1_Tiles[];
-extern u8 PA_BmpFont2_Tiles[];
-extern u8 PA_BmpFont3_Tiles[];
-extern u8 PA_BmpFont4_Tiles[];
+#include "PA_BmpFont0_Tiles_bin.h"
+#include "PA_BmpFont1_Tiles_bin.h"
+#include "PA_BmpFont2_Tiles_bin.h"
+#include "PA_BmpFont3_Tiles_bin.h"
+#include "PA_BmpFont4_Tiles_bin.h"
 
 u8* bit8_tiles[10] = {
-	PA_BmpFont0_Tiles,
-	PA_BmpFont1_Tiles,
-	PA_BmpFont2_Tiles,
-	PA_BmpFont3_Tiles,
-	PA_BmpFont4_Tiles
+	PA_BmpFont0_Tiles_bin,
+	PA_BmpFont1_Tiles_bin,
+	PA_BmpFont2_Tiles_bin,
+	PA_BmpFont3_Tiles_bin,
+	PA_BmpFont4_Tiles_bin
 };
 
 void Letter(u8 size, u8 screen, u16 x, u16 y, char letter, u8 color);

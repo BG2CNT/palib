@@ -2,24 +2,24 @@
 #include <locale.h>
 
 // Text stuff
-extern const unsigned short PA_TiledFont_Map[];
-extern const unsigned char PA_TiledFont_Tiles[];
-extern const unsigned short PA_TiledFont_Pal[];
+#include "PA_TiledFont_Map_bin.h"
+#include "PA_TiledFont_Tiles_bin.h"
+#include "PA_TiledFont_Pal_bin.h"
 
 #include "BitmapFont/all_gfx.h"
 
-extern const u32 PA_BmpFont0_Tiles_size;
-extern const u32 PA_BmpFont1_Tiles_size;
-extern const u32 PA_BmpFont2_Tiles_size;
-extern const u32 PA_BmpFont3_Tiles_size;
-extern const u32 PA_BmpFont4_Tiles_size;
+#include "PA_BmpFont0_Tiles_bin.h"
+#include "PA_BmpFont1_Tiles_bin.h"
+#include "PA_BmpFont2_Tiles_bin.h"
+#include "PA_BmpFont3_Tiles_bin.h"
+#include "PA_BmpFont4_Tiles_bin.h"
 
 static void PAFillBitTextSizes(){
-	pa_bittextsizes[0] = PA_BmpFont0_Tiles_size;
-	pa_bittextsizes[1] = PA_BmpFont1_Tiles_size;
-	pa_bittextsizes[2] = PA_BmpFont2_Tiles_size;
-	pa_bittextsizes[3] = PA_BmpFont3_Tiles_size;
-	pa_bittextsizes[4] = PA_BmpFont4_Tiles_size;
+	pa_bittextsizes[0] = PA_BmpFont0_Tiles_bin_size;
+	pa_bittextsizes[1] = PA_BmpFont1_Tiles_bin_size;
+	pa_bittextsizes[2] = PA_BmpFont2_Tiles_bin_size;
+	pa_bittextsizes[3] = PA_BmpFont3_Tiles_bin_size;
+	pa_bittextsizes[4] = PA_BmpFont4_Tiles_bin_size;
 
 	pa_bittextpoliceheight[0] = PA_BmpFont0.FontHeight;
 	pa_bittextpoliceheight[1] = PA_BmpFont1.FontHeight;
@@ -100,9 +100,9 @@ void PA_Init(){
 	for(i = 0; i < 2; i ++){
 		PA_SetBrightness(i, 0);
 		PA_font[i]      = 0;
-		PA_textmap[i]   = (u16*) PA_TiledFont_Map;
-		PA_texttiles[i] = (u8*)  PA_TiledFont_Tiles;
-		PA_textpal[i]   = (u16*) PA_TiledFont_Pal;
+		PA_textmap[i]   = (u16*) PA_TiledFont_Map_bin;
+		PA_texttiles[i] = (u8*)  PA_TiledFont_Tiles_bin;
+		PA_textpal[i]   = (u16*) PA_TiledFont_Pal_bin;
 	}
 
 	PA_UpdateUserInfo();

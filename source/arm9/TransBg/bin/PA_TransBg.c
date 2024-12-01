@@ -1,16 +1,16 @@
 #include <PA_BgStruct.h>
 
-extern const char PA_TransBg_Tiles[];
-extern const char PA_TransBg_Map[];
-extern const char PA_TransBg_Pal[];
+#include "PA_TransBg_Tiles_bin.h"
+#include "PA_TransBg_Map_bin.h"
+#include "PA_TransBg_Pal_bin.h"
 
 const PA_BgStruct PA_TransBg = {
 	PA_BgNormal,
 	256, 192,
 
-	PA_TransBg_Tiles,
-	PA_TransBg_Map,
-	{PA_TransBg_Pal},
+	PA_TransBg_Tiles_bin,
+	PA_TransBg_Map_bin,
+	{PA_TransBg_Pal_bin},
 
 	3584,
 	{1536}
