@@ -24,7 +24,6 @@ void PA_Init(bool sound){
 	initClockIRQ(); // init clock
 	installSystemFIFO(); // needed by some libnds functions
 	touchInit();
-	SetYtrigger(80); // needed by the touch screen code
 	micOn(); // init microphone
 
 	// The network IRQ is needed by the clock (yes)

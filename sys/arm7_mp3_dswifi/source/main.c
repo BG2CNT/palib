@@ -5,11 +5,9 @@
 
 #include <PA7.h>
 
-void PA_VCount(){
-	PA_InputGetAndSend();
-}
-
 void PA_VBL(){
+	PA_InputGetAndSend();
+
 	// Legacy IPC
 	PA_LegacyIPCManage();
 
@@ -31,9 +29,8 @@ int main(){
 	installWifiFIFO();
 
 	irqSet(IRQ_VBLANK, PA_VBL);
-	irqSet(IRQ_VCOUNT, PA_VCount);
 
-	irqEnable(IRQ_VBLANK | IRQ_VCOUNT);
+	irqEnable(IRQ_VBLANK);
 
 	for(;;){ // Keep the ARM7 mostly idle...
 		swiWaitForVBlank();
