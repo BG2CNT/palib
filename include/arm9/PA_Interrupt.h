@@ -37,10 +37,9 @@ void PA_vblFunc();
 
 */
 static inline void PA_InitVBL(){
-	/*
-	irqSet(IRQ_VBLANK, PA_vblFunc);
-	irqEnable(IRQ_VBLANK);
-	*/
+	// This used to call this code, but it isn't needed anymore:
+	//irqSet(IRQ_VBLANK, PA_vblFunc);
+	//irqEnable(IRQ_VBLANK);
 }
 
 /*! \def PA_GetVcount()

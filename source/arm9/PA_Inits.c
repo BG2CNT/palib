@@ -119,5 +119,5 @@ void PA_Init(){
 
 	// Initialize the VBlank function
 	irqSet(IRQ_VBLANK, PA_vblFunc);
-	//irqEnable(IRQ_VBLANK);
+	//irqEnable(IRQ_VBLANK); // libnds already does this
 }
