@@ -9,9 +9,9 @@ extern "C" {
 	@{
 */
 
-// The FIFO_SOUND channel is free to use as PAlib doesn't use it...
+// Use a user channel that libnds doesn't use
 /// PAlib Fifo channel number...
-#define FIFO_PALIB FIFO_SOUND
+#define FIFO_PALIB FIFO_USER_08
 
 /// PA_FifoMsg message types.
 enum{
