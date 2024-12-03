@@ -7,7 +7,7 @@ bool PA_LegacyInit = false;
 
 volatile PA_IPCType* PA_IPC;
 
-void PA_LegacyIPCManage(){
+void PA_LegacyIPCManage(void){
 	// For the NDS loader, not really a legacy function though
 	runNdsLoaderCheck();
 

@@ -7,10 +7,6 @@
 // Um... This should be in libnds
 #define PM_DSLITE_REG 4
 
-extern bool sleepIsEnabled; // from libnds
-
-void enableSound(); // a libnds function that isn't in the headers.
-
 // Improved version of timerStop()
 static inline void timerStopEx(int channel){
 	TIMER_CR(channel) = 0;

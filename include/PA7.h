@@ -18,10 +18,10 @@ extern "C" {
 #include "arm7/as_lib7.h"
 #include "PA_LEGACY_IPC.h"
 
-void PA_Init(bool sound);
+void PA_Init(void);
 
-void PA_InputGetAndSend();
-void PA_LegacyIPCManage();
+void PA_InputGetAndSend(void);
+void PA_LegacyIPCManage(void);
 
 #ifdef __cplusplus
 }

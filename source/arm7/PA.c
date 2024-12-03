@@ -1,31 +1,40 @@
 #include "PA_Internal.h"
 #include <string.h>
 
-void PA_Init(bool sound){
+extern bool sleepIsEnabled; // from libnds
+
+void PA_Init(void){
+
+	enableSound();
+
+	// Disable libnds autosleep
+	sleepIsEnabled = false;
+
+	// Read user settings like the touch screen settings
+	readUserSettings();
+
+	// Stop LED blinking
+	ledBlink(0);
+
+	// Initialize touch screen
+	touchInit();
+
 	// Initialize the basic part of the system
 	irqInit();
 	fifoInit();
 
-	// Quick and dirty VBlank sleep
-	while(REG_VCOUNT >= 192){}
-	while(REG_VCOUNT < 192){}
-
-	// Housekeeping
-	readUserSettings();
-	sleepIsEnabled = false; // disable libnds autosleep
+	// Sleep mode, storage, firmware...
+	installSystemFIFO();
 
 	// Initialize the PAlib Fifo channel
 	PA_InitFifo();
 
-	// Initialize sound if requested
-	if(sound) {enableSound();}
+	// Read current date from the RTC and setup an interrupt to update the time
+	// regularly. The interrupt simply adds one second every time, it doesn't
+	// read the date. Reading the RTC is very slow, so it's a bad idea to do it
+	// frequently.
+	initClockIRQTimer(3);
 
-	// Some libnds initializations...
-	initClockIRQ(); // init clock
-	installSystemFIFO(); // needed by some libnds functions
-	touchInit();
-	micOn(); // init microphone
-
-	// The network IRQ is needed by the clock (yes)
-	irqEnable(IRQ_NETWORK);
+	// Init microphone
+	micOn();
 }

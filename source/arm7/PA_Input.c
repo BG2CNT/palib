@@ -11,7 +11,7 @@ u8 PA_ReadMicVol(){
 	return oldsmp = (oldsmp + smp) >> 1;
 }
 
-void PA_InputGetAndSend(){
+void PA_InputGetAndSend(void){
 	// The following is already managed by libnds:
 	// Keys, Stylus, RTC, Powerdown, Screen lights, Led blink
 	inputGetAndSend(); // a piece of cake isn't it?

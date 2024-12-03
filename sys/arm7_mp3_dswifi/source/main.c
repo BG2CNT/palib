@@ -5,7 +5,13 @@
 
 #include <PA7.h>
 
-void PA_VBL(){
+static volatile bool pa_exit_loop = false;
+
+static void PA_PowerButtonCallback(void){
+	pa_exit_loop = true;
+}
+
+static void PA_VBL(void){
 	PA_InputGetAndSend();
 
 	// Legacy IPC
@@ -18,22 +24,26 @@ void PA_VBL(){
 	Wifi_Update();
 }
 
-int main(){
+int main(int argc, char *argv[]){
 	// Initialize PAlib and initialize the sound hardware (for ASlib)
-	PA_Init(true);
-
-	// Initialize ASlib
-	AS_Init();
+	PA_Init();
 
 	// Initialize Wifi
 	installWifiFIFO();
 
-	irqSet(IRQ_VBLANK, PA_VBL);
+	// Callback called when the power button in a DSi console is pressed.
+	setPowerButtonCB(PA_PowerButtonCallback);
 
+	irqSet(IRQ_VBLANK, PA_VBL);
 	irqEnable(IRQ_VBLANK);
 
-	for(;;){ // Keep the ARM7 mostly idle...
+	// Initialize ASlib
+	AS_Init();
+
+	while (!pa_exit_loop){ // Keep the ARM7 mostly idle...
 		swiWaitForVBlank();
 		AS_MP3Engine(); // ...except for this ;_;
 	}
+
+	return 0;
 }
