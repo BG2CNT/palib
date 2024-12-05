@@ -16,7 +16,6 @@ extern "C" {
 #include "PA_Transfer.h"
 
 #include "arm7/as_lib7.h"
-#include "PA_LEGACY_IPC.h"
 
 void PA_Init(void);
 
