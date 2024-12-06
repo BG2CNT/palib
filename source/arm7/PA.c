@@ -3,6 +3,8 @@
 
 extern bool sleepIsEnabled; // from libnds
 
+volatile PA_TransferRegion *volatile PA_Transfer = NULL;
+
 void PA_Init(void){
 
 	enableSound();
@@ -28,6 +30,9 @@ void PA_Init(void){
 
 	// Initialize the PAlib Fifo channel
 	PA_InitFifo();
+
+	// Wait until the IPC buffer has been sent from the ARM9
+	while (PA_Transfer == NULL);
 
 	// Read current date from the RTC and setup an interrupt to update the time
 	// regularly. The interrupt simply adds one second every time, it doesn't

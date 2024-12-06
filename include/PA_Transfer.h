@@ -35,7 +35,7 @@ typedef struct {
 
 /// PAlib transfer region (used for the storage of data coming from the ARM7).
 /// libnds also does this. As TransferRegion was removed we just skip the first 256 bytes.
-#define PA_Transfer ((volatile PA_TransferRegion*) 0x02FFF100)
+extern volatile PA_TransferRegion *volatile PA_Transfer;
 
 /*! @} */
 

@@ -25,7 +25,9 @@ enum{
 	/// DS lite screen brightness message (ARM9->ARM7)
 	PA_MSG_DSLBRIGHT = 0x7102,
 	/// PSG play message (ARM9->ARM7)
-	PA_MSG_PSG = 0x7103
+	PA_MSG_PSG = 0x7103,
+	/// Sends a memory buffer to the ARM7 to be used as shared memory
+	PA_SHARED_MEM_SET = 0x7104,
 };
 
 /// PA_SendFifoCmd() commands.
@@ -81,6 +83,11 @@ typedef struct{
 			/// Duty (0-7)
 			u8 duty;
 		} PSGMsg;
+		/// Send IPC shared memory region from ARM9 to ARM7
+		struct {
+			// Address of the shared memory region
+			void *address;
+		} SharedMemSet;
 	};
 } PA_FifoMsg;
 

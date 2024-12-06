@@ -9,6 +9,10 @@ void PA_FifoMsgHandler(int bytes, void* dummy){
 	PA_FifoMsg msg;
 	PA_GetFifoMsg(msg, bytes);
 	switch(msg.type){
+		// Get shared memory buffer from the ARM9
+		case PA_SHARED_MEM_SET:
+			PA_Transfer = msg.SharedMemSet.address;
+			break;
 		// Microphone record command
 		case PA_MSG_MIC:
 			PA_FifoMicMsg(&msg);
