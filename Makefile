@@ -58,3 +58,4 @@ install: sys
 	@echo "  INSTALL SYS $(BLOCKSDSEXT)/$(INSTALLNAME)/"
 	$(V)$(INSTALL) -d $(BLOCKSDSEXT)/$(INSTALLNAME)/
 	+$(MAKE) -C sys install INSTALLDIR=$(BLOCKSDSEXT)/$(INSTALLNAME)/sys
+	$(V)$(CP) -r defaultlogo.bmp $(BLOCKSDSEXT)/$(INSTALLNAME)/
