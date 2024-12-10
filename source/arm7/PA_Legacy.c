@@ -14,11 +14,15 @@ void PA_LegacyIPCManage(void){
 	if(PA_LegacyInit){
 		// Legacy sound system
 		PA_LegacySoundUpdates();
-	}else if(PA_Transfer->mailData != 0){
-		// Get the legacy IPC structure
-		PA_IPC = (PA_IPCType*)(PA_Transfer->mailData);
-		PA_Transfer->mailData = 0;
-		PA_LegacyInit = true;
+	}else{
+		if(PA_Transfer != NULL){
+			if(PA_Transfer->mailData != 0){
+				// Get the legacy IPC structure
+				PA_IPC = (PA_IPCType*)(PA_Transfer->mailData);
+				PA_Transfer->mailData = 0;
+				PA_LegacyInit = true;
+			}
+		}
 	}
 }
 
