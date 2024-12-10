@@ -15,9 +15,6 @@ void PA_Init(void){
 	// Read user settings like the touch screen settings
 	readUserSettings();
 
-	// Stop LED blinking
-	ledBlink(0);
-
 	// Initialize touch screen
 	touchInit();
 
@@ -25,11 +22,17 @@ void PA_Init(void){
 	irqInit();
 	fifoInit();
 
+	// Send input data as soon as possible
+	inputGetAndSend();
+
 	// Sleep mode, storage, firmware...
 	installSystemFIFO();
 
 	// Initialize the PAlib Fifo channel
 	PA_InitFifo();
+
+	// Stop LED blinking
+	ledBlink(0);
 
 	// Wait until the IPC buffer has been sent from the ARM9
 	while (PA_Transfer == NULL);
