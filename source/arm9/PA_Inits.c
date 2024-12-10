@@ -109,8 +109,6 @@ static void PA_SetupSharedMemory(void)
 }
 
 void PA_Init(){
-	register int i;
-
 	// Wait a couple frames to provide a sensible starting point
 	swiWaitForVBlank();
 	swiWaitForVBlank();
@@ -127,7 +125,7 @@ void PA_Init(){
 
 	PAFillBitTextSizes();
 
-	for(i = 0; i < 2; i ++){
+	for(int i = 0; i < 2; i ++){
 		PA_SetBrightness(i, 0);
 		PA_font[i]      = 0;
 		PA_textmap[i]   = (u16*) PA_TiledFont_Map_bin;

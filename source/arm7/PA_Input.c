@@ -6,8 +6,8 @@
 // smpfix(x) = abs(x) * 2
 u8 PA_ReadMicVol(){
 	static u8 oldsmp = 0;
-	register s8 smp_s = micReadData8() ^ 0x80;
-	register u8 smp = ((smp_s < 0) ? (-smp_s) : smp_s) << 1;
+	s8 smp_s = micReadData8() ^ 0x80;
+	u8 smp = ((smp_s < 0) ? (-smp_s) : smp_s) << 1;
 	return oldsmp = (oldsmp + smp) >> 1;
 }
 

@@ -17,16 +17,14 @@ bool PA_VBLCounterOn[16]; // VBL counters enable/disable flag
 //static bool PA_RandInit = false;
 
 void PA_VBLCountersReset(){
-	register int i;
-	for (i = 0; i < 16; i++) {
+	for (int i = 0; i < 16; i++) {
 		PA_VBLCounter[i] = 0; // Ready to start
 		PA_VBLCounterOn[i] = 0;  // Not counting yet
 	}
 }
 
 static inline void PA_RunCounters(){
-	register int i;
-	for(i = 0; i < 16; i++)
+	for(int i = 0; i < 16; i++)
 		PA_VBLCounter[i] += PA_VBLCounterOn[i];
 }
 
