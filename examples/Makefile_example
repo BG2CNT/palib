@@ -18,6 +18,8 @@ GAME_SUBTITLE	?= Change this text
 GAME_AUTHOR	?= for your project!
 GAME_ICON	?= $(BLOCKSDSEXT)/palib/defaultlogo.bmp
 
+ARM7ELF		?= $(BLOCKSDSEXT)/palib/sys/arm7_maxmod_dswifi.elf
+
 # DLDI and internal SD slot of DSi
 # --------------------------------
 
@@ -198,7 +200,7 @@ endif
 $(ROM): $(ELF)
 	@echo "  NDSTOOL $@"
 	$(V)$(BLOCKSDS)/tools/ndstool/ndstool -c $@ \
-		-7 $(BLOCKSDSEXT)/palib/sys/arm7_mp3.elf -9 $(ELF) \
+		-7 $(ARM7ELF) -9 $(ELF) \
 		-b $(GAME_ICON) "$(GAME_FULL_TITLE)" \
 		$(NDSTOOL_ARGS)
 
