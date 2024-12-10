@@ -46,7 +46,7 @@ DEFINES		:= -DPA_NO_DEPRECATION
 # Libraries
 # ---------
 
-LIBS		:= -lmm9 -lnds9 -lpa9
+LIBS		:= -lmm9 -lnds9 -ldswifi9 -lpa9
 LIBDIRS		:= $(BLOCKSDS)/libs/maxmod \
 		   $(BLOCKSDS)/libs/dswifi \
 		   $(BLOCKSDS)/libs/libnds \
