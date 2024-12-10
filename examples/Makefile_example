@@ -29,7 +29,7 @@ SDIMAGE		:= image.bin
 # Source code paths
 # -----------------
 
-SOURCEDIRS	?= source
+SOURCEDIRS	?= source gfx/bin
 INCLUDEDIRS	?= gfx
 GFXDIRS		?=
 BINDIRS		?= gfx/bin
