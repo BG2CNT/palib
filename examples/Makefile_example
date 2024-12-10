@@ -93,7 +93,11 @@ endif
 # ------------
 
 ifneq ($(BINDIRS),)
-    SOURCES_BIN	:= $(shell find -L $(BINDIRS) -name "*.bin")
+    SOURCES_BIN_BIN	:= $(shell find -L $(BINDIRS) -name "*.bin")
+    SOURCES_BIN_BMP	:= $(shell find -L $(BINDIRS) -name "*.bmp")
+    SOURCES_BIN_JPG	:= $(shell find -L $(BINDIRS) -name "*.jpg")
+    SOURCES_BIN_PNG	:= $(shell find -L $(BINDIRS) -name "*.png")
+    SOURCES_BIN_GIF	:= $(shell find -L $(BINDIRS) -name "*.gif")
     INCLUDEDIRS	+= $(addprefix $(BUILDDIR)/,$(BINDIRS))
 endif
 ifneq ($(GFXDIRS),)
@@ -150,10 +154,18 @@ LDFLAGS		:= $(ARCH) $(LIBDIRSFLAGS) -Wl,-Map,$(MAP) $(DEFINES) \
 # Intermediate build files
 # ------------------------
 
-OBJS_ASSETS	:= $(patsubst %bin,%o,$(addprefix $(BUILDDIR)/,$(SOURCES_BIN))) \
+OBJS_ASSETS	:= $(patsubst %.bin,%.o,$(addprefix $(BUILDDIR)/,$(SOURCES_BIN_BIN))) \
+		   $(patsubst %.bmp,%.o,$(addprefix $(BUILDDIR)/,$(SOURCES_BIN_BMP))) \
+		   $(patsubst %.jpg,%.o,$(addprefix $(BUILDDIR)/,$(SOURCES_BIN_JPG))) \
+		   $(patsubst %.png,%.o,$(addprefix $(BUILDDIR)/,$(SOURCES_BIN_PNG))) \
+		   $(patsubst %.gif,%.o,$(addprefix $(BUILDDIR)/,$(SOURCES_BIN_GIF))) \
 		   $(addsuffix .o,$(addprefix $(BUILDDIR)/,$(SOURCES_PNG)))
 
-HEADERS_ASSETS	:= $(patsubst %.bin,%.h,$(addprefix $(BUILDDIR)/,$(SOURCES_BIN))) \
+HEADERS_ASSETS	:= $(patsubst %.bin,%.h,$(addprefix $(BUILDDIR)/,$(SOURCES_BIN_BIN))) \
+		   $(patsubst %.bmp,%.h,$(addprefix $(BUILDDIR)/,$(SOURCES_BIN_BMP))) \
+		   $(patsubst %.jpg,%.h,$(addprefix $(BUILDDIR)/,$(SOURCES_BIN_JPG))) \
+		   $(patsubst %.png,%.h,$(addprefix $(BUILDDIR)/,$(SOURCES_BIN_PNG))) \
+		   $(patsubst %.gif,%.h,$(addprefix $(BUILDDIR)/,$(SOURCES_BIN_GIF))) \
 		   $(patsubst %.png,%.h,$(addprefix $(BUILDDIR)/,$(SOURCES_PNG)))
 
 ifneq ($(SOURCES_AUDIO),)
@@ -256,6 +268,30 @@ $(BUILDDIR)/%.arm.cpp.o : %.arm.cpp
 	$(V)$(CXX) $(CXXFLAGS) -MMD -MP -marm -mlong-calls -c -o $@ $<
 
 $(BUILDDIR)/%.o $(BUILDDIR)/%.h : %.bin
+	@echo "  BIN2C   $<"
+	@$(MKDIR) -p $(@D)
+	$(V)$(BLOCKSDS)/tools/bin2c/bin2c --noext $< $(@D)
+	$(V)$(CC) $(CFLAGS) -MMD -MP -c -o $(BUILDDIR)/$*.o $(BUILDDIR)/$*.c
+
+$(BUILDDIR)/%.o $(BUILDDIR)/%.h : %.bmp
+	@echo "  BIN2C   $<"
+	@$(MKDIR) -p $(@D)
+	$(V)$(BLOCKSDS)/tools/bin2c/bin2c --noext $< $(@D)
+	$(V)$(CC) $(CFLAGS) -MMD -MP -c -o $(BUILDDIR)/$*.o $(BUILDDIR)/$*.c
+
+$(BUILDDIR)/%.o $(BUILDDIR)/%.h : %.jpg
+	@echo "  BIN2C   $<"
+	@$(MKDIR) -p $(@D)
+	$(V)$(BLOCKSDS)/tools/bin2c/bin2c --noext $< $(@D)
+	$(V)$(CC) $(CFLAGS) -MMD -MP -c -o $(BUILDDIR)/$*.o $(BUILDDIR)/$*.c
+
+$(BUILDDIR)/%.o $(BUILDDIR)/%.h : %.gif
+	@echo "  BIN2C   $<"
+	@$(MKDIR) -p $(@D)
+	$(V)$(BLOCKSDS)/tools/bin2c/bin2c --noext $< $(@D)
+	$(V)$(CC) $(CFLAGS) -MMD -MP -c -o $(BUILDDIR)/$*.o $(BUILDDIR)/$*.c
+
+$(BUILDDIR)/%.o $(BUILDDIR)/%.h : %.png
 	@echo "  BIN2C   $<"
 	@$(MKDIR) -p $(@D)
 	$(V)$(BLOCKSDS)/tools/bin2c/bin2c --noext $< $(@D)
