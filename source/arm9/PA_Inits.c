@@ -121,7 +121,7 @@ void PA_Init(){
 	PA_Init2D();
 	pa_checklid = 1; // Autocheck lid by default
 	_PA_LidDown = 0;
-	setlocale(LC_ALL, "C"); // Disable UTF-8 in newlib
+	//setlocale(LC_ALL, "C"); // Disable UTF-8 in newlib (TODO: Is this needed?)
 	PA_VBLCountersReset();
 	PA_VBLFunctionReset();
 
