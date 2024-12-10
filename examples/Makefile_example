@@ -11,7 +11,7 @@ ARM_NONE_EABI_PATH	?= $(WONDERFUL_TOOLCHAIN)/toolchain/gcc-arm-none-eabi/bin/
 # User config
 # ===========
 
-NAME		?= demo
+NAME		?= $(shell basename $(CURDIR))
 
 GAME_TITLE	?= PAlib Project
 GAME_SUBTITLE	?= Change this text
