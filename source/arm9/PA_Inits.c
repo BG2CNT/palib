@@ -119,7 +119,8 @@ void PA_Init(){
 	PA_SetupSharedMemory();
 
 	PA_Init2D();
-	pa_checklid = 1; // Autochecklid by default
+	// TODO (AntonioND): Disabling the autocheck fixes some crashes. Check this later.
+	pa_checklid = 0; // Don't autocheck lid by default
 	_PA_LidDown = 0;
 	setlocale(LC_ALL, "C"); // Disable UTF-8 in newlib
 	PA_VBLCountersReset();
