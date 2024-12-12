@@ -23,7 +23,7 @@ int main()
 	PA_LoadDefaultText(0, 0);
 
 	// Initialize EFS
-	if (!nitroFSInit()) {
+	if (!nitroFSInit(NULL)) {
         PA_OutputText(0, 1, 1, "Filesystem init error !!!");
         for(;;) PA_WaitForVBL();
 	}
