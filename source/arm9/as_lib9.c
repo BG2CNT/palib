@@ -266,11 +266,26 @@ void AS_SoundDirectPlay(u8 chan, SoundInfo sound)
 // fill the given buffer with the required amount of mp3 data
 void AS_MP3FillBuffer(u8 *buffer, u32 bytes)
 {
+    if(mp3file == NULL)
+        return;
+
     u32 read = FILE_READ(buffer, 1, bytes, mp3file);
-    
+
     if((read < bytes) && IPC_Sound->mp3.loop) {
-        FILE_SEEK(mp3file, 0, SEEK_SET);
-        FILE_READ(buffer + read, 1, bytes - read, mp3file);
+        int ret = FILE_SEEK(mp3file, 0, SEEK_SET);
+        if(ret != 0)
+        {
+            IPC_Sound->mp3.cmd = MP3CMD_STOP;
+            return;
+        }
+
+        u32 bytesleft = bytes - read;
+        read = FILE_READ(buffer + read, 1, bytesleft, mp3file);
+        if(read != bytesleft)
+        {
+            IPC_Sound->mp3.cmd = MP3CMD_STOP;
+            return;
+        }
     }
 }
 
@@ -307,11 +322,23 @@ void AS_MP3StreamPlay(const char *path)
         }
         
         // get the file size
-        FILE_SEEK(mp3file, 0, SEEK_END);
+        int ret = FILE_SEEK(mp3file, 0, SEEK_END);
+        if(ret != 0)
+        {
+            FILE_CLOSE(mp3file);
+            return;
+        }
+
         IPC_Sound->mp3.mp3filesize = FILE_TELL(mp3file);
         
         // fill the file buffer
-        FILE_SEEK(mp3file, 0, SEEK_SET);
+        ret = FILE_SEEK(mp3file, 0, SEEK_SET);
+        if(ret != 0)
+        {
+            FILE_CLOSE(mp3file);
+            return;
+        }
+
         AS_MP3FillBuffer(mp3filebuffer, AS_FILEBUFFER_SIZE * 2);
         
         // start playing
