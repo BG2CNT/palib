@@ -89,11 +89,11 @@ void AS_Init(u8 mode)
     if(mode & AS_MODE_MP3) {
     
         // allocate ram for the ARM7 mp3 decoder
-        IPC_Sound->mp3.alloc_ram = (u8*)memalign(4, (int)IPC_Sound->mp3.alloc_ram);
+        IPC_Sound->mp3.alloc_ram = calloc(1, (size_t)IPC_Sound->mp3.alloc_ram);
         IPC_Sound->mp3.cmd = MP3CMD_ARM9ALLOCDONE;
 		
 		// initialize mp3 structure
-        IPC_Sound->mp3.mixbuffer = (s8*)memalign(4, AS_AUDIOBUFFER_SIZE * 2);
+        IPC_Sound->mp3.mixbuffer = calloc(1, AS_AUDIOBUFFER_SIZE * 2);
         IPC_Sound->mp3.buffersize = AS_AUDIOBUFFER_SIZE / 2;
         IPC_Sound->mp3.channelL = 0;
         IPC_Sound->mp3.prevtimer = 0;
@@ -316,7 +316,7 @@ void AS_MP3StreamPlay(const char *path)
     
         // allocate the file buffer the first time
         if(!mp3filebuffer) {
-            mp3filebuffer = (u8*)memalign(4, AS_FILEBUFFER_SIZE * 2);   // 2 buffers, to swap
+            mp3filebuffer = calloc(1, AS_FILEBUFFER_SIZE * 2);   // 2 buffers, to swap
             IPC_Sound->mp3.mp3buffer = mp3filebuffer;
             IPC_Sound->mp3.mp3buffersize = AS_FILEBUFFER_SIZE;
         }
