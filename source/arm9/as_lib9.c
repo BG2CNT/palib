@@ -26,11 +26,6 @@
 
 #include "as_lib9.h"
 
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 // variable for the mp3 file stream
 MP3FILE *mp3file = NULL;
 u8* mp3filebuffer = NULL;
@@ -403,8 +398,3 @@ void AS_SoundVBL()
             IPC_Sound->mp3.cmd = MP3CMD_STOP;
     }
 }
-
-#ifdef __cplusplus
-}
-#endif
-

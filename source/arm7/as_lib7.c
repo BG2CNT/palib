@@ -34,11 +34,6 @@
 #include "helix/real/coder.h"
 #include <arm7/as_lib7.h>
 
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 // internal functions
 void AS_InitMP3();
 void AS_MP3Stop();
@@ -524,8 +519,3 @@ asm (
 "    bx lr                                                                              \n"
 "@--------------------------------------------------------------------------------------\n"
 );
-
-
-#ifdef __cplusplus
-}
-#endif
