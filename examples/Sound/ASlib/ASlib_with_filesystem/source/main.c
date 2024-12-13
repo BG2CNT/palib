@@ -38,7 +38,10 @@ int main()
 	
 	// Init AS_Lib for mp3
 	PA_VBLFunctionInit(AS_SoundVBL);
-	AS_Init(AS_MODE_MP3 | AS_MODE_SURROUND | AS_MODE_16CH);
+	if (!AS_Init(AS_MODE_MP3 | AS_MODE_SURROUND | AS_MODE_16CH)) {
+		PA_OutputText(0, 1, 1, "ASlib init error !!!");
+		return 1;
+	}
 	AS_SetDefaultSettings(AS_PCM_8BIT, 11025, AS_SURROUND);
 	
 	// Infinite loop to keep the program running

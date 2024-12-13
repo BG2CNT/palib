@@ -11,7 +11,10 @@ int main()
 	PA_LoadDefaultText(0, 0);
 
 	// Init AS_Lib for normal sound playback only
-	AS_Init(AS_MODE_SURROUND | AS_MODE_16CH);
+	if (!AS_Init(AS_MODE_SURROUND | AS_MODE_16CH)) {
+		PA_OutputText(0, 1, 1, "ASlib init error !!!");
+		return 1;
+	}
 	AS_SetDefaultSettings(AS_PCM_8BIT, 11025, AS_SURROUND);
 	
 	// Display info text

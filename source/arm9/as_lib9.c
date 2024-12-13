@@ -42,7 +42,7 @@ u8 as_default_delay;
 
 
 // initialize ASlib
-void AS_Init(u8 mode)
+bool AS_Init(u8 mode)
 {
     int i, nb_chan = 16;
     
@@ -90,10 +90,14 @@ void AS_Init(u8 mode)
     
         // allocate ram for the ARM7 mp3 decoder
         IPC_Sound->mp3.alloc_ram = calloc(1, (size_t)IPC_Sound->mp3.alloc_ram);
+        if(IPC_Sound->mp3.alloc_ram == NULL)
+            return false;
         IPC_Sound->mp3.cmd = MP3CMD_ARM9ALLOCDONE;
 		
 		// initialize mp3 structure
         IPC_Sound->mp3.mixbuffer = calloc(1, AS_AUDIOBUFFER_SIZE * 2);
+        if(IPC_Sound->mp3.mixbuffer == NULL)
+            return false;
         IPC_Sound->mp3.buffersize = AS_AUDIOBUFFER_SIZE / 2;
         IPC_Sound->mp3.channelL = 0;
         IPC_Sound->mp3.prevtimer = 0;
@@ -122,6 +126,8 @@ void AS_Init(u8 mode)
     }
     
     AS_SetMasterVolume(127);
+
+    return true;
 }
 
 // play a sound using the priority system
@@ -264,10 +270,10 @@ void AS_SoundDirectPlay(u8 chan, SoundInfo sound)
 }
 
 // fill the given buffer with the required amount of mp3 data
-void AS_MP3FillBuffer(u8 *buffer, u32 bytes)
+bool AS_MP3FillBuffer(u8 *buffer, u32 bytes)
 {
     if(mp3file == NULL)
-        return;
+        return false;
 
     u32 read = FILE_READ(buffer, 1, bytes, mp3file);
 
@@ -276,7 +282,7 @@ void AS_MP3FillBuffer(u8 *buffer, u32 bytes)
         if(ret != 0)
         {
             IPC_Sound->mp3.cmd = MP3CMD_STOP;
-            return;
+            return false;
         }
 
         u32 bytesleft = bytes - read;
@@ -284,9 +290,11 @@ void AS_MP3FillBuffer(u8 *buffer, u32 bytes)
         if(read != bytesleft)
         {
             IPC_Sound->mp3.cmd = MP3CMD_STOP;
-            return;
+            return false;
         }
     }
+
+    return true;
 }
 
 // play an mp3 directly from memory
@@ -302,10 +310,10 @@ void AS_MP3DirectPlay(u8 *mp3_data, u32 size)
 }
 
 // play an mp3 stream
-void AS_MP3StreamPlay(const char *path) 
+bool AS_MP3StreamPlay(const char *path)
 {
     if(IPC_Sound->mp3.state & (MP3ST_PLAYING | MP3ST_PAUSED))
-        return;
+        return false;
 
     if(mp3file)
         FILE_CLOSE(mp3file);
@@ -317,6 +325,11 @@ void AS_MP3StreamPlay(const char *path)
         // allocate the file buffer the first time
         if(!mp3filebuffer) {
             mp3filebuffer = calloc(1, AS_FILEBUFFER_SIZE * 2);   // 2 buffers, to swap
+            if(!mp3filebuffer) {
+                FILE_CLOSE(mp3file);
+                mp3file = NULL;
+                return false;
+            }
             IPC_Sound->mp3.mp3buffer = mp3filebuffer;
             IPC_Sound->mp3.mp3buffersize = AS_FILEBUFFER_SIZE;
         }
@@ -326,7 +339,7 @@ void AS_MP3StreamPlay(const char *path)
         if(ret != 0)
         {
             FILE_CLOSE(mp3file);
-            return;
+            return false;
         }
 
         IPC_Sound->mp3.mp3filesize = FILE_TELL(mp3file);
@@ -336,16 +349,21 @@ void AS_MP3StreamPlay(const char *path)
         if(ret != 0)
         {
             FILE_CLOSE(mp3file);
-            return;
+            return false;
         }
 
-        AS_MP3FillBuffer(mp3filebuffer, AS_FILEBUFFER_SIZE * 2);
+        if (AS_MP3FillBuffer(mp3filebuffer, AS_FILEBUFFER_SIZE * 2) == false)
+        {
+            FILE_CLOSE(mp3file);
+            return false;
+        }
         
         // start playing
         IPC_Sound->mp3.stream = true;
         IPC_Sound->mp3.cmd = MP3CMD_PLAY;
     }
-    
+
+    return true;
 }
 
 // set the mp3 panning (0=left, 64=center, 127=right)
@@ -379,8 +397,10 @@ void AS_SoundVBL()
 {
     // refill mp3 file  buffer if needed
     if(IPC_Sound->mp3.needdata) {
-        AS_MP3FillBuffer(IPC_Sound->mp3.mp3buffer + AS_FILEBUFFER_SIZE, AS_FILEBUFFER_SIZE);
-        IPC_Sound->mp3.needdata = false;
+        if(AS_MP3FillBuffer(IPC_Sound->mp3.mp3buffer + AS_FILEBUFFER_SIZE, AS_FILEBUFFER_SIZE))
+            IPC_Sound->mp3.needdata = false;
+        else
+            IPC_Sound->mp3.cmd = MP3CMD_STOP;
     }
 }
 

@@ -10,7 +10,10 @@ int main()
 	PA_Init();    // Initializes PA_Lib
 	
 	// Init the sound system
-	AS_Init(AS_MODE_SURROUND | AS_MODE_16CH);
+	if (!AS_Init(AS_MODE_SURROUND | AS_MODE_16CH)) {
+		PA_OutputText(0, 1, 1, "ASlib init error !!!");
+		return 1;
+	}
 	AS_SetDefaultSettings(AS_PCM_8BIT, 11025, AS_SURROUND);
 	
 	PA_LoadDefaultText(1, 0);  // Initialise the text system on the top screen

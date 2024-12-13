@@ -283,7 +283,8 @@ typedef struct
 #define AS_SoundQuickPlay(name) AS_SoundDefaultPlay((u8*)name, (u32)name##_size, 127, 64, false, 0)
 
 /// Initialize ASlib
-void AS_Init(u8 mode);
+/// Returns true on success, false on failure.
+bool AS_Init(u8 mode);
 
 /// Reserve a particular DS channel (so it won't be used for the sound pool)
 static inline void AS_ReserveChannel(u8 channel);
@@ -321,7 +322,7 @@ void AS_SoundDirectPlay(u8 chan, SoundInfo sound);
 void AS_MP3DirectPlay(u8 *buffer, u32 size);
 
 /// Play a MP3 stream
-void AS_MP3StreamPlay(const char *path);
+bool AS_MP3StreamPlay(const char *path);
 
 /// Pause a MP3
 static inline void AS_MP3Pause();
@@ -366,7 +367,7 @@ extern s32 as_default_rate;
 extern u8 as_default_delay;
 
 // private functions, defined in as_lib9.cpp
-extern void AS_MP3FillBuffer(u8 *buffer, u32 bytes);
+bool AS_MP3FillBuffer(u8 *buffer, u32 bytes);
 
 
 // reserve a particular DS channel (so it won't be used for the sound pool)
