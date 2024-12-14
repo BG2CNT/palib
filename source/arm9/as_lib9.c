@@ -29,6 +29,7 @@
 // variable for the mp3 file stream
 MP3FILE *mp3file = NULL;
 u8* mp3filebuffer = NULL;
+bool as_mp3mode_enabled = false;
 
 // default settings for sounds
 u8 as_default_format;
@@ -40,6 +41,8 @@ u8 as_default_delay;
 bool AS_Init(u8 mode)
 {
     int i, nb_chan = 16;
+
+    as_mp3mode_enabled = false;
     
     // initialize default settings
     as_default_format = AS_PCM_8BIT;
@@ -117,13 +120,17 @@ bool AS_Init(u8 mode)
         }
 
         IPC_Sound->chan[IPC_Sound->mp3.channelL].snd.pan = 64;
+
+        // Allow othe MP3 functions to work
+        as_mp3mode_enabled = true;
+
         AS_SetMP3Volume(127);
 
         // wait for the mp3 engine to be initialized
         while(IPC_Sound->mp3.cmd & MP3CMD_INIT)
             swiWaitForVBlank();
     }
-    
+
     AS_SetMasterVolume(127);
 
     return true;
@@ -271,6 +278,9 @@ void AS_SoundDirectPlay(u8 chan, SoundInfo sound)
 // fill the given buffer with the required amount of mp3 data
 bool AS_MP3FillBuffer(u8 *buffer, u32 bytes)
 {
+    if(!as_mp3mode_enabled)
+        return false;
+
     if(mp3file == NULL)
         return false;
 
@@ -311,6 +321,9 @@ bool AS_MP3FillBuffer(u8 *buffer, u32 bytes)
 // play an mp3 directly from memory
 void AS_MP3DirectPlay(u8 *mp3_data, u32 size) 
 {
+    if(!as_mp3mode_enabled)
+        return;
+
     if(IPC_Sound->mp3.state & (MP3ST_PLAYING | MP3ST_PAUSED))
         return;
 
@@ -323,6 +336,9 @@ void AS_MP3DirectPlay(u8 *mp3_data, u32 size)
 // play an mp3 stream
 bool AS_MP3StreamPlay(const char *path)
 {
+    if(!as_mp3mode_enabled)
+        return false;
+
     if(IPC_Sound->mp3.state & (MP3ST_PLAYING | MP3ST_PAUSED))
         return false;
 
@@ -380,6 +396,9 @@ bool AS_MP3StreamPlay(const char *path)
 // stop an mp3
 void AS_MP3Stop()
 {
+    if(!as_mp3mode_enabled)
+        return;
+
     // Always send the command, but only close the file if we're streaming MP3
     // from the filesystem.
     IPC_Sound->mp3.cmd = MP3CMD_STOP;
@@ -394,6 +413,9 @@ void AS_MP3Stop()
 // set the mp3 panning (0=left, 64=center, 127=right)
 void AS_SetMP3Pan(u8 pan)
 {
+    if(!as_mp3mode_enabled)
+        return;
+
     int difference = ((pan - 64) >> AS_PANNING_SHIFT) * IPC_Sound->chan[IPC_Sound->mp3.channelL].snd.volume / AS_VOL_NORMALIZE;
 
     IPC_Sound->chan[IPC_Sound->mp3.channelL].snd.pan = pan;
@@ -420,6 +442,9 @@ void AS_SetMP3Pan(u8 pan)
 // regenerate buffers for mp3 stream, must be called each VBlank (only needed if mp3 is used)
 void AS_SoundVBL()
 {
+    if(!as_mp3mode_enabled)
+        return;
+
     // refill mp3 file  buffer if needed
     if(IPC_Sound->mp3.needdata) {
         if(AS_MP3FillBuffer(IPC_Sound->mp3.mp3buffer + AS_FILEBUFFER_SIZE, AS_FILEBUFFER_SIZE))
