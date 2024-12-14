@@ -84,15 +84,19 @@ bool AS_Init(u8 mode)
     if(mode & AS_MODE_MP3) {
     
         // allocate ram for the ARM7 mp3 decoder
-        IPC_Sound->mp3.alloc_ram = calloc(1, (size_t)IPC_Sound->mp3.alloc_ram);
+        size_t alloc_ram_size = (size_t)IPC_Sound->mp3.alloc_ram;
+        IPC_Sound->mp3.alloc_ram = calloc(1, alloc_ram_size);
         if(IPC_Sound->mp3.alloc_ram == NULL)
             return false;
+        DC_FlushRange(IPC_Sound->mp3.alloc_ram, alloc_ram_size);
         IPC_Sound->mp3.cmd = MP3CMD_ARM9ALLOCDONE;
 		
 		// initialize mp3 structure
         IPC_Sound->mp3.mixbuffer = calloc(1, AS_AUDIOBUFFER_SIZE * 2);
+        DC_FlushRange(IPC_Sound->mp3.mixbuffer, AS_AUDIOBUFFER_SIZE * 2);
         if(IPC_Sound->mp3.mixbuffer == NULL)
             return false;
+
         IPC_Sound->mp3.buffersize = AS_AUDIOBUFFER_SIZE / 2;
         IPC_Sound->mp3.channelL = 0;
         IPC_Sound->mp3.prevtimer = 0;
