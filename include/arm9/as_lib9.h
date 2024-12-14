@@ -331,7 +331,7 @@ static inline void AS_MP3Pause();
 static inline void AS_MP3Unpause();
 
 /// Stop a MP3
-static inline void AS_MP3Stop();
+void AS_MP3Stop();
 
 /// Get the current MP3 status
 static inline int AS_GetMP3Status();
@@ -430,20 +430,6 @@ static inline void AS_MP3Unpause()
 {
     if(IPC_Sound->mp3.state & MP3ST_PAUSED)
         IPC_Sound->mp3.cmd = MP3CMD_PLAY;
-}
-
-// stop an mp3
-static inline void AS_MP3Stop()
-{
-    // Always send the command, but only close the file if we're streaming MP3
-    // from the filesystem.
-    IPC_Sound->mp3.cmd = MP3CMD_STOP;
-
-    if(mp3file != NULL)
-    {
-        FILE_CLOSE(mp3file);
-        mp3file = NULL;
-    }
 }
 
 // get the current mp3 status

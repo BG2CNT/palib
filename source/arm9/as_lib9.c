@@ -274,22 +274,34 @@ bool AS_MP3FillBuffer(u8 *buffer, u32 bytes)
     if(mp3file == NULL)
         return false;
 
-    u32 read = FILE_READ(buffer, 1, bytes, mp3file);
+    buffer = memUncached(buffer);
 
-    if((read < bytes) && IPC_Sound->mp3.loop) {
-        int ret = FILE_SEEK(mp3file, 0, SEEK_SET);
-        if(ret != 0)
-        {
+    u32 read = FILE_READ(buffer, 1, bytes, mp3file);
+    if (read < bytes) {
+        // If we haven't read enough bytes, it may be that we have reached the
+        // end of the file of there has been a read error.
+        if (!feof(mp3file)) {
             IPC_Sound->mp3.cmd = MP3CMD_STOP;
             return false;
         }
 
-        u32 bytesleft = bytes - read;
-        read = FILE_READ(buffer + read, 1, bytesleft, mp3file);
-        if(read != bytesleft)
-        {
-            IPC_Sound->mp3.cmd = MP3CMD_STOP;
-            return false;
+        if (IPC_Sound->mp3.loop) {
+            int ret = FILE_SEEK(mp3file, 0, SEEK_SET);
+            if(ret != 0)
+            {
+                IPC_Sound->mp3.cmd = MP3CMD_STOP;
+                return false;
+            }
+
+            u32 bytesleft = bytes - read;
+            read = FILE_READ(buffer + read, 1, bytesleft, mp3file);
+            if(read != bytesleft)
+            {
+                IPC_Sound->mp3.cmd = MP3CMD_STOP;
+                return false;
+            }
+        } else {
+            memset(buffer + read, 0, bytes - read);
         }
     }
 
@@ -363,6 +375,20 @@ bool AS_MP3StreamPlay(const char *path)
     }
 
     return true;
+}
+
+// stop an mp3
+void AS_MP3Stop()
+{
+    // Always send the command, but only close the file if we're streaming MP3
+    // from the filesystem.
+    IPC_Sound->mp3.cmd = MP3CMD_STOP;
+
+    if(mp3file != NULL)
+    {
+        FILE_CLOSE(mp3file);
+        mp3file = NULL;
+    }
 }
 
 // set the mp3 panning (0=left, 64=center, 127=right)
