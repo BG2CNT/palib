@@ -100,6 +100,7 @@ ifneq ($(BINDIRS),)
     SOURCES_BIN_GIF	:= $(shell find -L $(BINDIRS) -name "*.gif")
     SOURCES_BIN_RAW	:= $(shell find -L $(BINDIRS) -name "*.raw")
     SOURCES_BIN_MP3	:= $(shell find -L $(BINDIRS) -name "*.mp3")
+    SOURCES_BIN_MOD	:= $(shell find -L $(BINDIRS) -name "*.mod")
     INCLUDEDIRS	+= $(addprefix $(BUILDDIR)/,$(BINDIRS))
 endif
 ifneq ($(GFXDIRS),)
@@ -163,6 +164,7 @@ OBJS_ASSETS	:= $(patsubst %.bin,%.o,$(addprefix $(BUILDDIR)/,$(SOURCES_BIN_BIN))
 		   $(patsubst %.gif,%.o,$(addprefix $(BUILDDIR)/,$(SOURCES_BIN_GIF))) \
 		   $(patsubst %.raw,%.o,$(addprefix $(BUILDDIR)/,$(SOURCES_BIN_RAW))) \
 		   $(patsubst %.mp3,%.o,$(addprefix $(BUILDDIR)/,$(SOURCES_BIN_MP3))) \
+		   $(patsubst %.mod,%.o,$(addprefix $(BUILDDIR)/,$(SOURCES_BIN_MOD))) \
 		   $(addsuffix .o,$(addprefix $(BUILDDIR)/,$(SOURCES_PNG)))
 
 HEADERS_ASSETS	:= $(patsubst %.bin,%.h,$(addprefix $(BUILDDIR)/,$(SOURCES_BIN_BIN))) \
@@ -172,6 +174,7 @@ HEADERS_ASSETS	:= $(patsubst %.bin,%.h,$(addprefix $(BUILDDIR)/,$(SOURCES_BIN_BI
 		   $(patsubst %.gif,%.h,$(addprefix $(BUILDDIR)/,$(SOURCES_BIN_GIF))) \
 		   $(patsubst %.raw,%.h,$(addprefix $(BUILDDIR)/,$(SOURCES_BIN_RAW))) \
 		   $(patsubst %.mp3,%.h,$(addprefix $(BUILDDIR)/,$(SOURCES_BIN_MP3))) \
+		   $(patsubst %.mod,%.h,$(addprefix $(BUILDDIR)/,$(SOURCES_BIN_MOD))) \
 		   $(patsubst %.png,%.h,$(addprefix $(BUILDDIR)/,$(SOURCES_PNG)))
 
 ifneq ($(SOURCES_AUDIO),)
@@ -304,6 +307,12 @@ $(BUILDDIR)/%.o $(BUILDDIR)/%.h : %.raw
 	$(V)$(CC) $(CFLAGS) -MMD -MP -c -o $(BUILDDIR)/$*.o $(BUILDDIR)/$*.c
 
 $(BUILDDIR)/%.o $(BUILDDIR)/%.h : %.mp3
+	@echo "  BIN2C   $<"
+	@$(MKDIR) -p $(@D)
+	$(V)$(BLOCKSDS)/tools/bin2c/bin2c --noext $< $(@D)
+	$(V)$(CC) $(CFLAGS) -MMD -MP -c -o $(BUILDDIR)/$*.o $(BUILDDIR)/$*.c
+
+$(BUILDDIR)/%.o $(BUILDDIR)/%.h : %.mod
 	@echo "  BIN2C   $<"
 	@$(MKDIR) -p $(@D)
 	$(V)$(BLOCKSDS)/tools/bin2c/bin2c --noext $< $(@D)
