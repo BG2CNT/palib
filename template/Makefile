@@ -31,12 +31,12 @@ SDIMAGE		:= image.bin
 # Source code paths
 # -----------------
 
-SOURCEDIRS	?= source gfx/bin
-INCLUDEDIRS	?= gfx
-GFXDIRS		?=
-BINDIRS		?= gfx/bin
-AUDIODIRS	?=
-NITROFSDIR	?=
+SOURCEDIRS	:= source gfx/bin
+INCLUDEDIRS	:= gfx
+GFXDIRS		:=
+BINDIRS		:= gfx/bin
+AUDIODIRS	:=
+NITROFSDIR	:=
 
 # Defines passed to all files
 # ---------------------------
