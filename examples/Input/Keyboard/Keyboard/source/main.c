@@ -13,7 +13,7 @@ int main()
 	
 	PA_LoadDefaultText(1, 0);  // Initialise the text system
 	
-	PA_LoadCustomKeyboard(2); // Load the keyboard on background 2...
+	PA_LoadDefaultKeyboard(2); // Load the keyboard on background 2...
 	
 	PA_KeyboardIn(20, 95); // This scrolls the keyboard from the bottom, until it's at the right position
 	// PA_KeyboardOut() can be used to scroll the Keyboard out

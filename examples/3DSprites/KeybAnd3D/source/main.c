@@ -60,7 +60,7 @@ int main(void)
 	PA_SwitchScreens(); // Put the 3D on top
 	
 	PA_SetKeyboardScreen(1); // Top screen
-	PA_LoadCustomKeyboard(1); // Bg 1
+	PA_LoadDefaultKeyboard(1); // Bg 1
 	
 	PA_WaitForVBL();
 	PA_3DProcess();  // Update 3DSprites

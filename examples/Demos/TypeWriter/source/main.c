@@ -29,7 +29,7 @@ int main()
 	PA_16cText(0, 10, 10, 245, 181, "Press Up/Down to change font size\nPress Left/Right to move cursor", 1, 3, 2048);
 	
 		
-	PA_LoadCustomKeyboard(2); // Load the keyboard on background 2...screen 0...
+	PA_LoadDefaultKeyboard(2); // Load the keyboard on background 2...screen 0...
 	
 	PA_KeyboardIn(20, 100);  // Make it come in
 	
