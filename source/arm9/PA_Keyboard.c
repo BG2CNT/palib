@@ -1,6 +1,7 @@
 #define PA_NO_DEPRECATION
 #include <PA9.h>
 
+// In files keyboard.map.c, keyboard.pal.c and keyboard.raw.c
 extern const unsigned char keyboard_Tiles[10400];
 extern const unsigned short keyboard_Map[4096];
 extern const unsigned short keyboard_Palette[16];

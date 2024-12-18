@@ -1,18 +1,18 @@
 #include <PA9.h>
 #include "PA_TextBits.h"
 
-extern u32 PA_BmpFont0_Tiles[];
-extern u32 PA_BmpFont1_Tiles[];
-extern u32 PA_BmpFont2_Tiles[];
-extern u32 PA_BmpFont3_Tiles[];
-extern u32 PA_BmpFont4_Tiles[];
+#include "PA_BmpFont0_Tiles_bin.h"
+#include "PA_BmpFont1_Tiles_bin.h"
+#include "PA_BmpFont2_Tiles_bin.h"
+#include "PA_BmpFont3_Tiles_bin.h"
+#include "PA_BmpFont4_Tiles_bin.h"
 
 u32* c16_tiles[10] = {
-	PA_BmpFont0_Tiles,
-	PA_BmpFont1_Tiles,
-	PA_BmpFont2_Tiles,
-	PA_BmpFont3_Tiles,
-	PA_BmpFont4_Tiles
+	(u32*)PA_BmpFont0_Tiles_bin,
+	(u32*)PA_BmpFont1_Tiles_bin,
+	(u32*)PA_BmpFont2_Tiles_bin,
+	(u32*)PA_BmpFont3_Tiles_bin,
+	(u32*)PA_BmpFont4_Tiles_bin
 };
 
 // Pointers...
