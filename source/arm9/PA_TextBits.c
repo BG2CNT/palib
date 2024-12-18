@@ -49,7 +49,7 @@ u8 pa_bittextpoliceheight[10];
 LetterPos PA_LetterPos;
 textinfo_type textinfo = {1, 0, ALIGN_LEFT, 0};
 
-extern inline void PA_AddLetterPos(s16 Letter, s16 x, s16 y, u8 size, u16 color) {
+static inline void PA_AddLetterPos(s16 Letter, s16 x, s16 y, u8 size, u16 color) {
 	PA_LetterPos.Letter[PA_LetterPos.NLetters].Letter = Letter;
 	PA_LetterPos.Letter[PA_LetterPos.NLetters].X = x;
 	PA_LetterPos.Letter[PA_LetterPos.NLetters].Y = y;

@@ -304,7 +304,7 @@ void PA_UpdateOAM(void) {
 	}
 }
 
-extern inline void PA_UpdateMoveSprite(void) {
+static inline void PA_UpdateMoveSprite(void) {
 	PA_MovedSprite.Time++;
 
 	if ((PA_MovedSprite.Time > 2) || Stylus.Released) {

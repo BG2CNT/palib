@@ -49,7 +49,7 @@ PA_FormType PA_Graffiti[PA_RECOTESTS] = {
 
 
 
-extern inline void PA_AddStylusPos(u8 x, u8 y) {
+static void PA_AddStylusPos(u8 x, u8 y) {
 	if (!((x == PA_StylusPos[PA_Reco.nvalues-1].x) && (y == PA_StylusPos[PA_Reco.nvalues-1].y))) {
 		PA_StylusPos[PA_Reco.nvalues].x = x;
 		PA_StylusPos[PA_Reco.nvalues].y = y;
