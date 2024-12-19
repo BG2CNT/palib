@@ -27,9 +27,9 @@
 #include "as_lib9.h"
 
 // variable for the mp3 file stream
-MP3FILE *mp3file = NULL;
-u8* mp3filebuffer = NULL;
-bool as_mp3mode_enabled = false;
+static MP3FILE *mp3file = NULL;
+static u8* mp3filebuffer = NULL;
+static bool as_mp3mode_enabled = false;
 
 // default settings for sounds
 u8 as_default_format;
@@ -287,33 +287,37 @@ bool AS_MP3FillBuffer(u8 *buffer, u32 bytes)
     buffer = memUncached(buffer);
 
     u32 read = FILE_READ(buffer, 1, bytes, mp3file);
-    if (read < bytes) {
-        // If we haven't read enough bytes, it may be that we have reached the
-        // end of the file of there has been a read error.
-        if (!feof(mp3file)) {
-            IPC_Sound->mp3.cmd = MP3CMD_STOP;
-            return false;
-        }
+    if (read == bytes) // The number of bytes can't be bigger
+        return true;
 
-        if (IPC_Sound->mp3.loop) {
-            int ret = FILE_SEEK(mp3file, 0, SEEK_SET);
-            if(ret != 0)
-            {
-                IPC_Sound->mp3.cmd = MP3CMD_STOP;
-                return false;
-            }
+    // If we haven't read enough bytes, it may be that we have reached the end
+    // of the file or there has been a read error.
+    if (!feof(mp3file)) {
+        // If the end of the file hasn't been reached, there has been a read
+        // error.
+        IPC_Sound->mp3.cmd = MP3CMD_STOP;
+        return false;
+    }
 
-            u32 bytesleft = bytes - read;
-            read = FILE_READ(buffer + read, 1, bytesleft, mp3file);
-            if(read != bytesleft)
-            {
-                IPC_Sound->mp3.cmd = MP3CMD_STOP;
-                return false;
-            }
-        } else {
-            memset(buffer + read, 0, bytes - read);
-            return true;
-        }
+    // If the song doesn't have to loop, fill the left of the buffer with zeroes
+    if (!IPC_Sound->mp3.loop) {
+        memset(buffer + read, 0, bytes - read);
+        return true;
+    }
+
+    // The song is looping. Go back to the start of the file
+    int ret = FILE_SEEK(mp3file, 0, SEEK_SET);
+    if(ret != 0) {
+        IPC_Sound->mp3.cmd = MP3CMD_STOP;
+        return false;
+    }
+
+    // Read the remaining bytes from the start of the file
+    u32 bytesleft = bytes - read;
+    read = FILE_READ(buffer + read, 1, bytesleft, mp3file);
+    if(read != bytesleft) {
+        IPC_Sound->mp3.cmd = MP3CMD_STOP;
+        return false;
     }
 
     return true;

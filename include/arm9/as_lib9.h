@@ -361,7 +361,6 @@ void AS_SoundVBL();
 //-------------------------------------------------------------------------------
 
 // variables defined in as_lib9.cpp
-extern MP3FILE *mp3file;
 extern u8 as_default_format;
 extern s32 as_default_rate; 
 extern u8 as_default_delay;
