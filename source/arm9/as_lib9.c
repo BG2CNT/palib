@@ -312,6 +312,7 @@ bool AS_MP3FillBuffer(u8 *buffer, u32 bytes)
             }
         } else {
             memset(buffer + read, 0, bytes - read);
+            return true;
         }
     }
 
@@ -342,53 +343,55 @@ bool AS_MP3StreamPlay(const char *path)
     if(IPC_Sound->mp3.state & (MP3ST_PLAYING | MP3ST_PAUSED))
         return false;
 
-    if(mp3file)
+    if (mp3file) {
         FILE_CLOSE(mp3file);
+        mp3file = NULL;
+    }
 
     mp3file = FILE_OPEN(path);
 
-    if(mp3file) {
-    
-        // allocate the file buffer the first time
+    if(mp3file == NULL)
+        return false;
+
+    // allocate the file buffer the first time
+    if(!mp3filebuffer) {
+        mp3filebuffer = calloc(1, AS_FILEBUFFER_SIZE * 2);   // 2 buffers, to swap
         if(!mp3filebuffer) {
-            mp3filebuffer = calloc(1, AS_FILEBUFFER_SIZE * 2);   // 2 buffers, to swap
-            if(!mp3filebuffer) {
-                FILE_CLOSE(mp3file);
-                mp3file = NULL;
-                return false;
-            }
-            IPC_Sound->mp3.mp3buffer = mp3filebuffer;
-            IPC_Sound->mp3.mp3buffersize = AS_FILEBUFFER_SIZE;
-        }
-        
-        // get the file size
-        int ret = FILE_SEEK(mp3file, 0, SEEK_END);
-        if(ret != 0)
-        {
             FILE_CLOSE(mp3file);
+            mp3file = NULL;
             return false;
         }
-
-        IPC_Sound->mp3.mp3filesize = FILE_TELL(mp3file);
-        
-        // fill the file buffer
-        ret = FILE_SEEK(mp3file, 0, SEEK_SET);
-        if(ret != 0)
-        {
-            FILE_CLOSE(mp3file);
-            return false;
-        }
-
-        if (AS_MP3FillBuffer(mp3filebuffer, AS_FILEBUFFER_SIZE * 2) == false)
-        {
-            FILE_CLOSE(mp3file);
-            return false;
-        }
-        
-        // start playing
-        IPC_Sound->mp3.stream = true;
-        IPC_Sound->mp3.cmd = MP3CMD_PLAY;
+        IPC_Sound->mp3.mp3buffer = mp3filebuffer;
+        IPC_Sound->mp3.mp3buffersize = AS_FILEBUFFER_SIZE;
     }
+
+    // get the file size
+    int ret = FILE_SEEK(mp3file, 0, SEEK_END);
+    if(ret != 0) {
+        FILE_CLOSE(mp3file);
+        mp3file = NULL;
+        return false;
+    }
+
+    IPC_Sound->mp3.mp3filesize = FILE_TELL(mp3file);
+
+    // fill the file buffer
+    ret = FILE_SEEK(mp3file, 0, SEEK_SET);
+    if(ret != 0) {
+        FILE_CLOSE(mp3file);
+        mp3file = NULL;
+        return false;
+    }
+
+    if (AS_MP3FillBuffer(mp3filebuffer, AS_FILEBUFFER_SIZE * 2) == false) {
+        FILE_CLOSE(mp3file);
+        mp3file = NULL;
+        return false;
+    }
+
+    // start playing
+    IPC_Sound->mp3.stream = true;
+    IPC_Sound->mp3.cmd = MP3CMD_PLAY;
 
     return true;
 }
@@ -403,8 +406,7 @@ void AS_MP3Stop()
     // from the filesystem.
     IPC_Sound->mp3.cmd = MP3CMD_STOP;
 
-    if(mp3file != NULL)
-    {
+    if(mp3file != NULL) {
         FILE_CLOSE(mp3file);
         mp3file = NULL;
     }
