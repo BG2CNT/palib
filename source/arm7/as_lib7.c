@@ -262,15 +262,21 @@ void AS_MP3Engine()
 void AS_SetTimer(int freq)
 {
     if(freq) {
+        // Timer 0 is the one that controls the frequency, timer 1 is used as a
+        // reference to know how many samples need to be generated. It is
+        // important to not reset it to 0 or the decoder loop won't know how
+        // much to decode next time.
         TIMER0_DATA = 0x10000 - (0x1000000 / freq) * 2;
-        TIMER0_CR = TIMER_ENABLE | TIMER_DIV_1;
-        TIMER1_DATA = 0;
+        //TIMER1_DATA = 0;
+
         TIMER1_CR = TIMER_ENABLE | TIMER_CASCADE | TIMER_DIV_1;
+        TIMER0_CR = TIMER_ENABLE | TIMER_DIV_1;
     } else {
-        TIMER0_DATA = 0;
-        TIMER0_CR = 0;
-        TIMER1_DATA = 0;
         TIMER1_CR = 0;
+        TIMER0_CR = 0;
+
+        TIMER1_DATA = 0;
+        TIMER0_DATA = 0;
     }
 }
 
