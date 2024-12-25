@@ -115,8 +115,15 @@ void AS_SoundVBL()
         
         IPC_Sound->chan[i].busy = SCHANNEL_CR(i) >> 31;
     }
+}
 
-    // manage mp3
+// the mp3 decoding engine, must be called on a regular basis (like after VBlank)
+void AS_MP3Engine()
+{
+    s32 curtimer, numsamples;
+
+    // All MP3 handling code needs to go here to avoid race conditions
+
     if (IPC_Sound->mp3.cmd & MP3CMD_INIT)
     {
         AS_InitMP3();
@@ -146,19 +153,13 @@ void AS_SoundVBL()
         
     }
 
-}
-
-// the mp3 decoding engine, must be called on a regular basis (like after VBlank)
-void AS_MP3Engine()
-{
-    s32 curtimer, numsamples;
-
-    // time-varying mp3 functions are placed oustide the VBL function
-    if (IPC_Sound->mp3.cmd & MP3CMD_STOP) // <PALIB-CHANGE> placed this outside of the VBL function so that playback cannot be stopped during the decoding takes place
+    if (IPC_Sound->mp3.cmd & MP3CMD_STOP)
     {
         IPC_Sound->mp3.cmd &= ~MP3CMD_STOP;
         AS_MP3Stop();
+        return;
     }
+
     if (IPC_Sound->mp3.cmd & MP3CMD_PLAY)
     {
         IPC_Sound->mp3.cmd &= ~MP3CMD_PLAY;
