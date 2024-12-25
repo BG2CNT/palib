@@ -37,7 +37,9 @@
 // internal functions
 void AS_InitMP3();
 void AS_MP3Stop();
-void AS_SetTimer(int freq);
+static void AS_StartTimer(int freq);
+static void AS_SetTimer(int freq);
+static void AS_StopTimer();
 void AS_RegenStream();
 void AS_RegenStreamCallback(s16 *stream, u32 numsamples);
 void AS_StereoDesinterleave(s16 *input, s16 *outputL, s16 *outputR, u32 samples);
@@ -145,7 +147,7 @@ void AS_MP3Engine()
         // disable mp3 channels
         SCHANNEL_CR(IPC_Sound->mp3.channelL) = 0;
         SCHANNEL_CR(IPC_Sound->mp3.channelR) = 0;
-        AS_SetTimer(0);
+        AS_StopTimer();
         
         // then wait for the restart
         IPC_Sound->mp3.cmd |= MP3CMD_WAITING;
@@ -170,7 +172,7 @@ void AS_MP3Engine()
             IPC_Sound->mp3.prevtimer = 0;
             AS_RegenStreamCallback((s16*)IPC_Sound->mp3.mixbuffer, IPC_Sound->mp3.buffersize >> 1);
             IPC_Sound->mp3.soundcursor = IPC_Sound->mp3.buffersize >> 1;
-            AS_SetTimer(IPC_Sound->mp3.rate);
+            AS_StartTimer(IPC_Sound->mp3.rate);
             
             IPC_Sound->mp3.cmd |= MP3CMD_MIX;
 
@@ -200,7 +202,7 @@ void AS_MP3Engine()
             // set the mp3 to play at its original sampling rate
             MP3GetLastFrameInfo(hMP3Decoder, &mp3FrameInfo);
             IPC_Sound->mp3.rate = mp3FrameInfo.samprate;
-            AS_SetTimer(mp3FrameInfo.samprate);
+            AS_StartTimer(mp3FrameInfo.samprate);
     
             // start playing
             IPC_Sound->mp3.cmd |= MP3CMD_MIX;
@@ -258,26 +260,39 @@ void AS_MP3Engine()
     }
 }
 
+void AS_StartTimer(int freq)
+{
+    if(freq == 0)
+        return;
+
+    TIMER1_CR = 0;
+    TIMER0_CR = 0;
+
+    TIMER0_DATA = 0x10000 - (0x1000000 / freq) * 2;
+    TIMER1_DATA = 0;
+
+    TIMER1_CR = TIMER_ENABLE | TIMER_CASCADE | TIMER_DIV_1;
+    TIMER0_CR = TIMER_ENABLE | TIMER_DIV_1;
+}
+
 // set timer to the given period
 void AS_SetTimer(int freq)
 {
-    if(freq) {
-        // Timer 0 is the one that controls the frequency, timer 1 is used as a
-        // reference to know how many samples need to be generated. It is
-        // important to not reset it to 0 or the decoder loop won't know how
-        // much to decode next time.
-        TIMER0_DATA = 0x10000 - (0x1000000 / freq) * 2;
-        //TIMER1_DATA = 0;
+    if(freq == 0)
+        return;
 
-        TIMER1_CR = TIMER_ENABLE | TIMER_CASCADE | TIMER_DIV_1;
-        TIMER0_CR = TIMER_ENABLE | TIMER_DIV_1;
-    } else {
-        TIMER1_CR = 0;
-        TIMER0_CR = 0;
+    // Timer 0 is the one that controls the frequency, timer 1 is used as a
+    // reference to know how many samples need to be generated. It is
+    // important to not reset it to 0 or the decoder loop won't know how
+    // much to decode next time.
+    TIMER0_DATA = 0x10000 - (0x1000000 / freq) * 2;
+    //TIMER1_DATA = 0;
+}
 
-        TIMER1_DATA = 0;
-        TIMER0_DATA = 0;
-    }
+void AS_StopTimer()
+{
+    TIMER1_CR = 0;
+    TIMER0_CR = 0;
 }
 
 // clear some buffers to avoid clicking on new mp3 start
@@ -415,7 +430,7 @@ void AS_MP3Stop()
 {
     SCHANNEL_CR(IPC_Sound->mp3.channelL) = 0;
     SCHANNEL_CR(IPC_Sound->mp3.channelR) = 0;
-    AS_SetTimer(0);
+    AS_StopTimer();
     IPC_Sound->mp3.rate = 0;
     IPC_Sound->mp3.cmd = MP3CMD_NONE;
     IPC_Sound->mp3.state = MP3ST_STOPPED;
@@ -426,7 +441,7 @@ void AS_MP3Stop()
 void AS_InitMP3()
 {
     // init the timers
-    AS_SetTimer(0);
+    AS_StopTimer();
 
     // wait for the arm 9 to allocate data on main ram
     while( !(IPC_Sound->mp3.cmd & MP3CMD_ARM9ALLOCDONE) )
