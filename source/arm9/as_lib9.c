@@ -360,44 +360,40 @@ bool AS_MP3StreamPlay(const char *path)
     // allocate the file buffer the first time
     if(!mp3filebuffer) {
         mp3filebuffer = calloc(1, AS_FILEBUFFER_SIZE * 2);   // 2 buffers, to swap
-        if(!mp3filebuffer) {
-            FILE_CLOSE(mp3file);
-            mp3file = NULL;
-            return false;
-        }
+        if(!mp3filebuffer)
+            goto error;
+
         IPC_Sound->mp3.mp3buffer = mp3filebuffer;
         IPC_Sound->mp3.mp3buffersize = AS_FILEBUFFER_SIZE;
     }
 
     // get the file size
     int ret = FILE_SEEK(mp3file, 0, SEEK_END);
-    if(ret != 0) {
-        FILE_CLOSE(mp3file);
-        mp3file = NULL;
-        return false;
-    }
+    if(ret != 0)
+        goto error;
 
     IPC_Sound->mp3.mp3filesize = FILE_TELL(mp3file);
 
     // fill the file buffer
     ret = FILE_SEEK(mp3file, 0, SEEK_SET);
-    if(ret != 0) {
-        FILE_CLOSE(mp3file);
-        mp3file = NULL;
-        return false;
-    }
+    if(ret != 0)
+        goto error;
 
-    if (AS_MP3FillBuffer(mp3filebuffer, AS_FILEBUFFER_SIZE * 2) == false) {
-        FILE_CLOSE(mp3file);
-        mp3file = NULL;
-        return false;
-    }
+    // For the initial read, fill the two halves of the buffer
+    if (AS_MP3FillBuffer(mp3filebuffer, AS_FILEBUFFER_SIZE * 2) == false)
+        goto error;
 
     // start playing
     IPC_Sound->mp3.stream = true;
     IPC_Sound->mp3.cmd = MP3CMD_PLAY;
 
     return true;
+
+error:
+    FILE_CLOSE(mp3file);
+    mp3file = NULL;
+
+    return false;
 }
 
 // stop an mp3
