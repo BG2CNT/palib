@@ -449,6 +449,7 @@ void AS_SoundVBL()
 
     // refill mp3 file  buffer if needed
     if(IPC_Sound->mp3.needdata) {
+        // Fill only half of the buffer
         if(AS_MP3FillBuffer(IPC_Sound->mp3.mp3buffer + AS_FILEBUFFER_SIZE, AS_FILEBUFFER_SIZE))
             IPC_Sound->mp3.needdata = false;
         else
