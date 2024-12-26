@@ -96,9 +96,9 @@ bool AS_Init(u8 mode)
 		
 		// initialize mp3 structure
         IPC_Sound->mp3.mixbuffer = calloc(1, AS_AUDIOBUFFER_SIZE * 2);
-        DC_FlushRange(IPC_Sound->mp3.mixbuffer, AS_AUDIOBUFFER_SIZE * 2);
         if(IPC_Sound->mp3.mixbuffer == NULL)
             return false;
+        DC_FlushRange(IPC_Sound->mp3.mixbuffer, AS_AUDIOBUFFER_SIZE * 2);
 
         IPC_Sound->mp3.buffersize = AS_AUDIOBUFFER_SIZE / 2;
         IPC_Sound->mp3.channelL = 0;
