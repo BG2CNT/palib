@@ -284,11 +284,11 @@ bool AS_MP3FillBuffer(u8 *buffer, u32 bytes)
     if(mp3file == NULL)
         return false;
 
-    buffer = memUncached(buffer);
-
     u32 read = FILE_READ(buffer, 1, bytes, mp3file);
-    if (read == bytes) // The number of bytes can't be bigger
+    if (read == bytes) { // The number of bytes can't be bigger, only less or equal
+        DC_FlushRange(buffer, bytes);
         return true;
+    }
 
     // If we haven't read enough bytes, it may be that we have reached the end
     // of the file or there has been a read error.
@@ -302,6 +302,7 @@ bool AS_MP3FillBuffer(u8 *buffer, u32 bytes)
     // If the song doesn't have to loop, fill the left of the buffer with zeroes
     if (!IPC_Sound->mp3.loop) {
         memset(buffer + read, 0, bytes - read);
+        DC_FlushRange(buffer, bytes);
         return true;
     }
 
@@ -319,6 +320,8 @@ bool AS_MP3FillBuffer(u8 *buffer, u32 bytes)
         IPC_Sound->mp3.cmd = MP3CMD_STOP;
         return false;
     }
+
+    DC_FlushRange(buffer, bytes);
 
     return true;
 }
