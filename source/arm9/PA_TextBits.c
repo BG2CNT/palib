@@ -18,15 +18,15 @@
 #include "PA_BmpFont3_Sizes_bin.h"
 #include "PA_BmpFont4_Sizes_bin.h"
 
-u16 *bittext_maps[10] = {
-	(u16 *)PA_BmpFont0_Map_bin,
-	(u16 *)PA_BmpFont1_Map_bin,
-	(u16 *)PA_BmpFont2_Map_bin,
-	(u16 *)PA_BmpFont3_Map_bin,
-	(u16 *)PA_BmpFont4_Map_bin
+const u16 *bittext_maps[10] = {
+	(const u16 *)PA_BmpFont0_Map_bin,
+	(const u16 *)PA_BmpFont1_Map_bin,
+	(const u16 *)PA_BmpFont2_Map_bin,
+	(const u16 *)PA_BmpFont3_Map_bin,
+	(const u16 *)PA_BmpFont4_Map_bin
 };
 
-u8 *bittext_tiles_blank[10] = {
+const u8 *bittext_tiles_blank[10] = {
 	PA_BmpFont0_Tiles_bin,
 	PA_BmpFont1_Tiles_bin,
 	PA_BmpFont2_Tiles_bin,
@@ -34,7 +34,7 @@ u8 *bittext_tiles_blank[10] = {
 	PA_BmpFont4_Tiles_bin
 };
 
-u8 *pa_bittextdefaultsize[10] = {
+const u8 *pa_bittextdefaultsize[10] = {
 	PA_BmpFont0_Sizes_bin,
 	PA_BmpFont1_Sizes_bin,
 	PA_BmpFont2_Sizes_bin,

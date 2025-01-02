@@ -20,10 +20,10 @@ extern "C" {
 extern u16 *PA_Draw16[2];
 extern u32 *PA_Draw1632[2];
 
-extern u16 *bittext_maps[10];		
-extern u8 *bittext_tiles_blank[10];		
+extern const u16 *bittext_maps[10];		
+extern const u8 *bittext_tiles_blank[10];		
 extern u32 *c16_tiles[10];	
-extern u8 *pa_bittextdefaultsize[10];
+extern const u8 *pa_bittextdefaultsize[10];
 extern u16 pa_bittextsizes[5];
 extern 	u8 pa_bittextpoliceheight[10];
 
@@ -39,7 +39,7 @@ extern 	u8 pa_bittextpoliceheight[10];
 ALWAYSINLINE void PA_16c8X8(u8 screen, s16 x, s16 y, u32 *image);
 
 extern u32 *c16_tiles[10];
-extern u16 *bittext_maps[10];
+extern const u16 *bittext_maps[10];
 extern u8 *pa16cdefaultsize[10];
 extern u8 c16policeheight[10];
 	

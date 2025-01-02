@@ -17,10 +17,10 @@ extern textinfo_type textinfo;
 
 //extern textinfo_type textinfo;
 
-extern u16 *bittext_maps[10];		
-extern u8 *bittext_tiles_blank[10];		
+extern const u16 *bittext_maps[10];		
+extern const u8 *bittext_tiles_blank[10];		
 extern u32 *c16_tiles[10];	
-extern u8 *pa_bittextdefaultsize[10];
+extern const u8 *pa_bittextdefaultsize[10];
 extern u16 pa_bittextsizes[5];
 
 extern u8 pa_bittextpoliceheight[10];
