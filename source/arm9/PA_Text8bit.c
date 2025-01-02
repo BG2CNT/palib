@@ -7,11 +7,12 @@
 #include "PA_BmpFont4_Tiles_bin.h"
 
 u8* bit8_tiles[10] = {
-	PA_BmpFont0_Tiles_bin,
-	PA_BmpFont1_Tiles_bin,
-	PA_BmpFont2_Tiles_bin,
-	PA_BmpFont3_Tiles_bin,
-	PA_BmpFont4_Tiles_bin
+	// This list can be modified by the user
+	(u8 *)PA_BmpFont0_Tiles_bin,
+	(u8 *)PA_BmpFont1_Tiles_bin,
+	(u8 *)PA_BmpFont2_Tiles_bin,
+	(u8 *)PA_BmpFont3_Tiles_bin,
+	(u8 *)PA_BmpFont4_Tiles_bin
 };
 
 void Letter(u8 size, u8 screen, u16 x, u16 y, char letter, u8 color);
