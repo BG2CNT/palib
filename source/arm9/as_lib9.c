@@ -285,7 +285,10 @@ bool AS_MP3FillBuffer(u8 *buffer, u32 bytes)
         return false;
 
     u32 read = FILE_READ(buffer, 1, bytes, mp3file);
-    if (read == bytes) { // The number of bytes can't be bigger, only less or equal
+    if (read == bytes) {
+        // Exit if we have read enough bytes. Note that fread() can't return a
+        // number bigger than the requested number of bytes, only the same or
+        // lower.
         DC_FlushRange(buffer, bytes);
         return true;
     }
