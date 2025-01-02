@@ -259,7 +259,10 @@ u8 PA_CheckLid();
 */
 static inline void PA_WaitForVBL(){
 	if(pa_checklid) PA_CheckLid();
-	swiWaitForVBlank();
+
+	// Let other threads interrupt the main thread
+	//swiWaitForVBlank();
+	cothread_yield_irq(IRQ_VBLANK);
 }
 
 #define PA_WaitForVBlank PA_WaitForVBL
