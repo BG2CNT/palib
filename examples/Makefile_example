@@ -24,7 +24,7 @@ ARM7ELF		?= $(BLOCKSDSEXT)/palib/sys/arm7_maxmod_dswifi.elf
 # --------------------------------
 
 # Root folder of the SD image
-SDROOT		:= sdroot
+SDROOT		?= sdroot
 # Name of the generated image it "DSi-1.sd" for no$gba in DSi mode
 SDIMAGE		:= image.bin
 
