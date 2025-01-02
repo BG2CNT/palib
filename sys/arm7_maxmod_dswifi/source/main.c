@@ -22,6 +22,9 @@ static void PA_VBL(void){
 }
 
 int main(int argc, char *argv[]){
+	// Enable exception handler by default
+	defaultExceptionHandler();
+
 	// Initialize PAlib and initialize the sound hardware
 	PA_Init();
 
