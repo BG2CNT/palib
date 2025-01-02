@@ -3,7 +3,8 @@
 u8 pa_checklid;
 u16 pa_giftotexcolor = 0;
 
-volatile PA_IPCType PA_IPC; // lololololol this is deprecated
+// TODO: Ensure that this is in uncached memory on the ARM9
+volatile PA_IPCType PA_IPC; // This is deprecated
 
 typedef struct{
 	s16 x, y, oldx, oldy, vx, vy; // Coordonnées
