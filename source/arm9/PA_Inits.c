@@ -62,7 +62,7 @@ void PA_Init2D(){
 	                DISPLAY_SPR_1D_BMP);      // bitmap sprite VRAM 1D mapping
 
 	// Prepare some VRAM banks for graphics
-	vramSetMainBanks(VRAM_A_MAIN_SPRITE, VRAM_B_MAIN_BG_0x06000000, VRAM_C_SUB_BG, VRAM_D_SUB_SPRITE);
+	vramSetPrimaryBanks(VRAM_A_MAIN_SPRITE, VRAM_B_MAIN_BG_0x06000000, VRAM_C_SUB_BG, VRAM_D_SUB_SPRITE);
 
 	// Initialize extended palettes
 	PA_InitBgExtPal();

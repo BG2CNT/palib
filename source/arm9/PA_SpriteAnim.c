@@ -2,7 +2,7 @@
 
 void PA_UpdateSpriteAnims(void);
 
-extern fp VBLSpriteAnims;
+extern VoidFn VBLSpriteAnims;
 
 void PA_StartSpriteAnimEx(u8 screen, u8 sprite, s16 firstframe, s16 lastframe, s16 speed, u8 type, s16 ncycles) {
 	// Activate animations

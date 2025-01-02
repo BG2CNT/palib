@@ -313,7 +313,7 @@ static inline void PA_UpdateMoveSprite(void) {
 	}
 }
 
-fp VBLSpriteAnims = PA_Nothing;
+VoidFn VBLSpriteAnims = PA_Nothing;
 
 void PA_UpdateSpriteVBL(void) {
 	PA_UpdateMoveSprite(); // Met à jour les infos sur les déplacements de sprites
