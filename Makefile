@@ -42,7 +42,7 @@ arm7:
 
 clean:
 	@echo "  CLEAN"
-	@$(RM) $(VERSION_HEADER) lib build
+	@$(RM) lib build
 	@+$(MAKE) -C sys clean
 
 install-lib: arm9 arm7
