@@ -1,3 +1,21 @@
+-------------------------------------
+| PAlib 250107 beta: PAlib lives on | AntonioND
+-------------------------------------
+
+[General] PAlib builds and works again, even on DSi consoles.
+
+[General] devkitARM build system has been removed in favour of BlocksDS.
+
+[General] Repository structure has been refactored so that it's clearer.
+
+[ARM7] The ARM7 cores have been slightly refactored for modern libnds and to support DSi. Also, the libnds exception handler for the ARM7 is now enabled by default.
+
+[ASlib] Interrupts are now enabled in the VBL handler of ASlib so that it doesn't block multithreading.
+
+[Fix] The IPC structure is now allocated at runtime instead of using a hardcoded address, which doesn't work on DSi.
+
+[Fix] Several bugs in ASlib have been fixed.
+
 -------------------------------------------------
 | PAlib 100707 QuickFix: The last PAlib release | fincs
 -------------------------------------------------
