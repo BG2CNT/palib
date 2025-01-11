@@ -437,7 +437,10 @@ void PA_16bitDraw(u8 screen, u16 color);
          \~english Bitmap name
          \~french Nom du bitmap
 */
-#define PA_Load8bitBitmap(screen, bitmap) DMA_Copy(bitmap, (void*)PA_DrawBg[screen], 256*96, DMA_16NOW)
+#define PA_Load8bitBitmap(screen, bitmap) do{ \
+	DC_FlushRange(bitmap, 256*192*2); \
+	DMA_Copy(bitmap, (void*)PA_DrawBg[screen], 256*96, DMA_16NOW); \
+} while(0)
 
 /*! \def PA_Load16bitBitmap(screen, bitmap)
     \brief

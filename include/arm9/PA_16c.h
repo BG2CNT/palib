@@ -34,7 +34,11 @@ extern 	u8 pa_bittextpoliceheight[10];
 
 #define PA_16cLetterPos PA_LetterPos // For backwards compatibility
 
-#define PA_LoadPal16c(palette, source)   DMA_Copy(source, (void*)palette, 16, DMA_16NOW);
+#define PA_LoadPal16c(palette, source) do{ \
+	DC_FlushRange(source, 16*2); \
+	DMA_Copy(source, (void*)palette, 16, DMA_16NOW); \
+} while(0)
+
 #define PA_16cPos(x, y) ((((x)>>3)*26*8) + (y) + 8)
 ALWAYSINLINE void PA_16c8X8(u8 screen, s16 x, s16 y, u32 *image);
 

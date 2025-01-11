@@ -530,7 +530,9 @@ static inline void PA_CreateSpriteExFromGfx(u8 screen, u8 obj_number, u16 obj_gf
 */
 
 static inline void PA_UpdateGfx(u8 screen, u16 gfx_number, void *obj_data) {
-	DMA_Copy((obj_data), (void*)(SPRITE_GFX1 + (0x200000 *  (screen)) + ((gfx_number) << NUMBER_DECAL)), (used_mem[screen][gfx_number] << (MEM_DECAL+1)), DMA_16NOW);
+	size_t size = used_mem[screen][gfx_number] << (MEM_DECAL+1);
+	DC_FlushRange(obj_data, size*2);
+	DMA_Copy((obj_data), (void*)(SPRITE_GFX1 + (0x200000 *  (screen)) + ((gfx_number) << NUMBER_DECAL)),size, DMA_16NOW);
 }
 
 /*! \fn static inline void PA_UpdateGfxAndMem(u8 screen, u8 gfx_number, void *obj_data)
@@ -549,7 +551,9 @@ static inline void PA_UpdateGfx(u8 screen, u16 gfx_number, void *obj_data) {
 */
 
 static inline void PA_UpdateGfxAndMem(u8 screen, u8 gfx_number, void *obj_data){
-	DMA_Copy((obj_data), (void*)(SPRITE_GFX1 + (0x200000 *  (screen)) + ((gfx_number) << NUMBER_DECAL)), (used_mem[screen][gfx_number] << MEM_DECAL), DMA_32NOW);
+	size_t size = (used_mem[screen][gfx_number] << MEM_DECAL);
+	DC_FlushRange(obj_data, size*2);
+	DMA_Copy((obj_data), (void*)(SPRITE_GFX1 + (0x200000 *  (screen)) + ((gfx_number) << NUMBER_DECAL)),size, DMA_32NOW);
 	PA_SpriteAnimP[screen][gfx_number] = (u16*)obj_data; // mémorise la source de l'image...
 }
 

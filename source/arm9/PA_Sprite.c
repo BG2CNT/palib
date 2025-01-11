@@ -145,6 +145,7 @@ u16 PA_CreateGfx(u8 screen, void* obj_data, u8 obj_shape, u8 obj_size, u8 color_
 
 	i = free_mem[screen][n_mem].mem_block; // On met la valeur de coté pour la renvoyer...
 	truenumber = i + FirstGfx[screen];
+	DC_FlushRange(obj_data, (2 * mem_size) << MEM_DECAL);
 	DMA_Copy(obj_data, (void*)(SPRITE_GFX1 + (0x200000 *  screen) + (truenumber << NUMBER_DECAL)), (mem_size << MEM_DECAL), DMA_32NOW);
 	used_mem[screen][i] = mem_size;   // Nombre de blocks
 	obj_per_gfx[screen][i] = 0; // Nombre d'objets sur ce gfx...

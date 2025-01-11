@@ -73,7 +73,10 @@ extern void PA_DrawFake16bitLine(u8 screen, u16 x1, u16 y1, u16 x2, u16 y2, u16 
          \~english Bitmap name
          \~french [nothing]
 */
-#define PA_LoadFake16bitBitmap(screen, bitmap) DMA_Copy(bitmap, (void*)PA_DrawFake16[screen], 256*192, DMA_16NOW)
+#define PA_LoadFake16bitBitmap(screen, bitmap) do{ \
+	DC_FlushRange(bitmap, 256*192*2); \
+	DMA_Copy(bitmap, (void*)PA_DrawFake16[screen], 256*192, DMA_16NOW); \
+} while(0)
 
 /*! \def PA_ClearFake16bitBg(screen)
     \brief

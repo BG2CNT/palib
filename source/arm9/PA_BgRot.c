@@ -28,6 +28,7 @@ void PA_LoadRotBgMap(u8 screen, u8 bg_select, void* bg_map, u8 bg_size) {
 
 	PA_BgInfo[screen][bg_select].mapchar = charset; // On place la map à un endroit précis...
 	PA_BgInfo[screen][bg_select].mapsize = blocksize;
+	DC_FlushRange(bg_map, rotbg_sizes[bg_size]*2);
 	DMA_Copy(bg_map, (void*)ScreenBaseBlock(screen, charset), rotbg_sizes[bg_size], DMA_16NOW);
 
 	for (i = 0; i < blocksize; i++) charblocks[screen][charset + i] = 1;  // Les blocs sont occupés

@@ -40,7 +40,8 @@ void PA_Init3D2Banks(){
 }
 
 void PA_Load3DSpritePal(u16 palette_number, void* palette){
-	vramSetBankF(VRAM_F_LCD);  
+	DC_FlushRange(palette, 256*2);
+	vramSetBankF(VRAM_F_LCD);
 	DMA_Copy(palette, VRAM_F + (palette_number << 9), 256, DMA_16NOW);
 	vramSetBankF(VRAM_F_TEX_PALETTE);
 }

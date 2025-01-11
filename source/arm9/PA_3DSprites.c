@@ -298,6 +298,8 @@ s16 PA_3DCreateTex(void* obj_data, u16 width, u16 height, u8 type){
 	truenumber = (u32) &VRAM_A[i << 3];
 	used_mem3D[i] = block_size;   // Nombre de blocks
 
+	DC_FlushRange(obj_data, mem_size);
+
 	// Start Copy...
 	vramSetBankA(VRAM_A_LCD);
 
@@ -393,7 +395,10 @@ void PA_3DUpdateGfx(u16 texture, void* image){
 		case TEX_16COL:
 			mem_size = mem_size >> 1;
 			break;
-	}	
+	}
+
+	DC_FlushRange(image, mem_size);
+
 	vramSetBankA(VRAM_A_LCD);
 	if(pa_3Dbanks == 2) vramSetBankB(VRAM_B_LCD);
 	DMA_Copy(image, (void*) &VRAM_A[(textures[texture] & 0xFFFF) << 2], mem_size >> 1, DMA_16NOW);

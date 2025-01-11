@@ -15,6 +15,7 @@ void PA_InitSpriteExtPal(void) {
 }
 
 void PA_LoadSpriteExtPal(u8 screen, u16 palette_number, void* palette) {
+	DC_FlushRange(palette, 512);
 	if (screen == 0) {
 		vramSetBankG(VRAM_G_LCD);  // On passe en mode LCD pour pouvoir ecrire dessus, on reviendre en palette apres
 		dmaCopy(palette,VRAM_G_EXT_SPR_PALETTE[palette_number],512);
@@ -45,6 +46,7 @@ void PA_InitBgExtPal(void) {
 }
 
 void PA_LoadBgPalN(u8 screen, u8 bg_number, u8 pal_number, void* palette) {
+	DC_FlushRange(palette, 512);
 	if (screen == 0) {
 		vramSetBankE(VRAM_E_LCD);  // On passe en mode LCD pour pouvoir ecrire dessus, on reviendre en palette apres
 		//DMA_Copy(palette, VRAM_E + (bg_number << 13) + (pal_number << 9), 256, DMA_16NOW);

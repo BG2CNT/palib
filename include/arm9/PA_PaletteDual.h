@@ -36,6 +36,7 @@
          \~french Nom de la palette (ex : master_Palette)
 */
 #define PA_DualLoadPal(palette, source) do{\
+	DC_FlushRange(source, 256*2); \
 	DMA_Copy((void*)source, (void*)palette, 256, DMA_16NOW);\
 	DMA_Copy((void*)(source+1024), (void*)palette, 256, DMA_16NOW);\
 	if(palette == PAL_SPRITE)\
@@ -61,6 +62,7 @@
          \~french Nom de la palette (ex : master_Palette)
 */
 #define PA_DualLoadPal16(palette, n_palette, source) do{\
+	DC_FlushRange(source, 16*2); \
 	DMA_Copy((void*)source, (void*)(palette + (n_palette << 5)), 16, DMA_16NOW);\
 	DMA_Copy((void*)source, (void*)(palette + 1024 + (n_palette << 5)), 16, DMA_16NOW);}while(0)
 
