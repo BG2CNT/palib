@@ -1,3 +1,5 @@
+#include <nds/system.h>
+
 #include "PA_Internal.h"
 
 // Some pseudocode for this function
@@ -21,14 +23,12 @@ void PA_InputGetAndSend(void){
 	msg.type = PA_MSG_INPUT;
 
 	// Battery
-	msg.InputMsg.battery = 15; //touchRead(TSC_MEASURE_BATTERY);
-	// TODO (AntonioND)
+	msg.InputMsg.battery = getBatteryLevel();
 
 	// Temperature
-	msg.InputMsg.temperature = 0; //tscReadTemperature();
-	// TODO (AntonioND)
-	msg.InputMsg.tdiode1 = 0;
-	msg.InputMsg.tdiode2 = 0;
+	msg.InputMsg.temperature = tscReadTemperature();
+	msg.InputMsg.tdiode1 = 0; // This is internal system information, don't
+	msg.InputMsg.tdiode2 = 0; // expose it to the developer.
 
 	// Microphone volume
 	msg.InputMsg.micvol = PA_ReadMicVol();
