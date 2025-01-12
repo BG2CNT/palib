@@ -304,7 +304,7 @@ s16 PA_3DCreateTex(void* obj_data, u16 width, u16 height, u8 type){
 	vramSetBankA(VRAM_A_LCD);
 
 	if(pa_3Dbanks == 2) vramSetBankB(VRAM_B_LCD);
-	DMA_Copy(obj_data, (void*) truenumber, mem_size >> 1, DMA_16NOW);
+	dmaCopy(obj_data, (void*) truenumber, mem_size);
 	if(pa_3Dbanks == 2) vramSetBankB(VRAM_B_TEXTURE);
 
 	vramSetBankA(VRAM_A_TEXTURE);
@@ -401,7 +401,7 @@ void PA_3DUpdateGfx(u16 texture, void* image){
 
 	vramSetBankA(VRAM_A_LCD);
 	if(pa_3Dbanks == 2) vramSetBankB(VRAM_B_LCD);
-	DMA_Copy(image, (void*) &VRAM_A[(textures[texture] & 0xFFFF) << 2], mem_size >> 1, DMA_16NOW);
+	dmaCopy(image, (void*) &VRAM_A[(textures[texture] & 0xFFFF) << 2], mem_size);
 	if(pa_3Dbanks == 2) vramSetBankB(VRAM_B_TEXTURE);
 	vramSetBankA(VRAM_A_TEXTURE);
 }

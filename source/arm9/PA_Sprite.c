@@ -145,8 +145,8 @@ u16 PA_CreateGfx(u8 screen, void* obj_data, u8 obj_shape, u8 obj_size, u8 color_
 
 	i = free_mem[screen][n_mem].mem_block; // On met la valeur de coté pour la renvoyer...
 	truenumber = i + FirstGfx[screen];
-	DC_FlushRange(obj_data, (2 * mem_size) << MEM_DECAL);
-	DMA_Copy(obj_data, (void*)(SPRITE_GFX1 + (0x200000 *  screen) + (truenumber << NUMBER_DECAL)), (mem_size << MEM_DECAL), DMA_32NOW);
+	DC_FlushRange(obj_data, (4 * mem_size) << MEM_DECAL);
+	dmaCopyWords(3, obj_data, (void*)(SPRITE_GFX1 + (0x200000 *  screen) + (truenumber << NUMBER_DECAL)), (4 * mem_size) << MEM_DECAL);
 	used_mem[screen][i] = mem_size;   // Nombre de blocks
 	obj_per_gfx[screen][i] = 0; // Nombre d'objets sur ce gfx...
 	free_mem[screen][n_mem].free -= mem_size;
@@ -257,11 +257,10 @@ void PA_UpdateOAM(void) {
 	s32 value = 0;
 	s32 value2 = 512;
 
-	DC_FlushRange(PA_obj, 4*2*128*2);
-
-	if (!PA_SpriteExtPrio)
-		DMA_CopyEx(0, PA_obj, OAM, 512, DMA_32NOW); // DMA0 Copy
-	else { // Use the extended priorities
+	if (!PA_SpriteExtPrio) {
+		DC_FlushRange(PA_obj, 512 * 4);
+		dmaCopyWords(0, PA_obj, OAM, 512 * 4); // DMA0 Copy
+	} else { // Use the extended priorities
 		value += 3;
 		value2 += 3;
 

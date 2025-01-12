@@ -37,8 +37,6 @@ int readFunc(GifFileType* GifFile, GifByteType* buf, int count) {
 }
 
 void CopyLine(void* dst, void* src, int count) { // Pour 8 bit
-	/*s16 temp = (count +1) >> 1;
-		DMA_Copy(src, dst, temp, DMA_16NOW); // Copy rapide*/
 	do {
 		*(u16*) dst = *(u16*) src;
 		src = (u8*)src + 2;

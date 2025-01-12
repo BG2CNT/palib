@@ -133,14 +133,14 @@ extern u8 PA_SpriteExtPrio;
          \~english Update the sprite infos for screen 0 only. Do this in the VBL
          \~french Mettre à jour les infos des sprites pour l'écran 0 uniquement. A faire dans le VBL
 */
-#define PA_UpdateOAM0() DMA_Copy((void*)PA_obj, (void*)OAM0, 256, DMA_32NOW)
+#define PA_UpdateOAM0() dmaCopyWords(3, (void*)PA_obj, (void*)OAM0, 256 * 4)
 
 /*! \def PA_UpdateOAM1()
     \brief
          \~english Update the sprite infos for screen 1 only. Do this in the VBL
          \~french Mettre à jour les infos des sprites pour l'écran 1 uniquement. A faire dans le VBL
 */
-#define PA_UpdateOAM1() DMA_Copy((void*)PA_obj + 256, (void*)OAM1, 256, DMA_32NOW)
+#define PA_UpdateOAM1() dmaCopyWords(3, (void*)PA_obj + 256, (void*)OAM1, 256 * 4)
 
 /*! \fn void PA_UpdateOAM(void)
     \brief
@@ -530,9 +530,9 @@ static inline void PA_CreateSpriteExFromGfx(u8 screen, u8 obj_number, u16 obj_gf
 */
 
 static inline void PA_UpdateGfx(u8 screen, u16 gfx_number, void *obj_data) {
-	size_t size = used_mem[screen][gfx_number] << (MEM_DECAL+1);
-	DC_FlushRange(obj_data, size*2);
-	DMA_Copy((obj_data), (void*)(SPRITE_GFX1 + (0x200000 *  (screen)) + ((gfx_number) << NUMBER_DECAL)),size, DMA_16NOW);
+	size_t size = 2 * (used_mem[screen][gfx_number] << (MEM_DECAL+1));
+	DC_FlushRange(obj_data, size);
+	dmaCopy(obj_data, (void*)(SPRITE_GFX1 + (0x200000 *  (screen)) + ((gfx_number) << NUMBER_DECAL)),size);
 }
 
 /*! \fn static inline void PA_UpdateGfxAndMem(u8 screen, u8 gfx_number, void *obj_data)
@@ -551,9 +551,9 @@ static inline void PA_UpdateGfx(u8 screen, u16 gfx_number, void *obj_data) {
 */
 
 static inline void PA_UpdateGfxAndMem(u8 screen, u8 gfx_number, void *obj_data){
-	size_t size = (used_mem[screen][gfx_number] << MEM_DECAL);
-	DC_FlushRange(obj_data, size*2);
-	DMA_Copy((obj_data), (void*)(SPRITE_GFX1 + (0x200000 *  (screen)) + ((gfx_number) << NUMBER_DECAL)),size, DMA_32NOW);
+	size_t size = 4 * (used_mem[screen][gfx_number] << MEM_DECAL);
+	DC_FlushRange(obj_data, size);
+	dmaCopyWords(3, obj_data, (void*)(SPRITE_GFX1 + (0x200000 *  (screen)) + ((gfx_number) << NUMBER_DECAL)),size);
 	PA_SpriteAnimP[screen][gfx_number] = (u16*)obj_data; // mémorise la source de l'image...
 }
 

@@ -37,8 +37,8 @@ void PA_LoadSpriteExtPal(u8 screen, u16 palette_number, void* palette);
          \~french Nom de la palette (ex : master_Palette)
 */
 #define PA_LoadPal(palette, source) do{\
-	DC_FlushCache(source, 256*2); \
-	DMA_Copy((void*)source, (void*)palette, 256, DMA_16NOW);\
+	DC_FlushCache(source, 256 * 2); \
+	dmaCopy((void*)source, (void*)palette, 256 * 2); \
 	if (palette == PAL_SPRITE0) PA_LoadSpritePal(0, 0, (void*)source);\
 	if (palette == PAL_SPRITE1) PA_LoadSpritePal(1, 0, (void*)source);\
 	if (palette == PAL_BG0) {u8 itemp; for (itemp = 0; itemp < 4; itemp++) PA_LoadBgPal(0, itemp, (void*)(source));}\
@@ -58,9 +58,9 @@ void PA_LoadSpriteExtPal(u8 screen, u16 palette_number, void* palette);
 */
 static inline void PA_Load8bitBgPal(u8 screen, void *Pal){
 	u32 dest = PAL_BG0 + (screen<<10);
-	DC_FlushRange(Pal, 256*2);
-	DMA_Copy((void*)Pal, (void*)dest, 256, DMA_16NOW);
-} 
+	DC_FlushRange(Pal, 256 * 2);
+	dmaCopy((void*)Pal, (void*)dest, 256 * 2);
+}
 
 /*! \def PA_LoadPal16(palette, n_palette, source)
     \brief
@@ -78,8 +78,8 @@ static inline void PA_Load8bitBgPal(u8 screen, void *Pal){
          \~french Nom de la palette (ex : master_Palette)
 */
 #define PA_LoadPal16(palette, n_palette, source) do{ \
-	DC_FlushRange(source, 16*2); \
-	DMA_Copy((void*)source, (void*)(palette + (n_palette << 5)), 16, DMA_16NOW); \
+	DC_FlushRange(source, 16 * 2); \
+	dmaCopy((void*)source, (void*)(palette + (n_palette << 5)), 16 * 2); \
 } while(0)
 
 /*! \def PA_LoadSprite16cPal(screen, n_palette, palette)

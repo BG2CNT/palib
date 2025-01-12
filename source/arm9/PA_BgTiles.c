@@ -105,8 +105,8 @@ void PA_LoadBgTilesEx(u8 screen, u8 bg_select, void* bg_tiles, u32 size) {
 
 	PA_BgInfo[screen][bg_select].TileSetChar = charset; // On place les tiles à un endroit précis...
 	PA_BgInfo[screen][bg_select].tilesetsize = size;    // On mémorise aussi la taille que ca fait pour pouvoir effacer plus tard...
-	DC_FlushRange((void*)CharBaseBlock(screen, charset), size*2);
-	DMA_Copy(bg_tiles, (void*)CharBaseBlock(screen, charset), size, DMA_16NOW);
+	DC_FlushRange((void*)CharBaseBlock(screen, charset), size * 2);
+	dmaCopy(bg_tiles, (void*)CharBaseBlock(screen, charset), size * 2);
 	// Save tiles pointer and position in VRAM
 	PA_BgInfo[screen][bg_select].Tiles = bg_tiles;
 	PA_BgInfo[screen][bg_select].TilePos = (u32*)CharBaseBlock(screen, PA_BgInfo[screen][bg_select].TileSetChar); // used for tile swapping
@@ -149,8 +149,8 @@ void PA_LoadBgMap(u8 screen, u8 bg_select, void* bg_map, u8 bg_size) {
 	PA_BgInfo[screen][bg_select].mapchar = charset; // On place la map à un endroit précis...
 	PA_BgInfo[screen][bg_select].mapsize = blocksize;
 
-	DC_FlushRange(bg_map, bg_sizes[bg_size]*2);
-	DMA_Copy(bg_map, (void*)ScreenBaseBlock(screen, charset), bg_sizes[bg_size], DMA_16NOW);
+	DC_FlushRange(bg_map, bg_sizes[bg_size] * 2);
+	dmaCopy(bg_map, (void*)ScreenBaseBlock(screen, charset), bg_sizes[bg_size] * 2);
 
 	for (i = 0; i < blocksize; i++) charblocks[screen][charset + i] = 1;  // Les blocs sont occupés
 }

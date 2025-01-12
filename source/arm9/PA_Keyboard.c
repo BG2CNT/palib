@@ -95,7 +95,7 @@ void PA_ChangeKeyboardType(void) {
 	if (!PA_Keyboard_Struct.Custom) {
 		void *src = (void*)(keyboard_Map + (PA_Keyboard_Struct.Type << 11));
 		DC_FlushRange(src, 32 * 12 * 2);
-		DMA_Copy(src, (void*)ScreenBaseBlock(keyb_screen, PA_BgInfo[keyb_screen][PA_Keyboard_Struct.Bg].mapchar), 32*12 , DMA_16NOW);
+		dmaCopy(src, (void*)ScreenBaseBlock(keyb_screen, PA_BgInfo[keyb_screen][PA_Keyboard_Struct.Bg].mapchar), 32 * 12 * 2);
 
 		for (j = 0; j < 12; j++)   // On parcourt tout le fond pour mettre la bonne palette...
 			for (i = 0; i < 32; i++)
@@ -103,7 +103,7 @@ void PA_ChangeKeyboardType(void) {
 	} else {
 		void *src = (void*)(PA_BgInfo[keyb_screen][PA_Keyboard_Struct.Bg].Map + (PA_Keyboard_Struct.Type << 12));
 		DC_FlushRange(src, 32 * 12 * 2);
-		DMA_Copy(src, (void*)ScreenBaseBlock(keyb_screen, PA_BgInfo[keyb_screen][PA_Keyboard_Struct.Bg].mapchar), 32*12 , DMA_16NOW);
+		dmaCopy(src, (void*)ScreenBaseBlock(keyb_screen, PA_BgInfo[keyb_screen][PA_Keyboard_Struct.Bg].mapchar), 32 * 12 * 2);
 	}
 }
 
