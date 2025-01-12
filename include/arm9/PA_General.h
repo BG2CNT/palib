@@ -80,10 +80,14 @@ extern u8 pa_checklid;
 #define DMA_32NOW (DMA_ON | DMA_NOW | DMA_32)
 
 #define DMA_Copy(source, dest, count, mode) do { \
-	if (((u32)(source)) == 0) \
+	if (((u32)(source)) == 0) { \
 		DMA_Clear(dest, count, mode); \
-	else \
+	} else { \
 		dmaSetParams(3, (const void*)(source), (void *)(dest), (count) | (mode)); \
+		\
+		if (((mode) & (7 << 27)) == DMA_START_NOW) \
+			while (DMA_CR(3) & DMA_BUSY); \
+	} \
 } while(0)
 
 #define DMA_Clear(dest, count, mode) do { \
@@ -91,13 +95,24 @@ extern u8 pa_checklid;
 		dmaFillWords(0, (void*) (dest), (count) << 2); \
 	else \
 		dmaFillHalfWords(0, (void*) (dest), (count) << 1); \
+	\
+	if (((mode) & (7 << 27)) == DMA_START_NOW) \
+		while (DMA_CR(0) & DMA_BUSY); \
 } while(0)
 
-#define DMA_Force(ulVal, dest, count, mode) \
-	dmaSetParams(3, (const void*)(&ulVal), (void *)(dest), (count) | (mode) | DMA_SRC_FIX)
+#define DMA_Force(ulVal, dest, count, mode) do { \
+	dmaSetParams(3, (const void*)(&ulVal), (void *)(dest), (count) | (mode) | DMA_SRC_FIX); \
+	\
+	if (((mode) & (7 << 27)) == DMA_START_NOW) \
+		while (DMA_CR(3) & DMA_BUSY); \
+} while (0)
 
-#define DMA_CopyEx(type, source, dest, count, mode) \
-	dmaSetParams(type, (const void*)(source), (void *)(dest), (count) | (mode))
+#define DMA_CopyEx(ch, source, dest, count, mode) do { \
+	dmaSetParams(ch, (const void*)(source), (void *)(dest), (count) | (mode)); \
+	\
+	if (((mode) & (7 << 27)) == DMA_START_NOW) \
+		while (DMA_CR(ch) & DMA_BUSY); \
+} while (0)
 
 // Commandes pour la lumière des écrans
 #define BACKLIGHT(screen)	BIT(2+screen)
