@@ -338,6 +338,9 @@ void AS_MP3DirectPlay(u8 *mp3_data, u32 size)
     if(IPC_Sound->mp3.state & (MP3ST_PLAYING | MP3ST_PAUSED))
         return;
 
+    // Make sure the ARM7 sees the updated MP3 data
+    DC_FlushRange(mp3_data, size);
+
     IPC_Sound->mp3.mp3buffer = mp3_data;
     IPC_Sound->mp3.mp3filesize = size;
     IPC_Sound->mp3.stream = false;
