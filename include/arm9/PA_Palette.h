@@ -11,7 +11,7 @@ void PA_LoadSpriteExtPal(u8 screen, u16 palette_number, void* palette);
 */
 
 //////////////////////////////////////////////////////////////////////
-// Système pour les palettes
+// SystÃ¨me pour les palettes
 //////////////////////////////////////////////////////////////////////
 #define PAL_BG0 0x05000000 
 #define PAL_SPRITE0 0x05000200 
@@ -28,10 +28,10 @@ void PA_LoadSpriteExtPal(u8 screen, u16 palette_number, void* palette);
 /*! \def PA_LoadPal(palette, source)
     \brief
          \~english Load a 256 color palette in the Bg or Sprite palette of screen 0 or 1. Ex : PA_LoadPal(PALETTE_BG1, bg_pal);
-         \~french Charger une palette de 256 couleurs pour les fonds ou les sprites pour l'écran 0 ou 1. Ex : PA_LoadPal(PALETTE_BG1, bg_pal);
+         \~french Charger une palette de 256 couleurs pour les fonds ou les sprites pour l'Ã©cran 0 ou 1. Ex : PA_LoadPal(PALETTE_BG1, bg_pal);
     \~\param palette
          \~english Set the Bg palette or Obj palette, screen 0 or 1 : PAL_BG0, PAL_SPRITE0, PAL_BG1, or PAL_SPRITE1
-         \~french Charger pour les Bg ou les Sprites, sur l'écran 0 ou 1 : PAL_BG0, PAL_SPRITE0, PAL_BG1, ou PAL_SPRITE1
+         \~french Charger pour les Bg ou les Sprites, sur l'Ã©cran 0 ou 1 : PAL_BG0, PAL_SPRITE0, PAL_BG1, ou PAL_SPRITE1
     \~\param source
          \~english Palette name (ex : master_Palette)
          \~french Nom de la palette (ex : master_Palette)
@@ -65,13 +65,13 @@ static inline void PA_Load8bitBgPal(u8 screen, void *Pal){
 /*! \def PA_LoadPal16(palette, n_palette, source)
     \brief
          \~english Load a 16 color palette in the Bg or Sprite palette of screen 0 or 1. Ex : PA_LoadPal16(PALETTE_BG1, 4, bg_pal);
-         \~french Charger une palette de 16 couleurs pour les fonds ou les sprites pour l'écran 0 ou 1. Ex : PA_LoadPal16(PALETTE_BG1, 4, bg_pal);
+         \~french Charger une palette de 16 couleurs pour les fonds ou les sprites pour l'Ã©cran 0 ou 1. Ex : PA_LoadPal16(PALETTE_BG1, 4, bg_pal);
     \~\param palette
          \~english Set the Bg palette or Obj palette, screen 0 or 1 : PAL_BG0, PAL_SPRITE0, PAL_BG1, or PAL_SPRITE1
-         \~french Charger pour les Bg ou les Sprites, sur l'écran 0 ou 1 : PAL_BG0, PAL_SPRITE0, PAL_BG1, ou PAL_SPRITE1
+         \~french Charger pour les Bg ou les Sprites, sur l'Ã©cran 0 ou 1 : PAL_BG0, PAL_SPRITE0, PAL_BG1, ou PAL_SPRITE1
     \~\param n_palette
          \~english Number of the 16 color palette to load (0-15)
-         \~french Numéro de la palette de 16 couleurs que l'on veut charger (0-15)
+         \~french NumÃ©ro de la palette de 16 couleurs que l'on veut charger (0-15)
 
     \~\param source
          \~english Palette name (ex : master_Palette)
@@ -91,7 +91,7 @@ static inline void PA_Load8bitBgPal(u8 screen, void *Pal){
          \~french Ecran (0-1)
     \~\param n_palette
          \~english Number of the 16 color palette to load (0-15)
-         \~french Numéro de la palette de 16 couleurs que l'on veut charger (0-15)
+         \~french NumÃ©ro de la palette de 16 couleurs que l'on veut charger (0-15)
 
     \~\param palette
          \~english Palette name (ex : Sprite_Pal)
@@ -102,7 +102,7 @@ static inline void PA_Load8bitBgPal(u8 screen, void *Pal){
 /*! \def PA_RGB(r,g,b)
     \brief
          \~english Convert Red, Green, and Blue color indexes into a number used in the palette system. Careful : the R, G, B values range from 0 to 31 on gba !
-         \~french Convertir une couleurs au format Rouge, Vert, Bleu en un nombre utilisable par le système de palette. Attention : sur Gba, les valeurs vont de 0 à 31...
+         \~french Convertir une couleurs au format Rouge, Vert, Bleu en un nombre utilisable par le systÃ¨me de palette. Attention : sur Gba, les valeurs vont de 0 Ã  31...
     \~\param r
          \~english Red (0-31)
          \~french Rouge (0-31)
@@ -119,54 +119,54 @@ static inline void PA_Load8bitBgPal(u8 screen, void *Pal){
 /*! \fn void PA_SetBrightness(u8 screen, s8 bright)
     \brief
          \~english Set the screen's brightness
-         \~french Régler la luminosité de l'écran
+         \~french RÃ©gler la luminositÃ© de l'Ã©cran
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bright
          \~english Brightness level, from -32 to 32, 0 being neutral
-         \~french Luminosité, de -32 à 32, 0 étant neutre
+         \~french LuminositÃ©, de -32 Ã  32, 0 Ã©tant neutre
 */
 void PA_SetBrightness(u8 screen, s8 bright);
 
 /*! \fn static inline void PA_SetPalNeg(u32 palette)
     \brief
          \~english Set all the palette's color to negative. To undo this, simply negative again...
-         \~french Négativer une palette donnée. Pour annuler, il suffit de négativer à nouveau. 
+         \~french NÃ©gativer une palette donnÃ©e. Pour annuler, il suffit de nÃ©gativer Ã  nouveau. 
     \~\param palette
          \~english Set the Bg palette or Obj palette, screen 0 or 1 : PAL_BG0, PAL_SPRITE0, PAL_BG1, or PAL_SPRITE1
-         \~french Charger pour les Bg ou les Sprites, sur l'écran 0 ou 1 : PAL_BG0, PAL_SPRITE0, PAL_BG1, ou PAL_SPRITE1
+         \~french Charger pour les Bg ou les Sprites, sur l'Ã©cran 0 ou 1 : PAL_BG0, PAL_SPRITE0, PAL_BG1, ou PAL_SPRITE1
 */
 static inline void PA_SetPalNeg(u32 palette) {
 	u16* pal = (u16*)palette;
 	int i;
 
-	for (i = 0; i < 256; i++) pal[i] = ~pal[i]; // On fout le négatif...
+	for (i = 0; i < 256; i++) pal[i] = ~pal[i]; // On fout le nÃ©gatif...
 }
 
 /*! \fn static inline void PA_SetPal16Neg(u32 palette, u8 n_palette)
     \brief
          \~english Set 16 color palette to negative. To undo this, simply negative again...
-         \~french Négativer une palette de 16 couleurs donnée. Pour annuler, il suffit de négativer à nouveau. 
+         \~french NÃ©gativer une palette de 16 couleurs donnÃ©e. Pour annuler, il suffit de nÃ©gativer Ã  nouveau. 
     \~\param palette
          \~english Set the Bg palette or Obj palette, screen 0 or 1 : PAL_BG0, PAL_SPRITE0, PAL_BG1, or PAL_SPRITE1
-         \~french Charger pour les Bg ou les Sprites, sur l'écran 0 ou 1 : PAL_BG0, PAL_SPRITE0, PAL_BG1, ou PAL_SPRITE1
+         \~french Charger pour les Bg ou les Sprites, sur l'Ã©cran 0 ou 1 : PAL_BG0, PAL_SPRITE0, PAL_BG1, ou PAL_SPRITE1
     \~\param n_palette
          \~english Number of the 16 color palette (0-15)
-         \~french Numéro de la palette de 16 couleurs (0-15)
+         \~french NumÃ©ro de la palette de 16 couleurs (0-15)
 */
 static inline void PA_SetPal16Neg(u32 palette, u8 n_palette) {
 	u16* pal = (u16*)palette;
 	int i;
 
-	for (i = (n_palette << 4); i < ((n_palette + 1) << 4); i++) pal[i] = ~pal[i]; // On fout le négatif...
+	for (i = (n_palette << 4); i < ((n_palette + 1) << 4); i++) pal[i] = ~pal[i]; // On fout le nÃ©gatif...
 }
 
 
 /*! \fn void PA_InitSpriteExtPal()
     \brief
          \~english Initialise 16 palette mode for 256 color sprites. Done by default
-         \~french Initialise le mode 16 palettes pour sprites de 256 couleurs... Effectué par défaut
+         \~french Initialise le mode 16 palettes pour sprites de 256 couleurs... EffectuÃ© par dÃ©faut
 */
 void PA_InitSpriteExtPal();
 
@@ -187,10 +187,10 @@ void PA_InitBgExtPal();
          \~french Ecran...
     \~\param palette_number
          \~english Palette number (0-15)
-         \~french Numéro de la palette (0-15)
+         \~french NumÃ©ro de la palette (0-15)
     \~\param palette
          \~english Palette to load ((void*)palette_name)
-         \~french Nom de la palette à charger ((void*)nom_palette)
+         \~french Nom de la palette Ã  charger ((void*)nom_palette)
 */
 static inline void PA_LoadSpritePal(u8 screen, u8 palette_number, void* palette){
 	PA_LoadSpriteExtPal(screen, palette_number, palette);
@@ -199,19 +199,19 @@ static inline void PA_LoadSpritePal(u8 screen, u8 palette_number, void* palette)
 /*! \fn PA_LoadBgPalN(u8 screen, u8 bg_number, u8 pal_number, void* palette)
     \brief
          \~english Load a 256 color palette in the Background palettes, to a given slot
-         \~french Charger une palette de 256 couleurs dans les palettes des fonds, à un slot donné
+         \~french Charger une palette de 256 couleurs dans les palettes des fonds, Ã  un slot donnÃ©
     \~\param screen
          \~english Screen...
          \~french Ecran...
     \~\param bg_number
          \~english Background number (0-3)
-         \~french Numéro du fond (0-3)
+         \~french NumÃ©ro du fond (0-3)
     \~\param pal_number
          \~english Palette number
-         \~french Numéro de palette	 
+         \~french NumÃ©ro de palette	 
     \~\param palette
          \~english Palette to load ((void*)palette_name)
-         \~french Nom de la palette à charger ((void*)nom_palette)
+         \~french Nom de la palette Ã  charger ((void*)nom_palette)
 */
 void PA_LoadBgPalN(u8 screen, u8 bg_number, u8 pal_number, void* palette);
 
@@ -224,10 +224,10 @@ void PA_LoadBgPalN(u8 screen, u8 bg_number, u8 pal_number, void* palette);
          \~french Ecran...
     \~\param bg_number
          \~english Background number (0-3)
-         \~french Numéro du fond (0-3)
+         \~french NumÃ©ro du fond (0-3)
     \~\param palette
          \~english Palette to load ((void*)palette_name)
-         \~french Nom de la palette à charger ((void*)nom_palette)
+         \~french Nom de la palette Ã  charger ((void*)nom_palette)
 */
 static inline void PA_LoadBgPal(u8 screen, u16 bg_number, void* palette){
 	PA_LoadBgPalN(screen, bg_number, 0, palette);
@@ -242,13 +242,13 @@ static inline void PA_LoadBgPal(u8 screen, u16 bg_number, void* palette){
          \~french Ecran...
     \~\param bg_number
          \~english Background number (0-3)
-         \~french Numéro du fond (0-3)
+         \~french NumÃ©ro du fond (0-3)
     \~\param pal_number
          \~english Palette number (0-15)
-         \~french Numéro de la palette (0-15)		 
+         \~french NumÃ©ro de la palette (0-15)		 
     \~\param palette
          \~english Palette to load ((void*)palette_name)
-         \~french Nom de la palette à charger ((void*)nom_palette)
+         \~french Nom de la palette Ã  charger ((void*)nom_palette)
 */
 void PA_LoadBgPalN(u8 screen, u8 bg_number, u8 pal_number, void* palette);
 
@@ -262,7 +262,7 @@ void PA_LoadBgPalN(u8 screen, u8 bg_number, u8 pal_number, void* palette);
          \~french Ecran...
     \~\param color_number
          \~english Color number in palette (0-255)
-         \~french Numéro de la couleur dans la palette (0-255)
+         \~french NumÃ©ro de la couleur dans la palette (0-255)
     \~\param colorRGB
          \~english RGB value, like PA_RGB(31, 31, 31) for white
          \~french Valeur RGB, comme PA_RGB(31, 31, 31) pour blanc
@@ -278,13 +278,13 @@ void PA_LoadBgPalN(u8 screen, u8 bg_number, u8 pal_number, void* palette);
          \~french Ecran...
     \~\param bg_number
          \~english Background number (0-3)
-         \~french Numéro du fond (0-3)		 
+         \~french NumÃ©ro du fond (0-3)		 
     \~\param pal_number
          \~english Palette number (0-15). Leave to 0 if unsure
-         \~french Numéro de palette (0-15), laisser à 0 si pas sur...		 
+         \~french NumÃ©ro de palette (0-15), laisser Ã  0 si pas sur...		 
     \~\param color_number
          \~english Color number in palette (0-255)
-         \~french Numéro de la couleur dans la palette (0-255)
+         \~french NumÃ©ro de la couleur dans la palette (0-255)
     \~\param color
          \~english RGB value, like PA_RGB(31, 31, 31) for white
          \~french Valeur RGB, comme PA_RGB(31, 31, 31) pour blanc
@@ -294,7 +294,7 @@ void PA_SetBgPalNCol(u8 screen, u8 bg_number, u8 pal_number, u8 color_number, u1
 /*! \fn static inline void PA_SetBgColor(u8 screen, u16 color)
     \brief
          \~english Change the background color of a given screen
-         \~french Changer la couleur de fond d'un écran
+         \~french Changer la couleur de fond d'un Ã©cran
     \~\param screen
          \~english Screen...
          \~french Ecran...
@@ -309,16 +309,16 @@ static inline void PA_SetBgColor(u8 screen, u16 color){
 /*! \fn void PA_SetSpritePalCol(u8 screen, u8 pal_number, u8 color_number, u16 color)
     \brief
          \~english Changes a color in a sprite palette
-         \~french Changer la couleur de fond d'un écran
+         \~french Changer la couleur de fond d'un Ã©cran
     \~\param screen
          \~english Screen...
          \~french Ecran...
     \~\param pal_number
          \~english Palette number
-         \~french Numéro de la palette
+         \~french NumÃ©ro de la palette
     \~\param color_number
          \~english Color in the palette
-         \~french Numéro de la couleur
+         \~french NumÃ©ro de la couleur
     \~\param color
          \~english Color (given by PA_RGB...)
          \~french Couleur (venant de PA_RGB...)	 

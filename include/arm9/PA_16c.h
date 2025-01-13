@@ -79,7 +79,7 @@ static inline void PA_16c8X8Letter(u8 screen, s16 x, s16 y, u8 letter, u8 size, 
          \~french Initialise le mode de dessin 16 couleurs, sur lequel on peut coller de petites images...
     \~\param screen
          \~english Choose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg
          \~english Background number (0-3)
          \~english Background number (0-3) 
@@ -92,7 +92,7 @@ void PA_Init16cBgEx(u8 screen, u8 bg, u8 npalette);
          \~french Initialise le mode de dessin 16 couleurs, sur lequel on peut coller de petites images... Utilisant la palette 0
     \~\param screen
          \~english Choose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg
          \~english Background number (0-3)
          \~english Background number (0-3) 
@@ -104,10 +104,10 @@ static inline void PA_Init16cBg(u8 screen, u8 bg){
 /*! \fn static inline void PA_16cErase(u8 screen)
     \brief
          \~english Erase the 16color background. Must be used right after PA_WaitForVBL to avoid glitches
-         \~french Effacer un écran de 16 couleurs. Doit être utilisé juste après PA_WaitForVBL pour éviter des erreurs d'affichage
+         \~french Effacer un Ã©cran de 16 couleurs. Doit Ãªtre utilisÃ© juste aprÃ¨s PA_WaitForVBL pour Ã©viter des erreurs d'affichage
     \~\param screen
          \~english Choose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
 */
 void PA_16cErase(u8 screen);
 
@@ -116,7 +116,7 @@ void PA_16cErase(u8 screen);
 /*! \fn static inline void PA_Dual16cErase(void)
     \brief
          \~english Erase the 16color background on both screens. Must be used right after PA_WaitForVBL to avoid glitches
-         \~french Effacer un écran de 16 couleurs sur les 2 écrans. Doit être utilisé juste après PA_WaitForVBL pour éviter des erreurs d'affichage
+         \~french Effacer un Ã©cran de 16 couleurs sur les 2 Ã©crans. Doit Ãªtre utilisÃ© juste aprÃ¨s PA_WaitForVBL pour Ã©viter des erreurs d'affichage
 */
 static inline void PA_Dual16cErase(void){
 	PA_16cErase(0); PA_16cErase(1);
@@ -126,10 +126,10 @@ static inline void PA_Dual16cErase(void){
 /*! \fn static inline void PA_InitComplete16c(u8 bg, void *Palette)
     \brief
          \~english Initialise a 16color background on each screen and give them a given palette
-         \~french Initialise le mode de dessin 16 couleurs sur les 2 écrans avec une palette donnée
+         \~french Initialise le mode de dessin 16 couleurs sur les 2 Ã©crans avec une palette donnÃ©e
     \~\param bg
          \~english Background number
-         \~french Numéro du fond
+         \~french NumÃ©ro du fond
     \~\param Palette
          \~english 16 color palette...
          \~french Palette de 16 couleurs 
@@ -144,34 +144,34 @@ static inline void PA_InitComplete16c(u8 bg, void *Palette){
 /*! \fn s16 PA_16cText(u8 screen, s16 basex, s16 basey, s16 maxx, s16 maxy, const char* text, u8 color, u8 size, s32 limit)
     \brief
          \~english This is a variable width and variable size function to draw text on the screen. 
-         \~french Cette fonction permet d'écrire du texte à chasse variable à l'écran. 
+         \~french Cette fonction permet d'Ã©crire du texte Ã  chasse variable Ã  l'Ã©cran. 
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param basex
          \~english X coordinate of the top left corner
-         \~french Coordonnée X du coin supérieur gauche
+         \~french CoordonnÃ©e X du coin supÃ©rieur gauche
     \~\param basey
          \~english Y coordinate of the top left corner
-         \~french Coordonnée Y du coin supérieur gauche
+         \~french CoordonnÃ©e Y du coin supÃ©rieur gauche
     \~\param maxx
          \~english X coordinate of the down right corner
-         \~french Coordonnée X du coin inférieur droit
+         \~french CoordonnÃ©e X du coin infÃ©rieur droit
     \~\param maxy
          \~english Y coordinate of the down right corner
-         \~french Coordonnée Y du coin inférieur droit
+         \~french CoordonnÃ©e Y du coin infÃ©rieur droit
     \~\param text
          \~english Text, such as "Hello World"
          \~french Texte, tel que "Hello World"
     \~\param color
          \~english Palette color to use (0-255)
-         \~french Couleur de la palette à utiliser (0-255)
+         \~french Couleur de la palette Ã  utiliser (0-255)
     \~\param size
          \~english Size of the text, from 0 (really small) to 4 (pretty big)
-         \~french Taille du texte, de 0 (vraiment petit) à 4 (assez grand)  
+         \~french Taille du texte, de 0 (vraiment petit) Ã  4 (assez grand)  
     \~\param limit
          \~english You can give a maximum number of characters to output. This can be usefull to have a slowing drawing text (allow to draw 1 more character each frame...)
-         \~french On peut fixer une limite au nombre de caractères. Ceci peut etre utile pour dessiner un texte progressivement, en augmentant de 1 le nombre de caractères à chaque boucle....
+         \~french On peut fixer une limite au nombre de caractÃ¨res. Ceci peut etre utile pour dessiner un texte progressivement, en augmentant de 1 le nombre de caractÃ¨res Ã  chaque boucle....
 */
 s16 PA_16cText(u8 screen, s16 basex, s16 basey, s16 maxx, s16 maxy, const char* text, u8 color, u8 size, s32 limit);
 
@@ -179,10 +179,10 @@ s16 PA_16cText(u8 screen, s16 basex, s16 basey, s16 maxx, s16 maxy, const char* 
 	\deprecated
     \brief
          \~english [DEPRECATED] Add custom fonts to the 16cText system !! Font must be converted with PAGfx
-         \~french [DEPRECATED] Ajouter une police perso dans le systeme de texte 16c !! Doit être convertie avec PAGfx
+         \~french [DEPRECATED] Ajouter une police perso dans le systeme de texte 16c !! Doit Ãªtre convertie avec PAGfx
     \~\param c16_slot
          \~english Font slot... 0-4 are used by the defaut PAlib fonts, 5-9 are free to use. You can freely overwrite the PAlib fonts if you want
-         \~french Slot pour ajouter la police. Les slots 0-4 sont utilisés pour les polices par défaut de PAlib, et 5-9 sont libres. On peut néanmoins charger par-dessus les polices PAlib si on veut.
+         \~french Slot pour ajouter la police. Les slots 0-4 sont utilisÃ©s pour les polices par dÃ©faut de PAlib, et 5-9 sont libres. On peut nÃ©anmoins charger par-dessus les polices PAlib si on veut.
     \~\param c16_font
          \~english Font name...
          \~french Nom de la police... 
@@ -199,10 +199,10 @@ s16 PA_16cText(u8 screen, s16 basex, s16 basey, s16 maxx, s16 maxy, const char* 
 /*! \fn void PA_Add16cFont(int slot, const PA_BgStruct* font)
     \brief
          \~english Add a custom font to the 16c font system.
-         \~french Ajouter une police perso dans le système de texte 16c.
+         \~french Ajouter une police perso dans le systÃ¨me de texte 16c.
     \~\param slot
          \~english Font slot. 0-4 are used by the default PAlib fonts, 5-9 are free to use. You can freely overwrite the PAlib fonts if you want.
-         \~french Slot pour ajouter la police. Les slots 0-4 sont utilisés pour les polices par défaut de PAlib, et 5-9 sont libres. On peut néanmoins charger par-dessus les polices PAlib si on veut.
+         \~french Slot pour ajouter la police. Les slots 0-4 sont utilisÃ©s pour les polices par dÃ©faut de PAlib, et 5-9 sont libres. On peut nÃ©anmoins charger par-dessus les polices PAlib si on veut.
     \~\param font
          \~english Pointer to the font.
          \~french Pointeur vers le police perso.
@@ -218,13 +218,13 @@ void PA_Add16cFont(int slot, const PA_BgStruct* font);
          \~french Ecran...
     \~\param x
          \~english X position in pixels of the top left corner. Note that it ranges from -8 to 263, in order to allow half-way offscreen images. NEVER DRAW BEYOND THESE LIMITS, or else you'll get major background glitches
-         \~french Position X en pixels du coin supérieur gauche. A noter que celle-ci va de -8 à 263, afin de permettre des images à moitié sorties... NE JAMAIS DEPASSER DU CADRE, sous peine de gros bugs graphiques...
+         \~french Position X en pixels du coin supÃ©rieur gauche. A noter que celle-ci va de -8 Ã  263, afin de permettre des images Ã  moitiÃ© sorties... NE JAMAIS DEPASSER DU CADRE, sous peine de gros bugs graphiques...
     \~\param y
          \~english y position in pixels of the top left corner. Note that it ranges from -8 to 199, in order to allow half-way offscreen images. NEVER DRAW BEYOND THESE LIMITS, or else you'll get major background glitches
-         \~french Position y en pixels du coin supérieur gauche. A noter que celle-ci va de -8 à 199, afin de permettre des images à moitié sorties... NE JAMAIS DEPASSER DU CADRE, sous peine de gros bugs graphiques...
+         \~french Position y en pixels du coin supÃ©rieur gauche. A noter que celle-ci va de -8 Ã  199, afin de permettre des images Ã  moitiÃ© sorties... NE JAMAIS DEPASSER DU CADRE, sous peine de gros bugs graphiques...
     \~\param color
          \~english Pixel value (0-15, uses the loaded palette)
-         \~french Valeur du pixel (0-15, prend la couleur dans la palette chargée)
+         \~french Valeur du pixel (0-15, prend la couleur dans la palette chargÃ©e)
 */
 ALWAYSINLINE void PA_16cPutPixel(u8 screen, s16 x, s16 y, u32 color){
    x += 8; y += 8;
@@ -243,19 +243,19 @@ ALWAYSINLINE void PA_16cDeletePixel(u8 screen, s16 x, s16 y){
 /*! \fn ALWAYSINLINE void PA_16c8X4(u8 screen, s16 x, s16 y, u32 *image)
     \brief
          \~english Load an 8x4 pixels image at a given position. Fastest of all pasting functions
-         \~french Afficher une image de 8x4 pixels à un endroit donné, fonction la plus rapide de copie...
+         \~french Afficher une image de 8x4 pixels Ã  un endroit donnÃ©, fonction la plus rapide de copie...
     \~\param screen
          \~english Screen...
          \~french Ecran...
     \~\param x
          \~english X position in pixels of the top left corner. Note that it ranges from -8 to 255, in order to allow half-way offscreen images. NEVER DRAW BEYOND THESE LIMITS, or else you'll get major background glitches
-         \~french Position X en pixels du coin supérieur gauche. A noter que celle-ci va de -8 à 255, afin de permettre des images à moitié sorties... NE JAMAIS DEPASSER DU CADRE, sous peine de gros bugs graphiques...
+         \~french Position X en pixels du coin supÃ©rieur gauche. A noter que celle-ci va de -8 Ã  255, afin de permettre des images Ã  moitiÃ© sorties... NE JAMAIS DEPASSER DU CADRE, sous peine de gros bugs graphiques...
     \~\param y
          \~english y position in pixels of the top left corner. Note that it ranges from -8 to 191, in order to allow half-way offscreen images. NEVER DRAW BEYOND THESE LIMITS, or else you'll get major background glitches
-         \~french Position y en pixels du coin supérieur gauche. A noter que celle-ci va de -8 à 191, afin de permettre des images à moitié sorties... NE JAMAIS DEPASSER DU CADRE, sous peine de gros bugs graphiques...
+         \~french Position y en pixels du coin supÃ©rieur gauche. A noter que celle-ci va de -8 Ã  191, afin de permettre des images Ã  moitiÃ© sorties... NE JAMAIS DEPASSER DU CADRE, sous peine de gros bugs graphiques...
     \~\param image
          \~english 16 color image to load. Use (u32*)ImageName if you get an error...
-         \~french Image en 16 couleurs à charger. Utiliser (u32*)NomImage en cas d'erreur de compilation
+         \~french Image en 16 couleurs Ã  charger. Utiliser (u32*)NomImage en cas d'erreur de compilation
 */
 ALWAYSINLINE void PA_16c8X4(u8 screen, s16 x, s16 y, u32 *image){  
    x += 8; y += 8;
@@ -276,19 +276,19 @@ ALWAYSINLINE void PA_16c8X4(u8 screen, s16 x, s16 y, u32 *image){
 /*! \fn ALWAYSINLINE void PA_16c8X6(u8 screen, s16 x, s16 y, u32 *image)
     \brief
          \~english Load an 8x6 pixels image at a given position. Second fastest of all pasting functions
-         \~french Afficher une image de 8x6 pixels à un endroit donné, deuxième fonction la plus rapide de copie...
+         \~french Afficher une image de 8x6 pixels Ã  un endroit donnÃ©, deuxiÃ¨me fonction la plus rapide de copie...
     \~\param screen
          \~english Screen...
          \~french Ecran...
     \~\param x
          \~english X position in pixels of the top left corner. Note that it ranges from -8 to 255, in order to allow half-way offscreen images. NEVER DRAW BEYOND THESE LIMITS, or else you'll get major background glitches
-         \~french Position X en pixels du coin supérieur gauche. A noter que celle-ci va de -8 à 255, afin de permettre des images à moitié sorties... NE JAMAIS DEPASSER DU CADRE, sous peine de gros bugs graphiques...
+         \~french Position X en pixels du coin supÃ©rieur gauche. A noter que celle-ci va de -8 Ã  255, afin de permettre des images Ã  moitiÃ© sorties... NE JAMAIS DEPASSER DU CADRE, sous peine de gros bugs graphiques...
     \~\param y
          \~english y position in pixels of the top left corner. Note that it ranges from -8 to 191, in order to allow half-way offscreen images. NEVER DRAW BEYOND THESE LIMITS, or else you'll get major background glitches
-         \~french Position y en pixels du coin supérieur gauche. A noter que celle-ci va de -8 à 191, afin de permettre des images à moitié sorties... NE JAMAIS DEPASSER DU CADRE, sous peine de gros bugs graphiques...
+         \~french Position y en pixels du coin supÃ©rieur gauche. A noter que celle-ci va de -8 Ã  191, afin de permettre des images Ã  moitiÃ© sorties... NE JAMAIS DEPASSER DU CADRE, sous peine de gros bugs graphiques...
     \~\param image
          \~english 16 color image to load. Use (u32*)ImageName if you get an error...
-         \~french Image en 16 couleurs à charger. Utiliser (u32*)NomImage en cas d'erreur de compilation
+         \~french Image en 16 couleurs Ã  charger. Utiliser (u32*)NomImage en cas d'erreur de compilation
 */
 ALWAYSINLINE void PA_16c8X6(u8 screen, s16 x, s16 y, u32 *image){  
    
@@ -306,19 +306,19 @@ ALWAYSINLINE void PA_16c8X6(u8 screen, s16 x, s16 y, u32 *image){
 /*! \fn ALWAYSINLINE void PA_16c8X8(u8 screen, s16 x, s16 y, u32 *image)
     \brief
          \~english Load an 8x8 pixels image at a given position. 
-         \~french Afficher une image de 8x8 pixels à un endroit donné.
+         \~french Afficher une image de 8x8 pixels Ã  un endroit donnÃ©.
     \~\param screen
          \~english Screen...
          \~french Ecran...
     \~\param x
          \~english X position in pixels of the top left corner. Note that it ranges from -8 to 255, in order to allow half-way offscreen images. NEVER DRAW BEYOND THESE LIMITS, or else you'll get major background glitches
-         \~french Position X en pixels du coin supérieur gauche. A noter que celle-ci va de -8 à 255, afin de permettre des images à moitié sorties... NE JAMAIS DEPASSER DU CADRE, sous peine de gros bugs graphiques...
+         \~french Position X en pixels du coin supÃ©rieur gauche. A noter que celle-ci va de -8 Ã  255, afin de permettre des images Ã  moitiÃ© sorties... NE JAMAIS DEPASSER DU CADRE, sous peine de gros bugs graphiques...
     \~\param y
          \~english y position in pixels of the top left corner. Note that it ranges from -8 to 191, in order to allow half-way offscreen images. NEVER DRAW BEYOND THESE LIMITS, or else you'll get major background glitches
-         \~french Position y en pixels du coin supérieur gauche. A noter que celle-ci va de -8 à 191, afin de permettre des images à moitié sorties... NE JAMAIS DEPASSER DU CADRE, sous peine de gros bugs graphiques...
+         \~french Position y en pixels du coin supÃ©rieur gauche. A noter que celle-ci va de -8 Ã  191, afin de permettre des images Ã  moitiÃ© sorties... NE JAMAIS DEPASSER DU CADRE, sous peine de gros bugs graphiques...
     \~\param image
          \~english 16 color image to load. Use (u32*)ImageName if you get an error...
-         \~french Image en 16 couleurs à charger. Utiliser (u32*)NomImage en cas d'erreur de compilation
+         \~french Image en 16 couleurs Ã  charger. Utiliser (u32*)NomImage en cas d'erreur de compilation
 */
 ALWAYSINLINE void PA_16c8X8(u8 screen, s16 x, s16 y, u32 *image){  
    x += 8; y += 8;
@@ -418,22 +418,22 @@ ALWAYSINLINE void PA_16c16X16(u8 screen, s16 x, s16 y, u32 *image){
 /*! \fn ALWAYSINLINE void PA_16c8Xi(u8 screen, s16 x, s16 y, u32 *image,u8 i)
     \brief
          \~english Load an 8xi row from a 8x16 pixels image at a given position. If i>16 the image is repeated.
-         \~french Afficher une image de 8x8 pixels à un endroit donné.
+         \~french Afficher une image de 8x8 pixels Ã  un endroit donnÃ©.
     \~\param screen
          \~english Screen...
          \~french Ecran...
     \~\param x
          \~english X position in pixels of the top left corner. Note that it ranges from -8 to 255, in order to allow half-way offscreen images. NEVER DRAW BEYOND THESE LIMITS, or else you'll get major background glitches
-         \~french Position X en pixels du coin supérieur gauche. A noter que celle-ci va de -8 à 255, afin de permettre des images à moitié sorties... NE JAMAIS DEPASSER DU CADRE, sous peine de gros bugs graphiques...
+         \~french Position X en pixels du coin supÃ©rieur gauche. A noter que celle-ci va de -8 Ã  255, afin de permettre des images Ã  moitiÃ© sorties... NE JAMAIS DEPASSER DU CADRE, sous peine de gros bugs graphiques...
     \~\param y
          \~english y position in pixels of the top left corner. Note that it ranges from -8 to 191, in order to allow half-way offscreen images. NEVER DRAW BEYOND THESE LIMITS, or else you'll get major background glitches
-         \~french Position y en pixels du coin supérieur gauche. A noter que celle-ci va de -8 à 191, afin de permettre des images à moitié sorties... NE JAMAIS DEPASSER DU CADRE, sous peine de gros bugs graphiques...
+         \~french Position y en pixels du coin supÃ©rieur gauche. A noter que celle-ci va de -8 Ã  191, afin de permettre des images Ã  moitiÃ© sorties... NE JAMAIS DEPASSER DU CADRE, sous peine de gros bugs graphiques...
     \~\param image
          \~english 16 color image to load. Use (u32*)ImageName if you get an error...
-         \~french Image en 16 couleurs à charger. Utiliser (u32*)NomImage en cas d'erreur de compilation
+         \~french Image en 16 couleurs Ã  charger. Utiliser (u32*)NomImage en cas d'erreur de compilation
     \~\param i
     		\~english Number of lines of the image drawn (if greater than 16 the image will be repeated).
-    		\~french Nombre de lignes à dessiner
+    		\~french Nombre de lignes Ã  dessiner
 */
 ALWAYSINLINE void PA_16c8Xi(u8 screen, s16 x, s16 y, u32 *image, u8 i){
 	x += 8; y += 8;
@@ -464,23 +464,23 @@ static inline void PA_16cLetter(u8 screen, s16 x, s16 y, char letter, u8 size, u
          \~french Ecran...
     \~\param x1
          \~english Upper left corner...
-         \~french Coin supérieur gauche...
+         \~french Coin supÃ©rieur gauche...
     \~\param y1
          \~english Upper left corner...
-         \~french Coin supérieur gauche...
+         \~french Coin supÃ©rieur gauche...
     \~\param x2
          \~english Lower right corner...
-         \~french Coin inférieur droit...
+         \~french Coin infÃ©rieur droit...
     \~\param y2
          \~english Lower right corner...
-         \~french Coin inférieur droit...
+         \~french Coin infÃ©rieur droit...
 */
 void PA_16cClearZone(u8 screen, s16 x1, s16 y1, s16 x2, s16 y2);
 
 /*! \fn static inline u8 PA_16cGetPixel(u8 screen, s16 x, s16 y)
     \brief
          \~english Returns the pixel value of a given point on a 16c background
-         \~french Renvoie la valeur d'un pixel donné sur un fond 16c
+         \~french Renvoie la valeur d'un pixel donnÃ© sur un fond 16c
     \~\param screen
          \~english Screen...
          \~french Ecran...

@@ -22,13 +22,13 @@ extern "C" {
          \~french Utiliser le Programmable Sound Generator
     \param PA_Channel
          \~english Audio channel, from 8 to 15
-         \~french Canal audio, de 8 à 15
+         \~french Canal audio, de 8 Ã  15
     \param vol
          \~english Volume (0-127)
          \~french Volume (0-127)	 		 
     \param freq
          \~english Frenquency
-         \~french Fréquence
+         \~french FrÃ©quence
     \param duty
          \~english Duty (0-7)
          \~french Duty (0-7)		 

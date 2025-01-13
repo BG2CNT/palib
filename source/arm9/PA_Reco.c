@@ -155,8 +155,8 @@ char PA_AnalyzeShape(void) {
 
 	PA_RecoShape[15] = 0;
 	//PA_OutputText(1, 2, 23, PA_RecoShape);
-	u8 letter = 0; // 0 par défaut
-	s32 diff = 65000; // Diff max par défaut
+	u8 letter = 0; // 0 par dÃ©faut
+	s32 diff = 65000; // Diff max par dÃ©faut
 	u8 j;
 
 	if (PA_UseGraffiti) {

@@ -19,7 +19,7 @@ extern s16 DualSpriteX[128];
 /*! \fn static inline void PA_SetScreenSpace(s16 ScreenSpace)
     \brief
          \~english Set the space between the 2 screens for the Dual Fonctions. 48 pixels by default
-         \~french Désigner l'espace entre les 2 écrans, 48 pixels par défaut
+         \~french DÃ©signer l'espace entre les 2 Ã©crans, 48 pixels par dÃ©faut
     \~\param ScreenSpace
          \~english Space in pixels
          \~french Espace en pixels
@@ -31,10 +31,10 @@ static inline void PA_SetScreenSpace(s16 ScreenSpace){
 /*! \fn static inline void PA_DualSetSpriteX(u8 obj, s16 x)
     \brief
          \~english Set the X position of a sprite on screen
-         \~french Position X du sprite à l'écran
+         \~french Position X du sprite Ã  l'Ã©cran
     \~\param obj
          \~english Object number in the sprite system
-         \~french Numéro de l'objet dans le systeme de sprite
+         \~french NumÃ©ro de l'objet dans le systeme de sprite
     \~\param x
          \~english X position
          \~french Position X
@@ -47,10 +47,10 @@ static inline void PA_DualSetSpriteX(u8 obj, s16 x){
 /*! \fn static inline void PA_DualSetSpriteY(u8 obj, s16 y)
     \brief
          \~english Set the Y position of a sprite on screen
-         \~french Position Y du sprite à l'écran
+         \~french Position Y du sprite Ã  l'Ã©cran
     \~\param obj
          \~english Object number in the sprite system
-         \~french Numéro de l'objet dans le systeme de sprite
+         \~french NumÃ©ro de l'objet dans le systeme de sprite
     \~\param y
          \~english Y position
          \~french Position Y
@@ -71,10 +71,10 @@ static inline void PA_DualSetSpriteY(u8 obj, s16 y){
 /*! \fn static inline void PA_DualSetSpriteXY(u8 sprite, s16 x, s16 y)
     \brief
          \~english Set the X and Y position of a sprite on screen
-         \~french Position X et Y du sprite à l'écran
+         \~french Position X et Y du sprite Ã  l'Ã©cran
     \~\param sprite
          \~english sprite number in the sprite system
-         \~french Numéro du sprite dans le systeme de sprite
+         \~french NumÃ©ro du sprite dans le systeme de sprite
     \~\param x
          \~english X position
          \~french Position Y
@@ -90,16 +90,16 @@ static inline void PA_DualSetSpriteXY(u8 sprite, s16 x, s16 y) {
 /*! \fn static inline void PA_DualCreateSprite(u8 obj_number, void* obj_data, u8 obj_shape, u8 obj_size, u8 color_mode, u8 palette, s16 x, s16 y)
     \brief
          \~english Create a sprite with it's gfx, on 2 screens
-         \~french Creer un sprite avec ses gfxsur les 2 écrans
+         \~french Creer un sprite avec ses gfxsur les 2 Ã©crans
     \~\param obj_number
          \~english Object number you want to use (0-127 for each screen seperately). 
-         \~french Numéro du sprite que vous voulez utiliser (de 0 à 127 pour chaque écran séparemment).
+         \~french NumÃ©ro du sprite que vous voulez utiliser (de 0 Ã  127 pour chaque Ã©cran sÃ©paremment).
     \~\param obj_data
          \~english Gfx to load
-         \~french Gfx à charger
+         \~french Gfx Ã  charger
     \~\param obj_shape
          \~english Object shape, from 0 to 2. Use the OBJ_SIZE_32X32 (...) macros for object shape and obj_size...
-         \~french Forme du sprite à charger, de 0 à 2. Utiliser la macro OBJ_SIZE_32X32 (...) pour charger la forme et la taille...
+         \~french Forme du sprite Ã  charger, de 0 Ã  2. Utiliser la macro OBJ_SIZE_32X32 (...) pour charger la forme et la taille...
     \~\param obj_size
          \~english Object size. Use the OBJ_SIZE_32X32 (...) macros for object shape and obj_size...
          \~french Taille du sprite. Utiliser la macro OBJ_SIZE_32X32 (...) pour charger la forme et la taille...
@@ -108,7 +108,7 @@ static inline void PA_DualSetSpriteXY(u8 sprite, s16 x, s16 y) {
          \~french Mode 256 ou 16 couleurs (1 ou 0).
      \~\param palette
          \~english Palette to use (0-15).
-         \~french Palette à utiliser (0-15). 
+         \~french Palette Ã  utiliser (0-15). 
     \~\param x
          \~english X position of the sprite
          \~french Position X du sprite
@@ -128,13 +128,13 @@ static inline void PA_DualCreateSprite(u8 obj_number, void* obj_data, u8 obj_sha
          \~french Creer un sprite avec ses gfx... Ceci est la version complexe de la fonction
     \~\param obj_number
          \~english Object number you want to use (0-127 for each screen seperately). 
-         \~french Numéro du sprite que vous voulez utiliser (de 0 à 127 pour chaque écran séparemment).
+         \~french NumÃ©ro du sprite que vous voulez utiliser (de 0 Ã  127 pour chaque Ã©cran sÃ©paremment).
     \~\param obj_data
          \~english Gfx to load
-         \~french Gfx à charger
+         \~french Gfx Ã  charger
     \~\param obj_shape
          \~english Object shape, from 0 to 2. Use the OBJ_SIZE_32X32 (...) macros for object shape and obj_size...
-         \~french Forme du sprite à charger, de 0 à 2. Utiliser la macro OBJ_SIZE_32X32 (...) pour charger la forme et la taille...
+         \~french Forme du sprite Ã  charger, de 0 Ã  2. Utiliser la macro OBJ_SIZE_32X32 (...) pour charger la forme et la taille...
     \~\param obj_size
          \~english Object size. Use the OBJ_SIZE_32X32 (...) macros for object shape and obj_size...
          \~french Taille du sprite. Utiliser la macro OBJ_SIZE_32X32 (...) pour charger la forme et la taille...
@@ -143,22 +143,22 @@ static inline void PA_DualCreateSprite(u8 obj_number, void* obj_data, u8 obj_sha
          \~french Mode 256 ou 16 couleurs (1 ou 0).
      \~\param palette
          \~english Palette to use (0-15). 
-         \~french Palette à utiliser (0-15). 
+         \~french Palette Ã  utiliser (0-15). 
     \~\param obj_mode
          \~english Object mode (normal, transparent, window). Not functionnal yet, please leave to 0 for now
-         \~french Mode du sprite (normal, transparent, fenetre). Pas encore opérationnel, laisser à 0...
+         \~french Mode du sprite (normal, transparent, fenetre). Pas encore opÃ©rationnel, laisser Ã  0...
      \~\param mosaic
          \~english Activate Mosaic for the sprite or not. Not yet functionnal either :p
          \~french Activer le mode mosaique pour ce sprite. Pas encore au point...
     \~\param hflip
          \~english Horizontal flip on or off...
-         \~french Flip horizontal activé ou non.
+         \~french Flip horizontal activÃ© ou non.
      \~\param vflip
          \~english Vertical flip...
          \~french Flip vertical...
     \~\param prio
          \~english Sprite priority regarding backgrounds : in front of which background to show it (0-3)
-         \~french Priorité du sprite vis-à-vis des fonds : devant quel fond l'afficher... (0-3)
+         \~french PrioritÃ© du sprite vis-Ã -vis des fonds : devant quel fond l'afficher... (0-3)
      \~\param dblsize
          \~english Double the possible sprite size. Activate only if you are going to rotate and zoom in the sprite
          \~french Doubler la taille possible du sprite. A activer uniquement si on compte grossir et faire tourner le sprite
@@ -181,13 +181,13 @@ static inline void PA_DualCreateSpriteEx(u8 obj_number, void* obj_data, u8 obj_s
          \~french Creer un sprite de 16 bits avec ses gfx... Ceci est la version complexe de la fonction. Attention : un sprite de 16 bits DOIT etre large de 128 pixels, meme si ce sprite ne prend qu'une petite partie sur la gauche
     \~\param obj_number
          \~english Object number you want to use (0-127 for each screen seperately). 
-         \~french Numéro du sprite que vous voulez utiliser (de 0 à 127 pour chaque écran séparemment).
+         \~french NumÃ©ro du sprite que vous voulez utiliser (de 0 Ã  127 pour chaque Ã©cran sÃ©paremment).
     \~\param obj_data
          \~english Gfx to load
-         \~french Gfx à charger
+         \~french Gfx Ã  charger
     \~\param obj_shape
          \~english Object shape, from 0 to 2. Use the OBJ_SIZE_32X32 (...) macros for object shape and obj_size...
-         \~french Forme du sprite à charger, de 0 à 2. Utiliser la macro OBJ_SIZE_32X32 (...) pour charger la forme et la taille...
+         \~french Forme du sprite Ã  charger, de 0 Ã  2. Utiliser la macro OBJ_SIZE_32X32 (...) pour charger la forme et la taille...
     \~\param obj_size
          \~english Object size. Use the OBJ_SIZE_32X32 (...) macros for object shape and obj_size...
          \~french Taille du sprite. Utiliser la macro OBJ_SIZE_32X32 (...) pour charger la forme et la taille...
@@ -196,13 +196,13 @@ static inline void PA_DualCreateSpriteEx(u8 obj_number, void* obj_data, u8 obj_s
          \~french Activer le mode mosaique pour ce sprite. Pas encore au point...
     \~\param hflip
          \~english Horizontal flip on or off...
-         \~french Flip horizontal activé ou non.
+         \~french Flip horizontal activÃ© ou non.
      \~\param vflip
          \~english Vertical flip...
          \~french Flip vertical...
     \~\param prio
          \~english Sprite priority regarding backgrounds : in front of which background to show it (0-3)
-         \~french Priorité du sprite vis-à-vis des fonds : devant quel fond l'afficher... (0-3)
+         \~french PrioritÃ© du sprite vis-Ã -vis des fonds : devant quel fond l'afficher... (0-3)
      \~\param dblsize
          \~english Double the possible sprite size. Activate only if you are going to rotate and zoom in the sprite
          \~french Doubler la taille possible du sprite. A activer uniquement si on compte grossir et faire tourner le sprite
@@ -236,13 +236,13 @@ static inline void PA_DualCreate16bitSpriteEx(u8 obj_number, void* obj_data, u8 
          \~french Creer un sprite de 16 bits avec ses gfx... Ceci est la version simple de la fonction. Attention : un sprite de 16 bits DOIT etre large de 128 pixels, meme si ce sprite ne prend qu'une petite partie sur la gauche
     \~\param obj_number
          \~english Object number you want to use (0-127 for each screen seperately). 
-         \~french Numéro du sprite que vous voulez utiliser (de 0 à 127 pour chaque écran séparemment).
+         \~french NumÃ©ro du sprite que vous voulez utiliser (de 0 Ã  127 pour chaque Ã©cran sÃ©paremment).
     \~\param obj_data
          \~english Gfx to load
-         \~french Gfx à charger
+         \~french Gfx Ã  charger
     \~\param obj_shape
          \~english Object shape, from 0 to 2. Use the OBJ_SIZE_32X32 (...) macros for object shape and obj_size...
-         \~french Forme du sprite à charger, de 0 à 2. Utiliser la macro OBJ_SIZE_32X32 (...) pour charger la forme et la taille...
+         \~french Forme du sprite Ã  charger, de 0 Ã  2. Utiliser la macro OBJ_SIZE_32X32 (...) pour charger la forme et la taille...
     \~\param obj_size
          \~english Object size. Use the OBJ_SIZE_32X32 (...) macros for object shape and obj_size...
          \~french Taille du sprite. Utiliser la macro OBJ_SIZE_32X32 (...) pour charger la forme et la taille...
@@ -263,13 +263,13 @@ static inline void PA_DualCreate16bitSprite(u8 obj_number, void* obj_data, u8 ob
          \~french Creer un sprite avec ses gfx... Ceci est la version simple de la fonction
     \~\param obj_number
          \~english Object number you want to use (0-127 for each screen seperately). 
-         \~french Numéro du sprite que vous voulez utiliser (de 0 à 127 pour chaque écran séparemment).
+         \~french NumÃ©ro du sprite que vous voulez utiliser (de 0 Ã  127 pour chaque Ã©cran sÃ©paremment).
     \~\param obj_gfx
          \~english Memory gfx to use. Get it by using PA_GetSpriteGfx or PA_CreateGfx
-         \~french Gfx en mémoire à utiliser. On peut en avoir avec PA_GetSpriteGfx ou PA_CreateGfx
+         \~french Gfx en mÃ©moire Ã  utiliser. On peut en avoir avec PA_GetSpriteGfx ou PA_CreateGfx
     \~\param obj_shape
          \~english Object shape, from 0 to 2. Use the OBJ_SIZE_32X32 (...) macros for object shape and obj_size...
-         \~french Forme du sprite à charger, de 0 à 2. Utiliser la macro OBJ_SIZE_32X32 (...) pour charger la forme et la taille...
+         \~french Forme du sprite Ã  charger, de 0 Ã  2. Utiliser la macro OBJ_SIZE_32X32 (...) pour charger la forme et la taille...
     \~\param obj_size
          \~english Object size. Use the OBJ_SIZE_32X32 (...) macros for object shape and obj_size...
          \~french Taille du sprite. Utiliser la macro OBJ_SIZE_32X32 (...) pour charger la forme et la taille...
@@ -278,7 +278,7 @@ static inline void PA_DualCreate16bitSprite(u8 obj_number, void* obj_data, u8 ob
          \~french Mode 256 ou 16 couleurs (1 ou 0).
      \~\param palette
          \~english Palette to use (0-15). 
-         \~french Palette à utiliser (0-15). 
+         \~french Palette Ã  utiliser (0-15). 
     \~\param x
          \~english X position of the sprite
          \~french Position X du sprite
@@ -298,13 +298,13 @@ static inline void PA_DualCreateSpriteFromGfx(u8 obj_number, u16 *obj_gfx, u8 ob
          \~french Creer un sprite avec ses gfx... Ceci est la version complexe de la fonction
     \~\param obj_number
          \~english Object number you want to use (0-127 for each screen seperately). 
-         \~french Numéro du sprite que vous voulez utiliser (de 0 à 127 pour chaque écran séparemment).
+         \~french NumÃ©ro du sprite que vous voulez utiliser (de 0 Ã  127 pour chaque Ã©cran sÃ©paremment).
     \~\param obj_gfx
          \~english Memory gfx to use. Get it by using PA_GetSpriteGfx or PA_CreateGfx
-         \~french Gfx en mémoire à utiliser. On peut en avoir avec PA_GetSpriteGfx ou PA_CreateGfx
+         \~french Gfx en mÃ©moire Ã  utiliser. On peut en avoir avec PA_GetSpriteGfx ou PA_CreateGfx
     \~\param obj_shape
          \~english Object shape, from 0 to 2. Use the OBJ_SIZE_32X32 (...) macros for object shape and obj_size...
-         \~french Forme du sprite à charger, de 0 à 2. Utiliser la macro OBJ_SIZE_32X32 (...) pour charger la forme et la taille...
+         \~french Forme du sprite Ã  charger, de 0 Ã  2. Utiliser la macro OBJ_SIZE_32X32 (...) pour charger la forme et la taille...
     \~\param obj_size
          \~english Object size. Use the OBJ_SIZE_32X32 (...) macros for object shape and obj_size...
          \~french Taille du sprite. Utiliser la macro OBJ_SIZE_32X32 (...) pour charger la forme et la taille...
@@ -313,22 +313,22 @@ static inline void PA_DualCreateSpriteFromGfx(u8 obj_number, u16 *obj_gfx, u8 ob
          \~french Mode 256 ou 16 couleurs (1 ou 0).
      \~\param palette
          \~english Palette to use (0-15). 
-         \~french Palette à utiliser (0-15). 
+         \~french Palette Ã  utiliser (0-15). 
     \~\param obj_mode
          \~english Object mode (normal, transparent, window). Not functionnal yet, please leave to 0 for now
-         \~french Mode du sprite (normal, transparent, fenetre). Pas encore opérationnel, laisser à 0...
+         \~french Mode du sprite (normal, transparent, fenetre). Pas encore opÃ©rationnel, laisser Ã  0...
      \~\param mosaic
          \~english Activate Mosaic for the sprite or not. Not yet functionnal either :p
          \~french Activer le mode mosaique pour ce sprite. Pas encore au point...
     \~\param hflip
          \~english Horizontal flip on or off...
-         \~french Flip horizontal activé ou non.
+         \~french Flip horizontal activÃ© ou non.
      \~\param vflip
          \~english Vertical flip...
          \~french Flip vertical...
     \~\param prio
          \~english Sprite priority regarding backgrounds : in front of which background to show it (0-3)
-         \~french Priorité du sprite vis-à-vis des fonds : devant quel fond l'afficher... (0-3)
+         \~french PrioritÃ© du sprite vis-Ã -vis des fonds : devant quel fond l'afficher... (0-3)
      \~\param dblsize
          \~english Double the possible sprite size. Activate only if you are going to rotate and zoom in the sprite
          \~french Doubler la taille possible du sprite. A activer uniquement si on compte grossir et faire tourner le sprite
@@ -349,13 +349,13 @@ static inline void PA_DualCreateSpriteExFromGfx(u8 obj_number, u16 *obj_gfx, u8 
 /*! \fn static inline void PA_DualUpdateSpriteGfx(u8 obj_number, void *obj_data)
     \brief
          \~english Update the Gfx of a given sprite
-         \~french Mettre à jour les Gfx d'un sprite donné
+         \~french Mettre Ã  jour les Gfx d'un sprite donnÃ©
     \~\param obj_number
          \~english Object number in the sprite system
-         \~french Numéro de l'objet dans le systeme de sprite
+         \~french NumÃ©ro de l'objet dans le systeme de sprite
     \~\param obj_data
          \~english Gfx to load
-         \~french Graphisme à charger
+         \~french Graphisme Ã  charger
 */
 static inline void PA_DualUpdateSpriteGfx(u8 obj_number, void *obj_data){
 	PA_UpdateSpriteGfx(0, obj_number, obj_data);
@@ -366,13 +366,13 @@ static inline void PA_DualUpdateSpriteGfx(u8 obj_number, void *obj_data){
 /*! \fn static inline void PA_DualUpdateGfx(u16 gfx_number, void *obj_data)
     \brief
          \~english Update the Gfx of a given sprite
-         \~french Mettre à jour les Gfx d'un sprite donné
+         \~french Mettre Ã  jour les Gfx d'un sprite donnÃ©
     \~\param gfx_number
          \~english Gfx number in memory
-         \~french Numéro du Gfx en mémoire
+         \~french NumÃ©ro du Gfx en mÃ©moire
     \~\param obj_data
          \~english Gfx to load
-         \~french Graphisme à charger
+         \~french Graphisme Ã  charger
 */
 static inline void PA_DualUpdateGfx(u16 gfx_number, void *obj_data){
 	PA_UpdateGfx(0, gfx_number, obj_data);
@@ -382,10 +382,10 @@ static inline void PA_DualUpdateGfx(u16 gfx_number, void *obj_data){
 /*! \fn static inline void PA_DualDeleteSprite(u8 obj_number)
     \brief
          \~english Delete a given sprite. If it is the only one to use it's gfx, it'll be deleted too.
-         \~french Effacer un sprite. S'il était le seul à utiliser un gfx, il sera effacé lui aussi
+         \~french Effacer un sprite. S'il Ã©tait le seul Ã  utiliser un gfx, il sera effacÃ© lui aussi
     \~\param obj_number
          \~english Sprite number
-         \~french Numéro du sprite
+         \~french NumÃ©ro du sprite
 */
 static inline void PA_DualDeleteSprite(u8 obj_number){
 	PA_DeleteSprite(0, obj_number);
@@ -401,7 +401,7 @@ static inline void PA_DualDeleteSprite(u8 obj_number){
          \~french Sprite que l'on veut faire tourner
     \~\param rotset
          \~english Rotset you want to give to that sprite (0-31). You can apparently use a rotset for multiple sprites if zoomed/rotated identically...
-         \~french Rotset que l'on veut pour un sprite donné (0-31). On peut a priori utiliser un rotset pour plusieurs sprites, s'ils sont zoomés/tournés pareil...
+         \~french Rotset que l'on veut pour un sprite donnÃ© (0-31). On peut a priori utiliser un rotset pour plusieurs sprites, s'ils sont zoomÃ©s/tournÃ©s pareil...
 */
 static inline void PA_DualSetSpriteRotEnable(u8 sprite, u8 rotset){
 	PA_SetSpriteRotEnable(0, sprite, rotset);
@@ -427,7 +427,7 @@ static inline void PA_DualSetSpriteRotDisable(u8 sprite){
          \~french Faire tourner et zoomer un sprite
     \~\param rotset
          \~english Rotset you want to change. To give a sprite a rotset, use PA_SetSpriteRotEnable...
-         \~french Rotset que l'on veut changer. Pour attribuer un rotset à un sprite, utiliser PA_SetSpriteRotEnable
+         \~french Rotset que l'on veut changer. Pour attribuer un rotset Ã  un sprite, utiliser PA_SetSpriteRotEnable
     \~\param angle
          \~english Angle, between 0 and 512 (not 360, be carefull)
          \~french Angle, entre 0 et 512 (et non 360, attention !)
@@ -454,7 +454,7 @@ static inline void PA_DualSetRotset(u8 rotset, s16 angle, u16 zoomx, u16 zoomy) 
          \~french Faire tourner un sprite sans zoomer. C'est un peu plus rapide que la fonction PA_SetRotset
     \~\param rotset
          \~english Rotset you want to change. To give a sprite a rotset, use PA_SetSpriteRotEnable...
-         \~french Rotset que l'on veut changer. Pour attribuer un rotset à un sprite, utiliser PA_SetSpriteRotEnable
+         \~french Rotset que l'on veut changer. Pour attribuer un rotset Ã  un sprite, utiliser PA_SetSpriteRotEnable
     \~\param angle
          \~english Angle, between 0 and 512 (not 360, be carefull)
          \~french Angle, entre 0 et 512 (et non 360, attention !)
@@ -473,7 +473,7 @@ static inline void PA_DualSetRotsetNoZoom(u8 rotset, s16 angle)   {
          \~french Zoomer un sprite sans le faire tourner. C'est un peu plus rapide que la fonction PA_SetRotset
     \~\param rotset
          \~english Rotset you want to change. To give a sprite a rotset, use PA_SetSpriteRotEnable...
-         \~french Rotset que l'on veut changer. Pour attribuer un rotset à un sprite, utiliser PA_SetSpriteRotEnable
+         \~french Rotset que l'on veut changer. Pour attribuer un rotset Ã  un sprite, utiliser PA_SetSpriteRotEnable
     \~\param zoomx
          \~english Horizontal zoom. 256 is unzoomed, 512 is 2 times smaller, and 128 twice as big... So adjust at will ! :p
          \~french Zoom horizontal. 256 est pas de zoom, 512 2 fois plus petit, et 128 2 fois plus grand... Ajuster au mieux ! :p
@@ -495,10 +495,10 @@ static inline void PA_DualSetRotsetNoAngle(u8 rotset, u16 zoomx, u16 zoomy) {
          \~french Changer la palette d'un sprite
     \~\param obj
          \~english Object number in the sprite system
-         \~french Numéro de l'objet dans le systeme de sprite
+         \~french NumÃ©ro de l'objet dans le systeme de sprite
     \~\param pal
          \~english Palette number (0 - 15)
-         \~french Numéro de la palette (de 0 à 15)
+         \~french NumÃ©ro de la palette (de 0 Ã  15)
 */
 static inline void PA_DualSetSpritePal(u8 obj, u8 pal){
 	PA_SetSpritePal(0, obj, pal);
@@ -508,10 +508,10 @@ static inline void PA_DualSetSpritePal(u8 obj, u8 pal){
 /*! \fn static inline void PA_DualSetSpriteDblsize(u8 obj, u8 dblsize)
     \brief
          \~english Enable or disable double size for a given sprite
-         \~french Activer ou désactiver le mode Doublesize pour un sprite
+         \~french Activer ou dÃ©sactiver le mode Doublesize pour un sprite
     \~\param obj
          \~english Object number in the sprite system
-         \~french Numéro de l'objet dans le systeme de sprite
+         \~french NumÃ©ro de l'objet dans le systeme de sprite
     \~\param dblsize
          \~english 1 to enable doublesize, 0 to disable it...
          \~french 1 pour l'activer, 0 pour l'inactiver
@@ -527,7 +527,7 @@ static inline void PA_DualSetSpriteDblsize(u8 obj, u8 dblsize){
          \~french Changer le mode de couleur du sprite
     \~\param sprite
          \~english Object number in the sprite system
-         \~french Numéro de l'objet dans le systeme de sprite
+         \~french NumÃ©ro de l'objet dans le systeme de sprite
     \~\param n_colors
          \~english 0 for 16 colors, 1 for 256
          \~french 0 pour 16 couleurs, 1 pour 256
@@ -541,10 +541,10 @@ static inline void PA_DualSetSpriteColors(u8 sprite, u8 n_colors){
 /*! \fn static inline void PA_DualSetSpriteMode(u8 sprite, u8 obj_mode)
     \brief
          \~english Set the sprite's mode : 0 for normal, 1 for alpha blending, 2 for window
-         \~french Régler le mode d'un sprite : 0 pour normal, 1 pour transparent, 2 pour fenetre
+         \~french RÃ©gler le mode d'un sprite : 0 pour normal, 1 pour transparent, 2 pour fenetre
     \~\param sprite
          \~english Object number in the sprite system
-         \~french Numéro de l'objet dans le systeme de sprite
+         \~french NumÃ©ro de l'objet dans le systeme de sprite
     \~\param obj_mode
          \~english Object mode : 0 for normal, 1 for alpha blending, 2 for window ; not working yet
          \~french Mode : 0 pour normal, 1 pour transparent, 2 pour fenetre ; ne marche pas encore
@@ -560,10 +560,10 @@ static inline void PA_DualSetSpriteMode(u8 sprite, u8 obj_mode){
          \~french Mettre ou non un sprite en mode mosaic
     \~\param obj
          \~english Object number in the sprite system
-         \~french Numéro de l'objet dans le systeme de sprite
+         \~french NumÃ©ro de l'objet dans le systeme de sprite
     \~\param mosaic
          \~english Set mosaic on (1) or off (0)
-         \~french Mode mosaic activé (1) ou désactivé (0)
+         \~french Mode mosaic activÃ© (1) ou dÃ©sactivÃ© (0)
 */
 static inline void PA_DualSetSpriteMosaic(u8 obj, u8 mosaic){
 	PA_SetSpriteMosaic(0, obj, mosaic);
@@ -576,7 +576,7 @@ static inline void PA_DualSetSpriteMosaic(u8 obj, u8 mosaic){
          \~french Utiliser ou non le flip horizontal pour un sprite
     \~\param obj
          \~english Object number in the sprite system
-         \~french Numéro de l'objet dans le systeme de sprite
+         \~french NumÃ©ro de l'objet dans le systeme de sprite
     \~\param hflip
          \~english Horizontal flip, 1 to enable, 0 to disable...
          \~french Flip horizontal, 1 pour oui, 0 pour non...
@@ -592,7 +592,7 @@ static inline void PA_DualSetSpriteHflip(u8 obj, u8 hflip){
          \~french Utiliser ou non le flip vertical pour un sprite
     \~\param obj
          \~english Object number in the sprite system
-         \~french Numéro de l'objet dans le systeme de sprite
+         \~french NumÃ©ro de l'objet dans le systeme de sprite
     \~\param vflip
          \~english Vertical flip, 1 to enable, 0 to disable...
          \~french Flip vertical, 1 pour oui, 0 pour non...
@@ -605,13 +605,13 @@ static inline void PA_DualSetSpriteVflip(u8 obj, u8 vflip){
 /*! \fn static inline void PA_DualSetSpriteGfx(u8 obj, u16 *gfx)
     \brief
          \~english Change the gfx used by a sprite
-         \~french Modifier les graphismes utilisés par un sprite
+         \~french Modifier les graphismes utilisÃ©s par un sprite
     \~\param obj
          \~english Object number in the sprite system
-         \~french Numéro de l'objet dans le systeme de sprite
+         \~french NumÃ©ro de l'objet dans le systeme de sprite
     \~\param gfx
          \~english Gfx number ; you can get one by using PA_CreateGfx or PA_GetSpriteGfx(obj_number);
-         \~french Numéro du gfx en mémoire ; on peut obtenir un numéro avec PA_CreateGfx ou PA_GetSpriteGfx(obj_number);
+         \~french NumÃ©ro du gfx en mÃ©moire ; on peut obtenir un numÃ©ro avec PA_CreateGfx ou PA_GetSpriteGfx(obj_number);
 */
 static inline void PA_DualSetSpriteGfx(u8 obj, u16 *gfx){
 	PA_SetSpriteGfx(0, obj, gfx[0]);
@@ -621,13 +621,13 @@ static inline void PA_DualSetSpriteGfx(u8 obj, u16 *gfx){
 /*! \fn static inline void PA_DualSetSpritePrio(u8 obj, u8 prio)
     \brief
          \~english Set a sprite's Background priority
-         \~french Régler la priorité d'un sprite par rapport au Bg.
+         \~french RÃ©gler la prioritÃ© d'un sprite par rapport au Bg.
     \~\param obj
          \~english Object number in the sprite system
-         \~french Numéro de l'objet dans le systeme de sprite
+         \~french NumÃ©ro de l'objet dans le systeme de sprite
     \~\param prio
          \~english Sprite priority : 0 is over background 0, 1 over Bg 1, etc... (0-3)
-         \~french Priorité du sprite : 0 est au-dessus du fond 0, 1 au-dessus du 1, etc... (0-3)
+         \~french PrioritÃ© du sprite : 0 est au-dessus du fond 0, 1 au-dessus du 1, etc... (0-3)
 */
 static inline void PA_DualSetSpritePrio(u8 obj, u8 prio){
 	PA_SetSpritePrio(0, obj, prio);
@@ -637,13 +637,13 @@ static inline void PA_DualSetSpritePrio(u8 obj, u8 prio){
 /*! \fn static inline void PA_DualCloneSprite(u8 obj, u8 target)
     \brief
          \~english Clone a sprite. Works only for sprites on the same screen
-         \~french Cloner un sprite. Marche uniquement pour les sprites sur un meme écran
+         \~french Cloner un sprite. Marche uniquement pour les sprites sur un meme Ã©cran
     \~\param obj
          \~english Object number in the sprite system
-         \~french Numéro de l'objet dans le systeme de sprite
+         \~french NumÃ©ro de l'objet dans le systeme de sprite
     \~\param target
          \~english Target sprite to clone
-         \~french Numéro de la cible à cloner
+         \~french NumÃ©ro de la cible Ã  cloner
 */
 static inline void PA_DualCloneSprite(u8 obj, u8 target){
 	PA_CloneSprite(0, obj, target);
@@ -653,10 +653,10 @@ static inline void PA_DualCloneSprite(u8 obj, u8 target){
 /*! \fn static inline void PA_DualSetSpriteAnimEx(u8 sprite, u8 lx, u8 ly, u8 ncolors, s16 animframe)
     \brief
          \~english Set the animation frame for a given sprite. This function is faster than the normal PA_SetSpriteAnim because it doesn't have to lookup the sprite dimensions...
-         \~french Régler l'image du sprite dans l'animation. Cette fonction est plus rapide que PA_SetSpriteAnim parce qu'elle n'a pas à rechercher les dimensions du sprite
+         \~french RÃ©gler l'image du sprite dans l'animation. Cette fonction est plus rapide que PA_SetSpriteAnim parce qu'elle n'a pas Ã  rechercher les dimensions du sprite
     \~\param sprite
          \~english sprite number in the sprite system
-         \~french Numéro du sprite dans le systeme de sprite
+         \~french NumÃ©ro du sprite dans le systeme de sprite
     \~\param lx
          \~english Sprite width (8, 16, 32, 64)
          \~french Largeur du sprite (8, 16, 32, 64)
@@ -678,10 +678,10 @@ static inline void PA_DualSetSpriteAnimEx(u8 sprite, u8 lx, u8 ly, u8 ncolors, s
 /*! \fn static inline void PA_DualSetSpriteAnim(u8 sprite, s16 animframe)
     \brief
          \~english Set the animation frame for a given sprite. Same as PA_SetSpriteAnimEx, but a bit slower and easier to use...
-         \~french Régler l'image du sprite dans l'animation. Identique à PA_SetSpriteAnimEx, mais plus simple à utiliser, par contre plus lent
+         \~french RÃ©gler l'image du sprite dans l'animation. Identique Ã  PA_SetSpriteAnimEx, mais plus simple Ã  utiliser, par contre plus lent
     \~\param sprite
          \~english sprite number in the sprite system
-         \~french Numéro du sprite dans le systeme de sprite	 
+         \~french NumÃ©ro du sprite dans le systeme de sprite	 
     \~\param animframe
          \~english Sprite animation frame (0, 1, 2, etc...)
          \~french Frame de l'animation du sprite (0, 1, 2, etc...)
@@ -696,25 +696,25 @@ static inline void PA_DualSetSpriteAnim(u8 sprite, s16 animframe){
 /*! \fn static inline void PA_DualStartSpriteAnimEx(u8 sprite, s16 firstframe, s16 lastframe, s16 speed, u8 type, s16 ncycles)
     \brief
          \~english Start a sprite animation for DualSprites. Once started, it continues on and on by itself until you stop it !
-         \~french Démarre une animation de sprite pour DualSprites. Une fois démarrée, elle continue tant qu'on ne l'arrête pas !
+         \~french DÃ©marre une animation de sprite pour DualSprites. Une fois dÃ©marrÃ©e, elle continue tant qu'on ne l'arrÃªte pas !
     \~\param sprite
          \~english sprite number in the sprite system
-         \~french Numéro du sprite dans le systeme de sprite	 
+         \~french NumÃ©ro du sprite dans le systeme de sprite	 
     \~\param firstframe
          \~english First frame of the animation sequence, most of the time 0...
-         \~french Premières image de l'animation, généralement 0....
+         \~french PremiÃ¨res image de l'animation, gÃ©nÃ©ralement 0....
     \~\param lastframe
          \~english Last frame to be displayed. When it gets there, it loops back to the first frame
-         \~french Dernière image à afficher. Une fois atteinte, ca retourne à la première
+         \~french DerniÃ¨re image Ã  afficher. Une fois atteinte, ca retourne Ã  la premiÃ¨re
     \~\param speed
          \~english Speed, in frames per second. So speed 1 would mean 1 image per second, so 1 image every game frame
          \~french Vitesse, en frames par seconde (fps). 1 signifie donc 1 image par seconde... 
     \~\param type
          \~english Defines how you want it to loop. ANIM_LOOP (0) for a normal loop, ANIM_UPDOWN (1) for back and forth animation.
-         \~french Défini de quelle manière on veut boucler. ANIM_LOOP (0) pour normal, et ANIM_UPDOWN (1) pour d'avant en arrière
+         \~french DÃ©fini de quelle maniÃ¨re on veut boucler. ANIM_LOOP (0) pour normal, et ANIM_UPDOWN (1) pour d'avant en arriÃ¨re
     \~\param ncycles
          \~english Number of animation cycles before stopping. If using ANIM_UPDOWN, it takes 2 cycles to come back to the original image
-         \~french Nombres de cycles d'animations avant l'arrêt. Si on utilise ANIM_UPDOWN, il faut 2 cycles pour que l'animation revienne à l'image de base
+         \~french Nombres de cycles d'animations avant l'arrÃªt. Si on utilise ANIM_UPDOWN, il faut 2 cycles pour que l'animation revienne Ã  l'image de base
 */
 static inline void PA_DualStartSpriteAnimEx(u8 sprite, s16 firstframe, s16 lastframe, s16 speed, u8 type, s16 ncycles){
 	PA_StartSpriteAnimEx(0, sprite, firstframe, lastframe, speed, type, ncycles);
@@ -724,16 +724,16 @@ static inline void PA_DualStartSpriteAnimEx(u8 sprite, s16 firstframe, s16 lastf
 /*! \fn static inline void PA_DualStartSpriteAnim(u8 sprite, s16 firstframe, s16 lastframe, s16 speed)
     \brief
          \~english Start a sprite animation for DualSprite. Once started, it continues on and on by itself until you stop it !
-         \~french Démarre une animation de sprite pour DualSprite. Une fois démarrée, elle continue tant qu'on ne l'arrête pas !
+         \~french DÃ©marre une animation de sprite pour DualSprite. Une fois dÃ©marrÃ©e, elle continue tant qu'on ne l'arrÃªte pas !
     \~\param sprite
          \~english sprite number in the sprite system
-         \~french Numéro du sprite dans le systeme de sprite	 
+         \~french NumÃ©ro du sprite dans le systeme de sprite	 
     \~\param firstframe
          \~english First frame of the animation sequence, most of the time 0...
-         \~french Premières image de l'animation, généralement 0....
+         \~french PremiÃ¨res image de l'animation, gÃ©nÃ©ralement 0....
     \~\param lastframe
          \~english Last frame to be displayed. When it gets there, it loops back to the first frame
-         \~french Dernière image à afficher. Une fois atteinte, ca retourne à la première
+         \~french DerniÃ¨re image Ã  afficher. Une fois atteinte, ca retourne Ã  la premiÃ¨re
     \~\param speed
          \~english Speed, in frames per second. So speed 1 would mean 1 image per second, so 1 image every game frame
          \~french Vitesse, en frames par seconde (fps). 1 signifie donc 1 image par seconde... 
@@ -746,10 +746,10 @@ static inline void PA_DualStartSpriteAnim(u8 sprite, s16 firstframe, s16 lastfra
 /*! \fn static inline void PA_DualStopSpriteAnim(u8 sprite)
     \brief
          \~english Stop a sprite animation for DualSprites
-         \~french Arrêter une animation de sprite pour les DualSprites
+         \~french ArrÃªter une animation de sprite pour les DualSprites
     \~\param sprite
          \~english sprite number in the sprite system
-         \~french Numéro du sprite dans le systeme de sprite	
+         \~french NumÃ©ro du sprite dans le systeme de sprite	
 */
 static inline void PA_DualStopSpriteAnim(u8 sprite){
 	PA_StopSpriteAnim(0, sprite);
@@ -759,13 +759,13 @@ static inline void PA_DualStopSpriteAnim(u8 sprite){
 /*! \fn static inline void PA_DualSetSpriteAnimFrame(u8 sprite, u16 frame)
     \brief
          \~english Set the current animation frame number for DualSprites
-         \~french Changer le numéro actuel de la frame d'animation pour les DualSprites
+         \~french Changer le numÃ©ro actuel de la frame d'animation pour les DualSprites
     \~\param sprite
          \~english sprite number in the sprite system
-         \~french Numéro du sprite dans le systeme de sprite	
+         \~french NumÃ©ro du sprite dans le systeme de sprite	
     \~\param frame
          \~english Frame number to use...
-         \~french Numéro de frame...	 
+         \~french NumÃ©ro de frame...	 
 */
 static inline void PA_DualSetSpriteAnimFrame(u8 sprite, u16 frame){
 	PA_SetSpriteAnimFrame(0, sprite, frame);
@@ -775,10 +775,10 @@ static inline void PA_DualSetSpriteAnimFrame(u8 sprite, u16 frame){
 /*! \fn static inline u16 PA_DualGetSpriteAnimFrame(u8 sprite)
     \brief
          \~english Returns the current animation frame number for DualSprites
-         \~french Renvoie le numéro actuel de la frame d'animation pour les DualSprites
+         \~french Renvoie le numÃ©ro actuel de la frame d'animation pour les DualSprites
     \~\param sprite
          \~english sprite number in the sprite system
-         \~french Numéro du sprite dans le systeme de sprite	 
+         \~french NumÃ©ro du sprite dans le systeme de sprite	 
 */
 static inline u16 PA_DualGetSpriteAnimFrame(u8 sprite){
 	return spriteanims[0][sprite].currentframe;
@@ -790,7 +790,7 @@ static inline u16 PA_DualGetSpriteAnimFrame(u8 sprite){
          \~french Changer la vitesse de l'animation pour les DualSprites
     \~\param sprite
          \~english sprite number in the sprite system
-         \~french Numéro du sprite dans le systeme de sprite	
+         \~french NumÃ©ro du sprite dans le systeme de sprite	
     \~\param speed
          \~english Speed, in fps...
          \~french Vitesse, en fps...		 
@@ -806,7 +806,7 @@ static inline void PA_DualSetSpriteAnimSpeed(u8 sprite, s16 speed){
          \~french Renvoie la vitesse de l'animation pour les DualSprites
     \~\param sprite
          \~english sprite number in the sprite system
-         \~french Numéro du sprite dans le systeme de sprite	
+         \~french NumÃ©ro du sprite dans le systeme de sprite	
 */
 static inline u16 PA_DualGetSpriteAnimSpeed(u8 sprite){
 	return spriteanims[0][sprite].speed;
@@ -818,7 +818,7 @@ static inline u16 PA_DualGetSpriteAnimSpeed(u8 sprite){
          \~french Mettre en Pause en remettre en lecture une animation de sprite pour les DualSprites
     \~\param sprite
          \~english sprite number in the sprite system
-         \~french Numéro du sprite dans le systeme de sprite	
+         \~french NumÃ©ro du sprite dans le systeme de sprite	
      \~\param pause
          \~english 1 for pause, 0 for unpause
          \~french 1 pour pause, 0 pour reprendre la lecture...

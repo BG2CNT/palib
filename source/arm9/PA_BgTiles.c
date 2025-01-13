@@ -2,7 +2,7 @@
 
 PA_BgInfos PA_BgInfo[2][4];
 
-// QuantitÈ de donnÈes ‡ charger en fonction de la taille de la map...
+// Quantit√© de donn√©es √† charger en fonction de la taille de la map...
 u16  bg_sizes[4] = {1024, 2048, 2048, 4096};
 u8  bg_place[4] = {1, 2, 2, 4};
 
@@ -10,10 +10,10 @@ u8  bg_place[4] = {1, 2, 2, 4};
 s32  PA_parallaxX[2][4];
 s32  PA_parallaxY[2][4];
 
-scrollpositions  scrollpos[2][4]; // Pour chaque Ècran et pour chaque fond :)
+scrollpositions  scrollpos[2][4]; // Pour chaque √©cran et pour chaque fond :)
 
-u8  charblocks[2][70];  // On met ‡ 0 les emplacements libres... pour chaque Ècran...
-//u8  tilesetchar[2][4];  // Emplacement mÈmoire de chaque tileset
+u8  charblocks[2][70];  // On met √† 0 les emplacements libres... pour chaque √©cran...
+//u8  tilesetchar[2][4];  // Emplacement m√©moire de chaque tileset
 u16 tempsize;
 
 extern u16 *PA_DrawBg[2]; // Fond dessinable
@@ -31,11 +31,11 @@ void PA_ResetBgSysScreen(u8 screen) {
 	for (i = 0; i < 64; i++)
 		charblocks[screen][i] = 0;
 
-	// Emplacements pris ‡ la suite, faut pas dÈborder...
+	// Emplacements pris √† la suite, faut pas d√©border...
 	for (i = 64; i < 70; i++)
 		charblocks[screen][i] = 1;
 
-	charsetstart[screen] = 8; // Par dÈfaut ‡ 8, pour dire de tout utiliser
+	charsetstart[screen] = 8; // Par d√©faut √† 8, pour dire de tout utiliser
 }
 
 void PA_ResetBgSys(void) {
@@ -45,7 +45,7 @@ void PA_ResetBgSys(void) {
 
 void PA_LoadBgTilesEx(u8 screen, u8 bg_select, void* bg_tiles, u32 size) {
 	u32 blocksize = (size + 1023) >> 10;
-	s8 charset = charsetstart[screen]; // On commence par le dernier... soit le 8Ëme, et on ira vers le bas
+	s8 charset = charsetstart[screen]; // On commence par le dernier... soit le 8√®me, et on ira vers le bas
 	u8 charsetok = 0;
 	u8 i;
 	u8 tempsize;
@@ -63,7 +63,7 @@ void PA_LoadBgTilesEx(u8 screen, u8 bg_select, void* bg_tiles, u32 size) {
 			}
 		}
 
-		charsetok = !tempsize;  // Si on a trouvÈ suffisament de blocs, on peut continuer
+		charsetok = !tempsize;  // Si on a trouv√© suffisament de blocs, on peut continuer
 	}
 
 	if (!charsetok) {
@@ -80,12 +80,12 @@ void PA_LoadBgTilesEx(u8 screen, u8 bg_select, void* bg_tiles, u32 size) {
 		    "         number of tiles of your\n"
 		    "backgrounds to fix this problem.\n"
 		    "\n"
-		    "   DÈsolÈ, mais l‡ il n'y a plus\n"
+		    "   D√©sol√©, mais l√† il n'y a plus\n"
 		    "  assez de VRAM pour charger ton\n"
-		    " arriËre-plans ! Tu dois rÈduire\n"
+		    " arri√®re-plans ! Tu dois r√©duire\n"
 		    "       le nombre de tiles de ton\n"
-		    "  arriËre-plans pour corriger ce\n"
-		    "                       problËme."
+		    "  arri√®re-plans pour corriger ce\n"
+		    "                       probl√®me."
 		);
 		PA_InitText(0, 0);
 
@@ -103,15 +103,15 @@ void PA_LoadBgTilesEx(u8 screen, u8 bg_select, void* bg_tiles, u32 size) {
 		for (;;) swiWaitForVBlank();
 	}
 
-	PA_BgInfo[screen][bg_select].TileSetChar = charset; // On place les tiles ‡ un endroit prÈcis...
-	PA_BgInfo[screen][bg_select].tilesetsize = size;    // On mÈmorise aussi la taille que ca fait pour pouvoir effacer plus tard...
+	PA_BgInfo[screen][bg_select].TileSetChar = charset; // On place les tiles √† un endroit pr√©cis...
+	PA_BgInfo[screen][bg_select].tilesetsize = size;    // On m√©morise aussi la taille que ca fait pour pouvoir effacer plus tard...
 	DC_FlushRange((void*)CharBaseBlock(screen, charset), size * 2);
 	dmaCopy(bg_tiles, (void*)CharBaseBlock(screen, charset), size * 2);
 	// Save tiles pointer and position in VRAM
 	PA_BgInfo[screen][bg_select].Tiles = bg_tiles;
 	PA_BgInfo[screen][bg_select].TilePos = (u32*)CharBaseBlock(screen, PA_BgInfo[screen][bg_select].TileSetChar); // used for tile swapping
 
-	for (i = 0; i < blocksize; i++) charblocks[screen][(charset << 3) + i] = 1;  // Les blocs sont occupÈs
+	for (i = 0; i < blocksize; i++) charblocks[screen][(charset << 3) + i] = 1;  // Les blocs sont occup√©s
 }
 
 
@@ -143,20 +143,20 @@ void PA_LoadBgMap(u8 screen, u8 bg_select, void* bg_map, u8 bg_size) {
 			}
 		}
 
-		charsetok = !tempsize;  // Si on a trouvÈ suffisament de blocs, on peut continuer
+		charsetok = !tempsize;  // Si on a trouv√© suffisament de blocs, on peut continuer
 	}
 
-	PA_BgInfo[screen][bg_select].mapchar = charset; // On place la map ‡ un endroit prÈcis...
+	PA_BgInfo[screen][bg_select].mapchar = charset; // On place la map √† un endroit pr√©cis...
 	PA_BgInfo[screen][bg_select].mapsize = blocksize;
 
 	DC_FlushRange(bg_map, bg_sizes[bg_size] * 2);
 	dmaCopy(bg_map, (void*)ScreenBaseBlock(screen, charset), bg_sizes[bg_size] * 2);
 
-	for (i = 0; i < blocksize; i++) charblocks[screen][charset + i] = 1;  // Les blocs sont occupÈs
+	for (i = 0; i < blocksize; i++) charblocks[screen][charset + i] = 1;  // Les blocs sont occup√©s
 }
 
 void PA_InitBg(u8 screen, u8 bg_select, u8 bg_size, u8 wraparound, u8 color_mode) {
-	scrollpos[screen][bg_select].infscroll = 0; // Par dÈfaut pas de scrolling infini...
+	scrollpos[screen][bg_select].infscroll = 0; // Par d√©faut pas de scrolling infini...
 	PA_BgInfo[screen][bg_select].Map = ScreenBaseBlock(screen, PA_BgInfo[screen][bg_select].mapchar);
 
 	if (!screen) {
@@ -197,10 +197,10 @@ void PA_DeleteMap(u8 screen, u8 bg_select) {
 		u8 i;
 		u8 charset = PA_BgInfo[screen][bg_select].mapchar;
 		u16 blocksize = PA_BgInfo[screen][bg_select].mapsize;
-		// On efface le carte en mÈmoire
+		// On efface le carte en m√©moire
 		dmaFillWords(0, (void*)ScreenBaseBlock(screen, charset), (blocksize << 10)*2);
 
-		// On remet le tableau ‡ 0...
+		// On remet le tableau √† 0...
 		for (i = 0; i < blocksize; i++) {
 			charblocks[screen][charset + i] = 0;
 		}

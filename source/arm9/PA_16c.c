@@ -91,7 +91,7 @@ s16 PA_16cText(u8 screen, s16 basex, s16 basey, s16 maxx, s16 maxy, const char* 
 	
 	PA_DoLetterPos(basex, basey, maxx, maxy, text, color, size, limit);
 	
-	if(limit > PA_LetterPos.NLetters) limit = PA_LetterPos.NLetters; // Plus short que prÈvu
+	if(limit > PA_LetterPos.NLetters) limit = PA_LetterPos.NLetters; // Plus short que pr√©vu
 	
 	for(i = 0; i < limit; i ++)
 		PA_16cLetter(screen, PA_LetterPos.Letter[i].X, PA_LetterPos.Letter[i].Y, PA_LetterPos.Letter[i].Letter, PA_LetterPos.Letter[i].Size, PA_LetterPos.Letter[i].Color);

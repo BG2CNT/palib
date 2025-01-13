@@ -46,16 +46,16 @@ extern void PA_InitFake16bitBg(u8 screen, u8 prio);
          \~french [nothing]
     \~\param x1
          \~english X position of the first point. Be carefull, if X is not between 0 and 255, it'll give unwanted results
-         \~french Position X du premier point. Attention, si X n'est pas compris entre 0 et 255, le résultat ne sera pas celui escompté
+         \~french Position X du premier point. Attention, si X n'est pas compris entre 0 et 255, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param y1
          \~english Y position of the first point. Be carefull, if Y is not between 0 and 191, it'll give unwanted results
-         \~french Position Y du premier point. Attention, si Y n'est pas compris entre 0 et 191, le résultat ne sera pas celui escompté
+         \~french Position Y du premier point. Attention, si Y n'est pas compris entre 0 et 191, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param x2
          \~english X position of the second point. Be carefull, if X is not between 0 and 255, it'll give unwanted results
-         \~french Position X du deuxième point. Attention, si X n'est pas compris entre 0 et 255, le résultat ne sera pas celui escompté
+         \~french Position X du deuxiÃ¨me point. Attention, si X n'est pas compris entre 0 et 255, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param y2
          \~english Y position of the second point. Be carefull, if Y is not between 0 and 191, it'll give unwanted results
-         \~french Position Y du deuxième point. Attention, si Y n'est pas compris entre 0 et 191, le résultat ne sera pas celui escompté
+         \~french Position Y du deuxiÃ¨me point. Attention, si Y n'est pas compris entre 0 et 191, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param color
          \~english 15 bits color. You can use the PA_RGB macro to set the RGB values...
          \~french Couleur de 15 bits.On peut utiliser la macro PA_RGB pour entrer les valeurs RGB...
@@ -97,10 +97,10 @@ extern void PA_DrawFake16bitLine(u8 screen, u16 x1, u16 y1, u16 x2, u16 y2, u16 
          \~french [nothing]
     \~\param x
          \~english X position of the point. Be carefull, if X is not between 0 and 255, it'll give unwanted results
-         \~french Position X du point. Attention, si X n'est pas compris entre 0 et 255, le résultat ne sera pas celui escompté
+         \~french Position X du point. Attention, si X n'est pas compris entre 0 et 255, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param y
          \~english Y position of the point. Be carefull, if Y is not between 0 and 191, it'll give unwanted results
-         \~french Position Y du point. Attention, si Y n'est pas compris entre 0 et 191, le résultat ne sera pas celui escompté
+         \~french Position Y du point. Attention, si Y n'est pas compris entre 0 et 191, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param color
          \~english 15 bits color. You can use the PA_RGB macro to set the RGB values...
          \~french Couleur de 15 bits.On peut utiliser la macro PA_RGB pour entrer les valeurs RGB...
@@ -116,10 +116,10 @@ extern void PA_DrawFake16bitLine(u8 screen, u16 x1, u16 y1, u16 x2, u16 y2, u16 
          \~french [nothing]
     \~\param x
          \~english X position of the point. Be carefull, if X is not between 0 and 255, it'll give unwanted results
-         \~french Position X du point. Attention, si X n'est pas compris entre 0 et 255, le résultat ne sera pas celui escompté
+         \~french Position X du point. Attention, si X n'est pas compris entre 0 et 255, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param y
          \~english Y position of the point. Be carefull, if Y is not between 0 and 191, it'll give unwanted results
-         \~french Position Y du point. Attention, si Y n'est pas compris entre 0 et 191, le résultat ne sera pas celui escompté
+         \~french Position Y du point. Attention, si Y n'est pas compris entre 0 et 191, le rÃ©sultat ne sera pas celui escomptÃ©
 */
 #define PA_GetFake16bitPixel(screen, x, y) PA_DrawFake16[screen][(x) + 256 * (y)]
 
@@ -132,16 +132,16 @@ extern void PA_DrawFake16bitLine(u8 screen, u16 x1, u16 y1, u16 x2, u16 y2, u16 
          \~french [nothing]
     \~\param x1
          \~english X position of the first point. Be carefull, if X is not between 0 and 255, it'll give unwanted results
-         \~french Position X du premier point. Attention, si X n'est pas compris entre 0 et 255, le résultat ne sera pas celui escompté
+         \~french Position X du premier point. Attention, si X n'est pas compris entre 0 et 255, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param y1
          \~english Y position of the first point. Be carefull, if Y is not between 0 and 191, it'll give unwanted results
-         \~french Position Y du premier point. Attention, si Y n'est pas compris entre 0 et 191, le résultat ne sera pas celui escompté
+         \~french Position Y du premier point. Attention, si Y n'est pas compris entre 0 et 191, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param x2
          \~english X position of the second point. Be carefull, if X is not between 0 and 255, it'll give unwanted results
-         \~french Position X du deuxième point. Attention, si X n'est pas compris entre 0 et 255, le résultat ne sera pas celui escompté
+         \~french Position X du deuxiÃ¨me point. Attention, si X n'est pas compris entre 0 et 255, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param y2
          \~english Y position of the second point. Be carefull, if Y is not between 0 and 191, it'll give unwanted results
-         \~french Position Y du deuxième point. Attention, si Y n'est pas compris entre 0 et 191, le résultat ne sera pas celui escompté
+         \~french Position Y du deuxiÃ¨me point. Attention, si Y n'est pas compris entre 0 et 191, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param color
          \~english 15 bits color. You can use the PA_RGB macro to set the RGB values...
          \~french Couleur de 15 bits.On peut utiliser la macro PA_RGB pour entrer les valeurs RGB...
@@ -158,13 +158,13 @@ extern void PA_DrawFake16bitLine(u8 screen, u16 x1, u16 y1, u16 x2, u16 y2, u16 
          \~french [nothing]
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)	
+         \~french Choix de l'Ã©cran (0 ou 1)	
     \~\param x
          \~english X position of the top left corner
-         \~french Position X du coin supérieur gauche	
+         \~french Position X du coin supÃ©rieur gauche	
     \~\param y
          \~english Y position of the top left corner
-         \~french Position Y du coin supérieur gauche		 
+         \~french Position Y du coin supÃ©rieur gauche		 
     \~\param bmp
          \~english BMP image...
          \~french image au format BMP...	 
@@ -177,7 +177,7 @@ extern void PA_DrawFake16bitLine(u8 screen, u16 x1, u16 y1, u16 x2, u16 y2, u16 
          \~french [nothing]
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)		 
+         \~french Choix de l'Ã©cran (0 ou 1)		 
     \~\param bmp
          \~english BMP image...
          \~french image au format BMP...	 
@@ -190,13 +190,13 @@ extern void PA_DrawFake16bitLine(u8 screen, u16 x1, u16 y1, u16 x2, u16 y2, u16 
          \~french [nothing]
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)	
+         \~french Choix de l'Ã©cran (0 ou 1)	
     \~\param x
          \~english X position on the screen
-         \~french Position X à l'écran
+         \~french Position X Ã  l'Ã©cran
     \~\param y
          \~english Y position on the screen
-         \~french Position Y à l'écran	 
+         \~french Position Y Ã  l'Ã©cran	 
     \~\param gif
          \~english Gif image...
          \~french image au format Gif...	 
@@ -209,7 +209,7 @@ extern void PA_DrawFake16bitLine(u8 screen, u16 x1, u16 y1, u16 x2, u16 y2, u16 
          \~french [nothing]
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)		 
+         \~french Choix de l'Ã©cran (0 ou 1)		 
     \~\param gif
          \~english Gif image...
          \~french image au format Gif...	 
@@ -222,7 +222,7 @@ extern void PA_DrawFake16bitLine(u8 screen, u16 x1, u16 y1, u16 x2, u16 y2, u16 
          \~french [nothing]
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)	
+         \~french Choix de l'Ã©cran (0 ou 1)	
     \~\param jpeg
          \~english jpeg image...
          \~french image au format jpeg...	 

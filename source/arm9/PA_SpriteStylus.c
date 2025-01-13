@@ -28,7 +28,7 @@ u8 PA_MoveSpriteEx(u8 screen, u8 sprite, u8 lx, u8 ly) {
 			}
 		}
 
-		if (PA_MovedSprite.Moving && (PA_MovedSprite.Sprite == sprite)) { // Si on peut le déplacer...
+		if (PA_MovedSprite.Moving && (PA_MovedSprite.Sprite == sprite)) { // Si on peut le dÃ©placer...
 			PA_MovedSprite.Vx = PA_MovedSprite.NextVx;
 			PA_MovedSprite.Vy = PA_MovedSprite.NextVy;
 			PA_MovedSprite.NextVx = Stylus.X - PA_MovedSprite.X;
@@ -37,7 +37,7 @@ u8 PA_MoveSpriteEx(u8 screen, u8 sprite, u8 lx, u8 ly) {
 			PA_MovedSprite.Y = Stylus.Y;
 			PA_SetSpriteXY(screen, sprite, Stylus.X - truelx, Stylus.Y - truely);
 			PA_MovedSprite.Time = 0; //Si on passe 2 vbl sans le bouger, on changera de cible
-			return(1); // On a bougé...
+			return(1); // On a bougÃ©...
 		}
 	}
 
@@ -62,7 +62,7 @@ u8 PA_MoveSpritePix(u8 sprite) {
 
 				if (PA_MovedSprite.Y >= 220) PA_MovedSprite.Y -= 256; // normalize the y coordinate...
 			}
-		} else if ((!Stylus.Newpress) && PA_MovedSprite.Moving && (PA_MovedSprite.Sprite == sprite)) { // Si on peut le déplacer...
+		} else if ((!Stylus.Newpress) && PA_MovedSprite.Moving && (PA_MovedSprite.Sprite == sprite)) { // Si on peut le dÃ©placer...
 			PA_MovedSprite.Vx = PA_MovedSprite.NextVx;
 			PA_MovedSprite.Vy = PA_MovedSprite.NextVy;
 			PA_MovedSprite.NextVx = Stylus.Vx;
@@ -71,7 +71,7 @@ u8 PA_MoveSpritePix(u8 sprite) {
 			PA_MovedSprite.Y += Stylus.Vy;
 			PA_SetSpriteXY(PA_Screen, sprite, PA_MovedSprite.X, PA_MovedSprite.Y);
 			PA_MovedSprite.Time = 0; //Si on passe 2 vbl sans le bouger, on changera de cible
-			return(1); // On a bougé...
+			return(1); // On a bougÃ©...
 		}
 	}
 

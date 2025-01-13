@@ -31,33 +31,33 @@
 /*! \def PA_EnableBgMosaic(screen, bg)
     \brief
          \~english Enable the mosaic effect for a given background
-         \~french Activer l'effet de mosaic pour un fond donné
+         \~french Activer l'effet de mosaic pour un fond donnÃ©
     \~\param screen
          \~english Background screen (0 or 1)
          \~french Ecran du bg (0 ou 1)
     \~\param bg
          \~english Background number
-         \~french Numéro du fond
+         \~french NumÃ©ro du fond
 */
 #define PA_EnableBgMosaic(screen, bg) _REG16(REG_BGCNT(screen, bg)) |= (1 << 6)
 
 /*! \def PA_DisableBgMosaic(screen, bg)
     \brief
          \~english Disable the mosaic effect for a given background
-         \~french Désactiver l'effet de mosaic pour un fond donné
+         \~french DÃ©sactiver l'effet de mosaic pour un fond donnÃ©
     \~\param screen
          \~english Background screen (0 or 1)
          \~french Ecran du bg (0 ou 1)
     \~\param bg
          \~english Background number
-         \~french Numéro du fond
+         \~french NumÃ©ro du fond
 */
 #define PA_DisableBgMosaic(screen, bg) _REG16(REG_BGCNT(screen, bg)) &= ~(1 << 6)
 
 /*! \def PA_SetBgMosaicXY(screen, h_size, v_size)
     \brief
          \~english Set the Mosaic parameters for the backgrounds
-         \~french Régler les paramètres de la mosaic pour les fonds
+         \~french RÃ©gler les paramÃ¨tres de la mosaic pour les fonds
     \~\param screen
          \~english Screen...
          \~french Ecran...
@@ -74,7 +74,7 @@
 /*! \def PA_SetSpriteMosaicXY(screen, h_size, v_size)
     \brief
          \~english Set the Mosaic parameters for the sprites
-         \~french Régler les paramètres de la mosaic pour les sprites
+         \~french RÃ©gler les paramÃ¨tres de la mosaic pour les sprites
     \~\param screen
          \~english Screen...
          \~french Ecran...
@@ -96,20 +96,20 @@
          \~french Ecran...
 	\~\param EffectType
          \~english Effect Type. 0 for non, 1 for alpha-blending, 2 for brightness increase, and 3 for brightness decrease. You can use the macros SFX_NONE, SFX_ALPHA, SFX_BRIGHTINC, SFX_BRIGHTDEC
-         \~french Type d'effet. 0 pour aucun, 1 pour transparence, 2 pour augmentation de la luminosité, et 3 pour diminution de celle-ci... On peut utiliser les macors SFX_NONE, SFX_ALPHA, SFX_BRIGHTINC, SFX_BRIGHTDEC
+         \~french Type d'effet. 0 pour aucun, 1 pour transparence, 2 pour augmentation de la luminositÃ©, et 3 pour diminution de celle-ci... On peut utiliser les macors SFX_NONE, SFX_ALPHA, SFX_BRIGHTINC, SFX_BRIGHTDEC
     \~\param FirstTarget
          \~english Backgrounds and sprites for which to activate the effect. Use the following macro : SFX_BG0 | SFX_BG1 | SFX_BG2 | SFX_BG3 | SFX_OBJ | SFX_BD (back drop)
-         \~french Fond et sprites à afficher aevc l'effet spécial, que l'on choisi de la facon suivante : SFX_BG0 | SFX_BG1 | SFX_BG2 | SFX_BG3 | SFX_OBJ | SFX_BD (back drop)
+         \~french Fond et sprites Ã  afficher aevc l'effet spÃ©cial, que l'on choisi de la facon suivante : SFX_BG0 | SFX_BG1 | SFX_BG2 | SFX_BG3 | SFX_OBJ | SFX_BD (back drop)
     \~\param SecondTarget
          \~english Backgrounds and sprites to be seen behind the alpha-blending. Use the following macro : SFX_BG0 | SFX_BG1 | SFX_BG2 | SFX_BG3 | SFX_OBJ | SFX_BD (back drop)
-         \~french Fond et sprites à afficher derrière la transparence, que l'on choisi de la facon suivante : SFX_BG0 | SFX_BG1 | SFX_BG2 | SFX_BG3 | SFX_OBJ | SFX_BD (back drop)
+         \~french Fond et sprites Ã  afficher derriÃ¨re la transparence, que l'on choisi de la facon suivante : SFX_BG0 | SFX_BG1 | SFX_BG2 | SFX_BG3 | SFX_OBJ | SFX_BD (back drop)
 */
 #define PA_EnableSpecialFx(screen, EffectType, FirstTarget, SecondTarget) PA_REG_BLDCNT(screen) = ((FirstTarget) + ((SecondTarget) << 8) + ((EffectType) << 6))
 
 /*! \def PA_DisableSpecialFx(screen)
     \brief
          \~english Disable Special Effects
-         \~french Désactiver les Effets Speciaux 
+         \~french DÃ©sactiver les Effets Speciaux 
 	\~\param screen
          \~english Screen...
          \~french Ecran...
@@ -119,16 +119,16 @@
 /*! \def PA_SetSFXAlpha(screen, Coeff1, Coeff2)
     \brief
          \~english Set the special effect parameters for Alpha-Blending
-         \~french Régler les paramètres pour l'Alpha-Blending
+         \~french RÃ©gler les paramÃ¨tres pour l'Alpha-Blending
 	\~\param screen
          \~english Screen...
          \~french Ecran...
 	\~\param Coeff1
          \~english Coefficient for the first layer, from 0 to 31. Apparently, it's better to set between 0 and 16
-         \~french Coefficient pour la première couche, de 0 à 31. A priori vaut mieux le mettre entre 0 et 16
+         \~french Coefficient pour la premiÃ¨re couche, de 0 Ã  31. A priori vaut mieux le mettre entre 0 et 16
 	\~\param Coeff2
          \~english Coefficient for the second layer, from 0 to 31. Apparently, it's better to set between 0 and 16
-         \~french Coefficient pour la deuxième couche, de 0 à 31. A priori vaut mieux le mettre entre 0 et 16
+         \~french Coefficient pour la deuxiÃ¨me couche, de 0 Ã  31. A priori vaut mieux le mettre entre 0 et 16
 */
 #define PA_SetSFXAlpha(screen, Coeff1, Coeff2) PA_REG_BLDALPHA(screen) = (Coeff1) + ((Coeff2) << 8)
 

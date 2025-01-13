@@ -18,7 +18,7 @@ extern "C"{
 /*! \fn bool PA_IsEmulator()
     \brief
          \~english Detects if the program is running on an emulator
-         \~french Détecte si le programme est exécuté sur un émulateur
+         \~french DÃ©tecte si le programme est exÃ©cutÃ© sur un Ã©mulateur
 */
 
 bool PA_IsEmulator();
@@ -26,7 +26,7 @@ bool PA_IsEmulator();
 /*! \fn void PA_iDeaS_DebugOutput(const char* str)
     \brief
          \~english Outputs text to the iDeaS debugging console
-         \~french Sorties de texte à la iDeaS debugging console
+         \~french Sorties de texte Ã  la iDeaS debugging console
     \~\param str
          \~english The text to output
          \~french Le texte
@@ -41,7 +41,7 @@ void PA_iDeaS_DebugOutput(const char* str);
 /*! \fn void PA_iDeaS_DebugPrintf(const char* str, ...)
     \brief
          \~english Outputs formatted text to the iDeaS debugging console
-         \~french Sorties de texte formaté à la iDeaS debugging console
+         \~french Sorties de texte formatÃ© Ã  la iDeaS debugging console
     \~\param str
          \~english The text to output
          \~french Le texte

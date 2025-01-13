@@ -23,13 +23,13 @@ void PA_LoadRotBgMap(u8 screen, u8 bg_select, void* bg_map, u8 bg_size) {
 			}
 		}
 
-		charsetok = !tempsize;  // Si on a trouvé suffisament de blocs, on peut continuer
+		charsetok = !tempsize;  // Si on a trouvÃ© suffisament de blocs, on peut continuer
 	}
 
-	PA_BgInfo[screen][bg_select].mapchar = charset; // On place la map à un endroit précis...
+	PA_BgInfo[screen][bg_select].mapchar = charset; // On place la map Ã  un endroit prÃ©cis...
 	PA_BgInfo[screen][bg_select].mapsize = blocksize;
 	DC_FlushRange(bg_map, rotbg_sizes[bg_size] * 2);
 	dmaCopy(bg_map, (void*)ScreenBaseBlock(screen, charset), rotbg_sizes[bg_size] * 2);
 
-	for (i = 0; i < blocksize; i++) charblocks[screen][charset + i] = 1;  // Les blocs sont occupés
+	for (i = 0; i < blocksize; i++) charblocks[screen][charset + i] = 1;  // Les blocs sont occupÃ©s
 }

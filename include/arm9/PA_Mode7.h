@@ -74,10 +74,10 @@ extern s16 mode7_distance;
 /*! \fn void PA_InitMode7(u8 bg_select)
     \brief
          \~english Initialize Mode 7 for a given background. You MUST be in video mode 1 or 2
-         \~french Initialise le Mode 7 pour un fond donné. Vous devez etre en mode 1 ou 2 impérativement !
+         \~french Initialise le Mode 7 pour un fond donnÃ©. Vous devez etre en mode 1 ou 2 impÃ©rativement !
     \~\param bg_select
          \~english Bg number, 2 in mode 1, 2 or 3 in mode 2
-         \~french Numéro du fond. 2 en mode 1, 2 ou 3 en mode 2
+         \~french NumÃ©ro du fond. 2 en mode 1, 2 ou 3 en mode 2
 */
 void PA_InitMode7(u8 bg_select);
 
@@ -94,10 +94,10 @@ static inline void PA_DeInitMode7(){
 /*! \fn static inline void PA_Mode7Angle(s16 angle)
     \brief
          \~english Define the current angle.
-         \~french Définir l'angle
+         \~french DÃ©finir l'angle
     \~\param angle
          \~english The angle ranges from 0 to 511...
-         \~french L'angle, qui va de 0 à 511...
+         \~french L'angle, qui va de 0 Ã  511...
 
 */
 static inline void PA_Mode7Angle(s16 angle){
@@ -111,10 +111,10 @@ static inline void PA_Mode7Angle(s16 angle){
 /*! \fn static inline void PA_Mode7MoveLeftRight(s16 x_deplac)
     \brief
          \~english Move lateraly, so left or right...
-         \~french Se déplacer latéralement
+         \~french Se dÃ©placer latÃ©ralement
     \~\param x_deplac
          \~english Number of pixels to move left or right
-         \~french De combien de pixels se déplacer à gauche ou à droite
+         \~french De combien de pixels se dÃ©placer Ã  gauche ou Ã  droite
 
 */
 static inline void PA_Mode7MoveLeftRight(s16 x_deplac){
@@ -126,10 +126,10 @@ static inline void PA_Mode7MoveLeftRight(s16 x_deplac){
 /*! \fn static inline void PA_Mode7MoveForwardBack(s16 z_deplac)
     \brief
          \~english Move forward or backwards
-         \~french Se déplacer latéralement
+         \~french Se dÃ©placer latÃ©ralement
     \~\param z_deplac
          \~english Number of pixels to move forward or backwards
-         \~french De combien se déplacer en avant ou en arrière
+         \~french De combien se dÃ©placer en avant ou en arriÃ¨re
 
 */
 static inline void PA_Mode7MoveForwardBack(s16 z_deplac){
@@ -142,7 +142,7 @@ static inline void PA_Mode7MoveForwardBack(s16 z_deplac){
 /*! \fn static inline void PA_Mode7X(s16 mode7x)
     \brief
          \~english Move to a given point on the map
-         \~french Se déplacer en un point donné de la carte
+         \~french Se dÃ©placer en un point donnÃ© de la carte
     \~\param mode7x
          \~english X position on the map
          \~french Position X sur la carte
@@ -156,7 +156,7 @@ static inline void PA_Mode7X(s16 mode7x){
 /*! \fn static inline void PA_Mode7Z(s16 mode7z)
     \brief
          \~english Move to a given point on the map
-         \~french Se déplacer en un point donné de la carte
+         \~french Se dÃ©placer en un point donnÃ© de la carte
     \~\param mode7z
          \~english Z position on the map
          \~french Position Z sur la carte
@@ -169,7 +169,7 @@ static inline void PA_Mode7Z(s16 mode7z){
 /*! \fn static inline void PA_Mode7SetPointXZ(s16 mode7x, s16 mode7z)
     \brief
          \~english Move to a given point on the map (of coordinates x, z)
-         \~french Se déplacer en un point donné de la carte (de coordonnées x, z)
+         \~french Se dÃ©placer en un point donnÃ© de la carte (de coordonnÃ©es x, z)
     \~\param mode7x
          \~english X position on the map
          \~french Position X sur la carte
@@ -186,10 +186,10 @@ static inline void PA_Mode7SetPointXZ(s16 mode7x, s16 mode7z){
 /*! \fn static inline void PA_Mode7Height(s16 mode7y)
     \brief
          \~english Set the camera height.
-         \~french Régler la hauteur de la caméra
+         \~french RÃ©gler la hauteur de la camÃ©ra
     \~\param mode7y
          \~english Camera Height. By default, 8192. You can set this from 0 to 40 000 (or even more, but then it gets a little small...
-         \~french Hauteur... Par défaut, elle est de 8192. On peut la mettre de 0 à 40 000 (ou beaucoup plus, mais après ca commence à faire petit...
+         \~french Hauteur... Par dÃ©faut, elle est de 8192. On peut la mettre de 0 Ã  40 000 (ou beaucoup plus, mais aprÃ¨s ca commence Ã  faire petit...
 
 */
 static inline void PA_Mode7Height(s16 mode7y){

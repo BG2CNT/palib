@@ -44,10 +44,10 @@ void PA_LargeScrollYN(u8 screen, u8 bg_select, s32 y);
       \~french [DEPRECATED] Charger et initialiser un fond pour le scrolling infini (pour les fonds de plus de 512 pixels de haut ou de large)
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
     \~\param bg_tiles
       \~english Name of the tiles' info (example: ship_Tiles)
       \~french Nom du tableau contenant les tiles (exemple: ship_Tiles)
@@ -80,10 +80,10 @@ void PA_LargeScrollYN(u8 screen, u8 bg_select, s32 y);
       \~french [DEPRECATED] Charger et initialiser un fond pour le scrolling infini (pour les fonds de plus de 512 pixels de haut ou de large), converti avec PAGfx
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_number
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (0-3)
+      \~french NumÃ©ro du fond que l'on veut charger (0-3)
    \~\param  bg_name
        \~english Background name, in PAGfx
       \~french Nom du fond dans PAGfx 
@@ -101,10 +101,10 @@ void PA_LargeScrollYN(u8 screen, u8 bg_select, s32 y);
       \~french [DEPRECATED] Charger et initialiser un fond pour le scrolling infini (pour les fonds de plus de 512 pixels de haut ou de large), mais ici on met soi-meme la taille des tiles
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
     \~\param bg_tiles
       \~english Name of the tiles' info (example: ship_Tiles)
       \~french Nom du tableau contenant les tiles (exemple: ship_Tiles)
@@ -135,16 +135,16 @@ void PA_LargeScrollYN(u8 screen, u8 bg_select, s32 y);
     \fn void PA_InfLargeScrollX(u8 screen, u8 bg_select, s32 x)
     \brief
       \~english Scroll a large infinite scrolling background horizontaly. It must have been initialised with PA_LoadLargeBg.
-      \~french Déplacer un fond à scrolling 'infini' horizontalement. Doit etre initialisé avec PA_LoadLargeBg.
+      \~french DÃ©placer un fond Ã  scrolling 'infini' horizontalement. Doit etre initialisÃ© avec PA_LoadLargeBg.
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
     \~\param x
       \~english X value to scroll
-      \~french Valeur X à déplacer
+      \~french Valeur X Ã  dÃ©placer
 */
 
 static inline void PA_InfLargeScrollX(u8 screen, u8 bg_select, s32 x){ // Autoselect
@@ -157,16 +157,16 @@ static inline void PA_InfLargeScrollX(u8 screen, u8 bg_select, s32 x){ // Autose
     \fn void PA_InfLargeScrollY(u8 screen, u8 bg_select, s32 y)
     \brief
       \~english Scroll a large infinite scrolling background vertically. It must have been initialised with PA_LoadLargeBg.
-      \~french Déplacer un fond à scrolling 'infini' verticalement. Doit etre initialisé avec PA_LoadLargeBg.
+      \~french DÃ©placer un fond Ã  scrolling 'infini' verticalement. Doit etre initialisÃ© avec PA_LoadLargeBg.
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
     \~\param y
       \~english Y value to scroll
-      \~french Valeur Y à déplacer
+      \~french Valeur Y Ã  dÃ©placer
 */
 static inline void PA_InfLargeScrollY(u8 screen, u8 bg_select, s32 y){ // Autoselect
 	if (PA_BgInfo[screen][bg_select].NTiles < MAX_TILES) PA_InfLargeScrollYN(screen, bg_select, y);
@@ -179,19 +179,19 @@ static inline void PA_InfLargeScrollY(u8 screen, u8 bg_select, s32 y){ // Autose
     \fn static inline void PA_InfLargeScrollXY(u8 screen, u8 bg_select, s32 x, s32 y)
     \brief
       \~english Scroll a large infinite scrolling background horizontaly and vertically. It must have been initialised with PA_LoadLargeBg.
-      \~french Déplacer un fond à scrolling 'infini' horizontalement et verticalement. Doit etre initialisé avec PA_LoadLargeBg.
+      \~french DÃ©placer un fond Ã  scrolling 'infini' horizontalement et verticalement. Doit etre initialisÃ© avec PA_LoadLargeBg.
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
     \~\param x
       \~english X value to scroll
-      \~french Valeur X à déplacer
+      \~french Valeur X Ã  dÃ©placer
     \~\param y
       \~english Y value to scroll
-      \~french Valeur Y à déplacer	  
+      \~french Valeur Y Ã  dÃ©placer	  
 */
 static inline void PA_InfLargeScrollXY(u8 screen, u8 bg_select, s32 x, s32 y){
 	PA_InfLargeScrollX(screen, bg_select, x);
@@ -202,16 +202,16 @@ static inline void PA_InfLargeScrollXY(u8 screen, u8 bg_select, s32 x, s32 y){
     \fn void PA_LargeScrollX(u8 screen, u8 bg_select, s32 x)
     \brief
       \~english Scroll a large background horizontaly. It must have been initialised with PA_LoadLargeBg.  This function does not wrap around, but is faster than the InfLargeScroll...
-      \~french Déplacer un grand fond à scrolling horizontalement.Doit etre initialisé avec PA_LoadLargeBg. Cette fonction ne permet pas au fond de 'boucler' sur lui-meme, mais est bien plus rapide que InfLargeScroll...
+      \~french DÃ©placer un grand fond Ã  scrolling horizontalement.Doit etre initialisÃ© avec PA_LoadLargeBg. Cette fonction ne permet pas au fond de 'boucler' sur lui-meme, mais est bien plus rapide que InfLargeScroll...
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
     \~\param x
       \~english X value to scroll
-      \~french Valeur X à déplacer
+      \~french Valeur X Ã  dÃ©placer
 */
 static inline void PA_LargeScrollX(u8 screen, u8 bg_select, s32 x){ // Autoselect
 	if (PA_BgInfo[screen][bg_select].NTiles < MAX_TILES) {
@@ -230,16 +230,16 @@ static inline void PA_LargeScrollX(u8 screen, u8 bg_select, s32 x){ // Autoselec
     \fn void PA_LargeScrollY(u8 screen, u8 bg_select, s32 y)
     \brief
       \~english Scroll a large background vertically. It must have been initialised with PA_LoadLargeBg. This function does not wrap around, but is faster than the InfLargeScroll...
-      \~french Déplacer un grand fond à scrolling verticalement. Doit etre initialisé avec PA_LoadLargeBg.  Cette fonction ne permet pas au fond de 'boucler' sur lui-meme, mais est bien plus rapide que InfLargeScroll...
+      \~french DÃ©placer un grand fond Ã  scrolling verticalement. Doit etre initialisÃ© avec PA_LoadLargeBg.  Cette fonction ne permet pas au fond de 'boucler' sur lui-meme, mais est bien plus rapide que InfLargeScroll...
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
     \~\param y
       \~english Y value to scroll
-      \~french Valeur Y à déplacer
+      \~french Valeur Y Ã  dÃ©placer
 */
 static inline void PA_LargeScrollY(u8 screen, u8 bg_select, s32 y){ // Autoselect
 	if (PA_BgInfo[screen][bg_select].NTiles < MAX_TILES) {
@@ -255,19 +255,19 @@ static inline void PA_LargeScrollY(u8 screen, u8 bg_select, s32 y){ // Autoselec
     \fn static inline void PA_LargeScrollXY(u8 screen, u8 bg_select, s32 x, s32 y)
     \brief
       \~english Scroll a large background horizontaly and vertically. It must have been initialised with PA_LoadLargeBg. This function does not wrap around, but is faster than the InfLargeScroll...
-      \~french Déplacer un grand fond à scrolling horizontalement et verticalement. Doit etre initialisé avec PA_LoadLargeBg. Cette fonction ne permet pas au fond de 'boucler' sur lui-meme, mais est bien plus rapide que InfLargeScroll...
+      \~french DÃ©placer un grand fond Ã  scrolling horizontalement et verticalement. Doit etre initialisÃ© avec PA_LoadLargeBg. Cette fonction ne permet pas au fond de 'boucler' sur lui-meme, mais est bien plus rapide que InfLargeScroll...
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
     \~\param x
       \~english X value to scroll
-      \~french Valeur X à déplacer
+      \~french Valeur X Ã  dÃ©placer
     \~\param y
       \~english Y value to scroll
-      \~french Valeur Y à déplacer	  
+      \~french Valeur Y Ã  dÃ©placer	  
 */
 static inline void PA_LargeScrollXY(u8 screen, u8 bg_select, s32 x, s32 y){
 	PA_LargeScrollX(screen, bg_select, x);
@@ -276,7 +276,7 @@ static inline void PA_LargeScrollXY(u8 screen, u8 bg_select, s32 x, s32 y){
 
 /** @} */ // end of BgLargeMap
 
-// Pas utilisé en direct par le programmaeur
+// Pas utilisÃ© en direct par le programmaeur
 void PA_InitLargeBg(u8 screen, u8 bg_select, s32 lx, s32 ly, void* bg_map);
 
 #endif

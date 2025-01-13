@@ -35,7 +35,7 @@ extern u32 RandomValue;  // Seed pour la fonction random
 /*! \fn static inline u32 PA_Rand()
     \brief
          \~english Gives a random number, taken from Ham... This is taken from Ham, I have no credit. 
-         \~french Donne un numéro aléatoire... Ceci est pris de Ham, je n'ai aucun m?rite. 
+         \~french Donne un numÃ©ro alÃ©atoire... Ceci est pris de Ham, je n'ai aucun mÃ©rite. 
 */
 static inline u32 PA_Rand() {
 	u32 lo, hi;
@@ -52,9 +52,9 @@ static inline u32 PA_Rand() {
 /*! \fn static inline void PA_InitRand()
     \brief
          \~english Auto-seeds the Rand function based on the clock !
-         \~french Initialisation automatique du rand, basé sur l'horloge interne...
+         \~french Initialisation automatique du rand, basÃ© sur l'horloge interne...
 */
-// Les fonctions randoms sont prises de Ham, je n'ai strictement AUCUN mérite ! Désolé ! Je l'ai un peu modifiée, elle doit etre plus rapide
+// Les fonctions randoms sont prises de Ham, je n'ai strictement AUCUN mÃ©rite ! DÃ©solÃ© ! Je l'ai un peu modifiÃ©e, elle doit etre plus rapide
 static inline void PA_InitRand() {
 	RandomValue = 1 + PA_RTC.Seconds + PA_RTC.Minutes*60 + PA_RTC.Hour*3600 + PA_RTC.Day*3600*24+PA_RTC.Month*3600*24*30;
 	PA_Rand(); PA_Rand(); PA_Rand(); // On fait plusieurs fois de base
@@ -63,7 +63,7 @@ static inline void PA_InitRand() {
 /*! \fn void PA_SRand(s32 r)
     \brief
          \~english Set the random's seed. This is taken from Ham, I have no credit. I just made it a little shorter/faster (maybe)
-         \~french Initialiser le random avec un seed. Ceci est pris de Ham, je n'ai aucun mérite. J'ai juste raccourci/accéléré un peu le tout
+         \~french Initialiser le random avec un seed. Ceci est pris de Ham, je n'ai aucun mÃ©rite. J'ai juste raccourci/accÃ©lÃ©rÃ© un peu le tout
     \~\param r
          \~english Seed value
          \~french Seed...
@@ -202,7 +202,7 @@ static inline u16 PA_GetAngle(s32 startx, s32 starty, s32 targetx, s32 targety) 
 		anglerot = (anglerot - ((3 * anglerot) >> 3)); // On diminue petit ? petit la rotation...
 	}
 
-	// Ajustement encore plus précis...
+	// Ajustement encore plus prÃ©cis...
 	anglerot = 4;
 	angle = PA_AdjustAngle(angle, anglerot, startx, starty, targetx, targety);
 	anglerot = 2;
@@ -232,7 +232,7 @@ typedef struct{
          \~french Premier nombre
     \~\param b
          \~english Second number
-         \~french Deuxième nombre
+         \~french DeuxiÃ¨me nombre
 */
 int PA_mulf32(int a, int b);
 
@@ -245,7 +245,7 @@ int PA_mulf32(int a, int b);
          \~french Premier nombre
     \~\param b
          \~english Second number
-         \~french Deuxième nombre
+         \~french DeuxiÃ¨me nombre
 */
 int PA_divf32(int a, int b);
 
@@ -258,7 +258,7 @@ int PA_divf32(int a, int b);
          \~french Premier nombre
     \~\param b
          \~english Second number
-         \~french Deuxième nombre
+         \~french DeuxiÃ¨me nombre
 */
 int PA_modf32(int a, int b);
 

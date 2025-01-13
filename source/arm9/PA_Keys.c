@@ -51,7 +51,7 @@ void PA_UpdateStylus() {
 	Stylus.Uptime *= !Stylus.Released; // = 0 when released
 	Stylus.Uptime += !Stylus.Held;
 
-	if (Stylus.Held) { // On en met à jour que si on touche l'écran, histoire de pas avoir un truc faussé
+	if (Stylus.Held) { // On en met Ã  jour que si on touche l'Ã©cran, histoire de pas avoir un truc faussÃ©
 		Stylus.altX = (t_data.rawx - 0x0113) / 14;
 		Stylus.altY = (t_data.rawy - 0x00E0) / 19;
 

@@ -36,7 +36,7 @@ typedef struct {
 } GH_Buttons;
 
 typedef struct {
-	GH_Buttons Held, Released, Newpress; // Pressed si on appuye, Held si on garde appuyé, et Released si on relache
+	GH_Buttons Held, Released, Newpress; // Pressed si on appuye, Held si on garde appuyÃ©, et Released si on relache
 } GH_Pad;
 extern GH_Pad GHPad;
    

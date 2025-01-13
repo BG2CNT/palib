@@ -20,10 +20,10 @@
     \fn static inline void PA_DualHideBg(u8 bg_select)
     \brief
       \~english Hide a background on both screens
-      \~french Cacher un fond sur les 2 écrans
+      \~french Cacher un fond sur les 2 Ã©crans
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
 */
 static inline void PA_DualHideBg(u8 bg_select){
 	PA_HideBg(0, bg_select);
@@ -34,10 +34,10 @@ static inline void PA_DualHideBg(u8 bg_select){
     \fn static inline void PA_DualShowBg(u8 bg_select)
     \brief
       \~english Show a hidden background, on both screens
-      \~french Afficher un fond auparavant caché sur les 2 écrans
+      \~french Afficher un fond auparavant cachÃ© sur les 2 Ã©crans
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
 */
 static inline void PA_DualShowBg(u8 bg_select){
 	PA_ShowBg(0, bg_select);
@@ -48,7 +48,7 @@ static inline void PA_DualShowBg(u8 bg_select){
     \fn static inline void PA_DualResetBg(void)
     \brief
       \~english Reinitialize de Bg system
-      \~french Reinitialiser les fonds d'un écran. En fait ca ne fait que cacher tous les fonds
+      \~french Reinitialiser les fonds d'un Ã©cran. En fait ca ne fait que cacher tous les fonds
 */
 static inline void PA_DualResetBg(void){
 	PA_ResetBg(0);
@@ -59,10 +59,10 @@ static inline void PA_DualResetBg(void){
     \fn static inline void PA_DualDeleteBg(u8 bg_select)
     \brief
       \~english Delete a complete background (tiles + map + hide it...)
-      \~french Effacer un fond complètement (tiles + map + cacher)
+      \~french Effacer un fond complÃ¨tement (tiles + map + cacher)
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
 */
 static inline void PA_DualDeleteBg(u8 bg_select){
 	PA_DeleteBg(0, bg_select);
@@ -74,10 +74,10 @@ static inline void PA_DualDeleteBg(u8 bg_select){
 	\deprecated
     \brief
       \~english [DEPRECATED] This will never get easier... Loads a background TiledBg converted with PAGfx, with it's tiles, map, and palette. Only 256 color mode available. On 2 screens as 1...
-      \~french [DEPRECATED] On ne pourra jamais rendre ca plus simple... Charge un fond de type TiledBg converti avec PAGfx, en mettant les tiles, la map, et meme la palette ! Seulement en mode 256 couleurs. Sur 2 écrans, comme un seul grand
+      \~french [DEPRECATED] On ne pourra jamais rendre ca plus simple... Charge un fond de type TiledBg converti avec PAGfx, en mettant les tiles, la map, et meme la palette ! Seulement en mode 256 couleurs. Sur 2 Ã©crans, comme un seul grand
     \~\param bg_number
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
     \~\param bg_name
       \~english Background name, like bg0
       \~french Nom du fond, comme bg0
@@ -93,10 +93,10 @@ static inline void PA_DualDeleteBg(u8 bg_select){
 	\deprecated
     \brief
       \~english [DEPRECATED] Simplest way to load a Background on both screens
-      \~french [DEPRECATED] Facon la plus simple de cahrger un fond sur les 2 écrans 
+      \~french [DEPRECATED] Facon la plus simple de cahrger un fond sur les 2 Ã©crans 
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
     \~\param bg_tiles
       \~english Name of the tiles' info (example: ship_Tiles)
       \~french Nom du tableau contenant les tiles (exemple: ship_Tiles)
@@ -128,7 +128,7 @@ static inline void PA_DualDeleteBg(u8 bg_select){
       \~french [DEPRECATED] Charger un fond pour les rotations/zoom ! Attention, il faut avant utiliser PA_SetVideoMode avec 1 pour utiliser un fond rotatif (le fond 3 uniquement !), ou 2 pour 2 fonds (2 et 3). Le fond DOIT etre de 256 couleurs
     \~\param bg_select
       \~english Background number to load
-      \~french Numéro du fond que l'on veut charger
+      \~french NumÃ©ro du fond que l'on veut charger
     \~\param bg_tiles
       \~english Name of the tiles' info (example: ship_Tiles)
       \~french Nom du tableau contenant les tiles (exemple: ship_Tiles)
@@ -161,7 +161,7 @@ static inline void PA_DualSetBgRot(u8 bg_select, s32 x_scroll, s32 y_scroll, s32
       \~french [DEPRECATED] Facon la plus simple de cahrger un fond. Combine PA_InitBg, PA_LoadBgTiles, et PA_LoadBgMap
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
     \~\param bg_tiles
       \~english Name of the tiles' info (example: ship_Tiles)
       \~french Nom du tableau contenant les tiles (exemple: ship_Tiles)
@@ -173,7 +173,7 @@ static inline void PA_DualSetBgRot(u8 bg_select, s32 x_scroll, s32 y_scroll, s32
       \~french Nom du tableau contenant les infos sur la map (exemple : ship_Map)
     \~\param bg_size
       \~english Background size. This is important, because it also determines whether the Bg is rotatable or not. To use a normal background, use the macros BG_256X256, BG_256X512, etc... For a rotatable Bg, use the macros BG_ROT_128X128...
-      \~french Taille du fond. Ceci est très important, car ça détermine aussi si le Bg est rotatif ou non. Pour un fond normal, on utilise les macros BG_256X256, BG_256X512, etc... Por un fond rotatif, il suffit d'utiliser BG_ROT_128X128...
+      \~french Taille du fond. Ceci est trÃ¨s important, car Ã§a dÃ©termine aussi si le Bg est rotatif ou non. Pour un fond normal, on utilise les macros BG_256X256, BG_256X512, etc... Por un fond rotatif, il suffit d'utiliser BG_ROT_128X128...
     \~\param wraparound
       \~english If the background wraps around or not. More important for rotating backgrounds. 
       \~french Si le fond boucle ou non. C'est plus important pour les fonds rotatifs... 
@@ -192,13 +192,13 @@ static inline void PA_DualSetBgRot(u8 bg_select, s32 x_scroll, s32 y_scroll, s32
     \fn static inline void PA_DualBGScrollX(u8 bg_number, s16 x)
     \brief
       \~english Scroll horizontaly any background, on both screens
-      \~french Scroll horizontal de n'importe quel fond, sur les 2 écrans
+      \~french Scroll horizontal de n'importe quel fond, sur les 2 Ã©crans
     \~\param bg_number
       \~english Background number (0-3)
-      \~french Numéro du fond que l'on veut tourner (0-3)
+      \~french NumÃ©ro du fond que l'on veut tourner (0-3)
     \~\param x
       \~english X value to scroll
-      \~french Valeur X à déplacer, horizontalement...
+      \~french Valeur X Ã  dÃ©placer, horizontalement...
 */
 static inline void PA_DualBGScrollX(u8 bg_number, s16 x){
 	PA_BGScrollX(0, bg_number, x);
@@ -212,10 +212,10 @@ static inline void PA_DualBGScrollX(u8 bg_number, s16 x){
       \~french Scroll vertical de n'importe quel fond
     \~\param bg_number
       \~english Background number (0-3)
-      \~french Numéro du fond que l'on veut tourner (0-3)
+      \~french NumÃ©ro du fond que l'on veut tourner (0-3)
     \~\param y
       \~english Y value to scroll
-      \~french Valeur Y à déplacer, verticalement...
+      \~french Valeur Y Ã  dÃ©placer, verticalement...
 */
 static inline void PA_DualBGScrollY(u8 bg_number, s16 y){
 	PA_BGScrollY(0, bg_number, y+PA_ScreenSpace);
@@ -229,13 +229,13 @@ static inline void PA_DualBGScrollY(u8 bg_number, s16 y){
       \~french Scroll horizontal et vertical de n'importe quel fond
     \~\param bg_number
       \~english Background number (0-3)
-      \~french Numéro du fond que l'on veut tourner (0-3)
+      \~french NumÃ©ro du fond que l'on veut tourner (0-3)
     \~\param x
       \~english X value to scroll
-      \~french Valeur X à déplacer, horizontalement...
+      \~french Valeur X Ã  dÃ©placer, horizontalement...
     \~\param y
       \~english Y value to scroll
-      \~french Valeur Y à déplacer, verticalement...
+      \~french Valeur Y Ã  dÃ©placer, verticalement...
 */
 static inline void PA_DualBGScrollXY(u8 bg_number, s16 x, s16 y) {
 	PA_DualBGScrollX(bg_number, x); 
@@ -247,10 +247,10 @@ static inline void PA_DualBGScrollXY(u8 bg_number, s16 x, s16 y) {
 	\deprecated
     \brief
       \~english [DEPRECATED] Completely load and initialise a background with infinite scrolling (usefull if larger or wider than 512 pixels), converted with PAGfx. Background on both screens, as one
-      \~french [DEPRECATED] Charger et initialiser un fond pour le scrolling infini (pour les fonds de plus de 512 pixels de haut ou de large), converti avec PAGfx. Fond sur les 2 écrans comme un seul
+      \~french [DEPRECATED] Charger et initialiser un fond pour le scrolling infini (pour les fonds de plus de 512 pixels de haut ou de large), converti avec PAGfx. Fond sur les 2 Ã©crans comme un seul
     \~\param bg_number
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (0-3)
+      \~french NumÃ©ro du fond que l'on veut charger (0-3)
    \~\param  bg_name
        \~english Background name, in PAGfx
       \~french Nom du fond dans PAGfx 
@@ -266,10 +266,10 @@ static inline void PA_DualBGScrollXY(u8 bg_number, s16 x, s16 y) {
 	\deprecated
     \brief
       \~english [DEPRECATED] Completely load and initialise a background with infinite scrolling (usefull if larger or wider than 512 pixels), on both screens
-      \~french [DEPRECATED] Charger et initialiser un fond pour le scrolling infini (pour les fonds de plus de 512 pixels de haut ou de large), sur les 2 écrans
+      \~french [DEPRECATED] Charger et initialiser un fond pour le scrolling infini (pour les fonds de plus de 512 pixels de haut ou de large), sur les 2 Ã©crans
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
     \~\param bg_tiles
       \~english Name of the tiles' info (example: ship_Tiles)
       \~french Nom du tableau contenant les tiles (exemple: ship_Tiles)
@@ -300,7 +300,7 @@ static inline void PA_DualBGScrollXY(u8 bg_number, s16 x, s16 y) {
       \~french [DEPRECATED] Charger et initialiser un fond pour le scrolling infini (pour les fonds de plus de 512 pixels de haut ou de large), mais ici on met soi-meme la taille des tiles
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
     \~\param bg_tiles
       \~english Name of the tiles' info (example: ship_Tiles)
       \~french Nom du tableau contenant les tiles (exemple: ship_Tiles)
@@ -334,7 +334,7 @@ static inline void PA_DualBGScrollXY(u8 bg_number, s16 x, s16 y) {
       \~french [DEPRECATED] Chargement de fond EasyBg, mais pour le Dual Screen...
     \~\param bg_number
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (0-3)
+      \~french NumÃ©ro du fond que l'on veut charger (0-3)
    \~\param  bg_name
        \~english Background name, in PAGfx
       \~french Nom du fond dans PAGfx 
@@ -349,13 +349,13 @@ static inline void PA_DualBGScrollXY(u8 bg_number, s16 x, s16 y) {
     \fn static inline void PA_DualEasyBgScrollX(u8 bg_select, s32 x)
     \brief
       \~english Scroll an EasyBg horizontaly. It must have been initialised with PA_LoadLargeBg.
-      \~french Déplacer un fond EasyBg horizontalement. Doit etre initialisé avec PA_LoadLargeBg.
+      \~french DÃ©placer un fond EasyBg horizontalement. Doit etre initialisÃ© avec PA_LoadLargeBg.
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
     \~\param x
       \~english X value to scroll
-      \~french Valeur X à déplacer
+      \~french Valeur X Ã  dÃ©placer
 */
 static inline void PA_DualEasyBgScrollX(u8 bg_select, s32 x){
 	PA_EasyBgScrollX(0, bg_select, x);
@@ -366,13 +366,13 @@ static inline void PA_DualEasyBgScrollX(u8 bg_select, s32 x){
     \fn static inline void PA_DualEasyBgScrollY(u8 bg_select, s32 y)
     \brief
       \~english Scroll an EasyBg vertically.
-      \~french Déplacer un fond EasyBg verticalement.
+      \~french DÃ©placer un fond EasyBg verticalement.
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
     \~\param y
       \~english Y value to scroll
-      \~french Valeur Y à déplacer
+      \~french Valeur Y Ã  dÃ©placer
 */
 static inline void PA_DualEasyBgScrollY(u8 bg_select, s32 y){
 	PA_EasyBgScrollY(0, bg_select, y+PA_ScreenSpace);
@@ -386,7 +386,7 @@ static inline void PA_DualEasyBgScrollY(u8 bg_select, s32 y){
       \~french Charger un fond (EasyBg, RotBg or UnlimitedBg), mais pour le Dual Screen...
     \~\param bg_number
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (0-3)
+      \~french NumÃ©ro du fond que l'on veut charger (0-3)
     \~\param bg
          \~english Pointer to the background (struct)
          \~french Pointeur vers le fond
@@ -402,16 +402,16 @@ static inline void PA_DualLoadBackground(u8 bg_number, const PA_BgStruct* bg){
     \fn static inline void PA_DualEasyBgScrollXY(u8 bg_select, s32 x, s32 y)
     \brief
       \~english Scroll a Dual EasyBg.
-      \~french Déplacer un fond EasyBg en Dual Screen.
+      \~french DÃ©placer un fond EasyBg en Dual Screen.
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
     \~\param x
       \~english X value to scroll
-      \~french Valeur X à déplacer
+      \~french Valeur X Ã  dÃ©placer
     \~\param y
       \~english Y value to scroll
-      \~french Valeur Y à déplacer
+      \~french Valeur Y Ã  dÃ©placer
 */
 static inline void PA_DualEasyBgScrollXY(u8 bg_select, s32 x, s32 y){
 	PA_DualEasyBgScrollX(bg_select, x);
@@ -422,13 +422,13 @@ static inline void PA_DualEasyBgScrollXY(u8 bg_select, s32 x, s32 y){
     \fn static inline void PA_DualInfLargeScrollX(u8 bg_select, s32 x)
     \brief
       \~english Scroll a large infinite scrolling background horizontaly. It must have been initialised with PA_LoadLargeBg.
-      \~french Déplacer un fond à scrolling 'infini' horizontalement. Doit etre initialisé avec PA_LoadLargeBg.
+      \~french DÃ©placer un fond Ã  scrolling 'infini' horizontalement. Doit etre initialisÃ© avec PA_LoadLargeBg.
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
     \~\param x
       \~english X value to scroll
-      \~french Valeur X à déplacer
+      \~french Valeur X Ã  dÃ©placer
 */
 static inline void PA_DualInfLargeScrollX(u8 bg_select, s32 x){
 	PA_InfLargeScrollX(0, bg_select, x);
@@ -439,13 +439,13 @@ static inline void PA_DualInfLargeScrollX(u8 bg_select, s32 x){
     \fn static inline void PA_DualInfLargeScrollY(u8 bg_select, s32 y)
     \brief
       \~english Scroll a large infinite scrolling background vertically. It must have been initialised with PA_LoadLargeBg.
-      \~french Déplacer un fond à scrolling 'infini' verticalement. Doit etre initialisé avec PA_LoadLargeBg.
+      \~french DÃ©placer un fond Ã  scrolling 'infini' verticalement. Doit etre initialisÃ© avec PA_LoadLargeBg.
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
     \~\param y
       \~english Y value to scroll
-      \~french Valeur Y à déplacer
+      \~french Valeur Y Ã  dÃ©placer
 */
 static inline void PA_DualInfLargeScrollY(u8 bg_select, s32 y){
 	PA_InfLargeScrollY(0, bg_select, y+PA_ScreenSpace);
@@ -456,16 +456,16 @@ static inline void PA_DualInfLargeScrollY(u8 bg_select, s32 y){
     \fn static inline void PA_DualInfLargeScrollXY(u8 bg_select, s32 x, s32 y)
     \brief
       \~english Scroll a large infinite scrolling background horizontaly and vertically. It must have been initialised with PA_LoadLargeBg.
-      \~french Déplacer un fond à scrolling 'infini' horizontalement et verticalement. Doit etre initialisé avec PA_LoadLargeBg.
+      \~french DÃ©placer un fond Ã  scrolling 'infini' horizontalement et verticalement. Doit etre initialisÃ© avec PA_LoadLargeBg.
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
     \~\param x
       \~english X value to scroll
-      \~french Valeur X à déplacer
+      \~french Valeur X Ã  dÃ©placer
     \~\param y
       \~english Y value to scroll
-      \~french Valeur Y à déplacer	  
+      \~french Valeur Y Ã  dÃ©placer	  
 */
 static inline void PA_DualInfLargeScrollXY(u8 bg_select, s32 x, s32 y){
 	PA_DualInfLargeScrollX(bg_select, x);
@@ -476,13 +476,13 @@ static inline void PA_DualInfLargeScrollXY(u8 bg_select, s32 x, s32 y){
     \fn static inline void PA_DualLargeScrollX(u8 bg_select, s32 x)
     \brief
       \~english Scroll a large background horizontaly. It must have been initialised with PA_LoadLargeBg.  This function does not wrap around, but is faster than the InfLargeScroll...
-      \~french Déplacer un grand fond à scrolling horizontalement.Doit etre initialisé avec PA_LoadLargeBg. Cette fonction ne permet pas au fond de 'boucler' sur lui-meme, mais est bien plus rapide que InfLargeScroll...
+      \~french DÃ©placer un grand fond Ã  scrolling horizontalement.Doit etre initialisÃ© avec PA_LoadLargeBg. Cette fonction ne permet pas au fond de 'boucler' sur lui-meme, mais est bien plus rapide que InfLargeScroll...
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
     \~\param x
       \~english X value to scroll
-      \~french Valeur X à déplacer
+      \~french Valeur X Ã  dÃ©placer
 */
 static inline void PA_DualLargeScrollX(u8 bg_select, s32 x){
 	PA_LargeScrollX(0, bg_select, x);
@@ -493,13 +493,13 @@ static inline void PA_DualLargeScrollX(u8 bg_select, s32 x){
     \fn static inline void PA_DualLargeScrollY(u8 bg_select, s32 y)
     \brief
       \~english Scroll a large background vertically. It must have been initialised with PA_LoadLargeBg. This function does not wrap around, but is faster than the InfLargeScroll...
-      \~french Déplacer un grand fond à scrolling verticalement. Doit etre initialisé avec PA_LoadLargeBg.  Cette fonction ne permet pas au fond de 'boucler' sur lui-meme, mais est bien plus rapide que InfLargeScroll...
+      \~french DÃ©placer un grand fond Ã  scrolling verticalement. Doit etre initialisÃ© avec PA_LoadLargeBg.  Cette fonction ne permet pas au fond de 'boucler' sur lui-meme, mais est bien plus rapide que InfLargeScroll...
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
     \~\param y
       \~english Y value to scroll
-      \~french Valeur Y à déplacer
+      \~french Valeur Y Ã  dÃ©placer
 */
 static inline void PA_DualLargeScrollY(u8 bg_select, s32 y){
 	PA_LargeScrollY(0, bg_select, y+PA_ScreenSpace);
@@ -510,16 +510,16 @@ static inline void PA_DualLargeScrollY(u8 bg_select, s32 y){
     \fn static inline void PA_DualLargeScrollXY(u8 bg_select, s32 x, s32 y)
     \brief
       \~english Scroll a large background horizontaly and vertically. It must have been initialised with PA_LoadLargeBg. This function does not wrap around, but is faster than the InfLargeScroll...
-      \~french Déplacer un grand fond à scrolling horizontalement et verticalement. Doit etre initialisé avec PA_LoadLargeBg. Cette fonction ne permet pas au fond de 'boucler' sur lui-meme, mais est bien plus rapide que InfLargeScroll...
+      \~french DÃ©placer un grand fond Ã  scrolling horizontalement et verticalement. Doit etre initialisÃ© avec PA_LoadLargeBg. Cette fonction ne permet pas au fond de 'boucler' sur lui-meme, mais est bien plus rapide que InfLargeScroll...
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
     \~\param x
       \~english X value to scroll
-      \~french Valeur X à déplacer
+      \~french Valeur X Ã  dÃ©placer
     \~\param y
       \~english Y value to scroll
-      \~french Valeur Y à déplacer	  
+      \~french Valeur Y Ã  dÃ©placer	  
 */
 static inline void PA_DualLargeScrollXY(u8 bg_select, s32 x, s32 y){
 	PA_DualLargeScrollX(bg_select, x);
@@ -530,10 +530,10 @@ static inline void PA_DualLargeScrollXY(u8 bg_select, s32 x, s32 y){
     \fn static inline void PA_DualInitParallaxX(s32 bg0, s32 bg1, s32 bg2, s32 bg3)
     \brief
       \~english Initialise Parallax Scrolling for multiple backgrounds, horizontaly. Chose the speed at which each background will scroll compared to the others. Then use PA_ParallaxScrollX to scroll...
-      \~french Initialiser le Parallax Scrolling pour plusieurs fonds, horizontalement. Choix de la vitesse à laquelle les fonds vont défiler par rapport aux autres... Utiliser PA_ParallaxScrollX par la suite pour scroller
+      \~french Initialiser le Parallax Scrolling pour plusieurs fonds, horizontalement. Choix de la vitesse Ã  laquelle les fonds vont dÃ©filer par rapport aux autres... Utiliser PA_ParallaxScrollX par la suite pour scroller
     \~\param bg0
       \~english Value for the first background (0). Set to 256 for normal scroll speed, lower for lower speed (128 is half speed...), higher for faster (512 is twice as fast...). You can set negative values. 0 inactivates parallax scrolling for this background
-      \~french Valeur pour le premier fond (0). 256 met en vitesse normal, moins pour moins lent (128 pour moitié de vitesse), plus pour plus rapide (512 équivaut à 2 fois plus vite). On peut utiliser des valeurs négatives. 0 désactive le scrolling parallax pour ce fond
+      \~french Valeur pour le premier fond (0). 256 met en vitesse normal, moins pour moins lent (128 pour moitiÃ© de vitesse), plus pour plus rapide (512 Ã©quivaut Ã  2 fois plus vite). On peut utiliser des valeurs nÃ©gatives. 0 dÃ©sactive le scrolling parallax pour ce fond
     \~\param bg1
       \~english Same thing for Background 1
       \~french Idem, pour le Fond 1
@@ -553,10 +553,10 @@ static inline void PA_DualInitParallaxX(s32 bg0, s32 bg1, s32 bg2, s32 bg3) {
     \fn static inline void PA_DualInitParallaxY(s32 bg0, s32 bg1, s32 bg2, s32 bg3)
     \brief
       \~english Initialise Parallax Scrolling for multiple backgrounds, horizontaly. Chose the speed at which each background will scroll compared to the others. Then use PA_ParallaxScrollX to scroll...
-      \~french Initialiser le Parallax Scrolling pour plusieurs fonds, horizontalement. Choix de la vitesse à laquelle les fonds vont défiler par rapport aux autres... Utiliser PA_ParallaxScrollX par la suite pour scroller
+      \~french Initialiser le Parallax Scrolling pour plusieurs fonds, horizontalement. Choix de la vitesse Ã  laquelle les fonds vont dÃ©filer par rapport aux autres... Utiliser PA_ParallaxScrollX par la suite pour scroller
     \~\param bg0
       \~english Value for the first background (0). Set to 256 for normal scroll speed, lower for lower speed (128 is half speed...), higher for faster (512 is twice as fast...). You can set negative values. 0 inactivates parallax scrolling for this background
-      \~french Valeur pour le premier fond (0). 256 met en vitesse normal, moins pour moins lent (128 pour moitié de vitesse), plus pour plus rapide (512 équivaut à 2 fois plus vite). On peut utiliser des valeurs négatives. 0 désactive le scrolling parallax pour ce fond
+      \~french Valeur pour le premier fond (0). 256 met en vitesse normal, moins pour moins lent (128 pour moitiÃ© de vitesse), plus pour plus rapide (512 Ã©quivaut Ã  2 fois plus vite). On peut utiliser des valeurs nÃ©gatives. 0 dÃ©sactive le scrolling parallax pour ce fond
     \~\param bg1
       \~english Same thing for Background 1
       \~french Idem, pour le Fond 1
@@ -576,10 +576,10 @@ static inline void PA_DualInitParallaxY(s32 bg0, s32 bg1, s32 bg2, s32 bg3) {
     \fn static inline void PA_DualParallaxScrollX(s32 x)
     \brief
       \~english Scroll the backgrounds
-      \~french Déplacer les fonds activés pour le parallax...
+      \~french DÃ©placer les fonds activÃ©s pour le parallax...
     \~\param x
       \~english X value to scroll
-      \~french Valeur X à déplacer
+      \~french Valeur X Ã  dÃ©placer
 */
 static inline void PA_DualParallaxScrollX(s32 x){
 	int i;
@@ -592,10 +592,10 @@ static inline void PA_DualParallaxScrollX(s32 x){
     \fn static inline void PA_DualParallaxScrollY(s32 y)
     \brief
       \~english Scroll the backgrounds
-      \~french Déplacer les fonds activés pour le parallax...
+      \~french DÃ©placer les fonds activÃ©s pour le parallax...
     \~\param y
       \~english Y value to scroll
-      \~french Valeur Y à déplacer
+      \~french Valeur Y Ã  dÃ©placer
 */
 static inline void PA_DualParallaxScrollY(s32 y){
 	int i;
@@ -608,13 +608,13 @@ static inline void PA_DualParallaxScrollY(s32 y){
     \fn static inline void PA_DualParallaxScrollXY(s32 x, s32 y)
     \brief
       \~english Scroll the backgrounds
-      \~french Déplacer les fonds activés pour le parallax...
+      \~french DÃ©placer les fonds activÃ©s pour le parallax...
     \~\param x
       \~english X value to scroll
-      \~french Valeur X à déplacer
+      \~french Valeur X Ã  dÃ©placer
     \~\param y
       \~english Y value to scroll
-      \~french Valeur Y à déplacer
+      \~french Valeur Y Ã  dÃ©placer
 */
 static inline void PA_DualParallaxScrollXY(s32 x, s32 y){
 	PA_DualParallaxScrollX(x);
@@ -625,13 +625,13 @@ static inline void PA_DualParallaxScrollXY(s32 x, s32 y){
     \fn static inline void PA_DualSetBgPrio(u8 bg, u8 prio)
     \brief
       \~english Change a backgrounds priority
-      \~french Changer la priorité d'un fond
+      \~french Changer la prioritÃ© d'un fond
     \~\param bg
       \~english Background...
-      \~french Numéro du fond...
+      \~french NumÃ©ro du fond...
     \~\param prio
       \~english Priority level (0-3, 0 being the highest)
-      \~french Niveau de priorité, de 0 à 3, 0 étant priorité la plus élevée
+      \~french Niveau de prioritÃ©, de 0 Ã  3, 0 Ã©tant prioritÃ© la plus Ã©levÃ©e
 */
 static inline void PA_DualSetBgPrio(u8 bg, u8 prio) {
 	PA_SetBgPrio(0, bg, prio);
@@ -640,7 +640,7 @@ static inline void PA_DualSetBgPrio(u8 bg, u8 prio) {
 
 /** @} */ // end of Backgrounds
 
-// Pas utilisé en direct par le programmeur
+// Pas utilisÃ© en direct par le programmeur
 void PA_InitLargeBg(u8 screen, u8 bg_select, s32 lx, s32 ly, void* bg_map);
 
 #endif

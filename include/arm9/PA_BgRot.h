@@ -42,10 +42,10 @@ extern u8 rotbg_size[2][4]; // Background size of each possible rotbg
       \~french [DEPRECATED] Charger un fond pour les rotations/zoom! Attention, il faut avant utiliser PA_SetVideoMode avec 1 pour utiliser un fond rotatif (le fond 3 uniquement !), ou 2 pour 2 fonds (2 et 3). Le fond DOIT etre de 256 couleurs
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
       \~english Background number to load
-      \~french Numéro du fond que l'on veut charger
+      \~french NumÃ©ro du fond que l'on veut charger
     \~\param bg_tiles
       \~english Name of the tiles' info (example: ship_Tiles)
       \~french Nom du tableau contenant les tiles (exemple: ship_Tiles)
@@ -76,10 +76,10 @@ extern u8 rotbg_size[2][4]; // Background size of each possible rotbg
       \~french [DEPRECATED] Charger un fond pour les rotations/zoom ! Attention, il faut avant utiliser PA_SetVideoMode avec 1 pour utiliser un fond rotatif (le fond 3 uniquement !), ou 2 pour 2 fonds (2 et 3). Le fond DOIT etre de 256 couleurs
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
       \~english Background number to load
-      \~french Numéro du fond que l'on veut charger
+      \~french NumÃ©ro du fond que l'on veut charger
     \~\param bg_name
       \~english Background name, like bg0
       \~french Nom du fond, comme bg0
@@ -100,10 +100,10 @@ extern u8 rotbg_size[2][4]; // Background size of each possible rotbg
       \~french Faire tourner/zoomer un fond rotatif
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
       \~english Background number to load
-      \~french Numéro du fond que l'on veut charger
+      \~french NumÃ©ro du fond que l'on veut charger
     \~\param x_scroll
       \~english X Scroll...
       \~french Scroll x...

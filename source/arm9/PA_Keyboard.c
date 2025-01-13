@@ -39,7 +39,7 @@ void PA_ReloadKeyboardCol(void) {
 	u16 r, g, b, color;
 	u8 tempr, tempg, tempb;
 
-	for (i = 1; i < 11; i++) { // On va mettre appuyé en rouge
+	for (i = 1; i < 11; i++) { // On va mettre appuyÃ© en rouge
 		color = keyboard_Palette[i];
 		tempb = b = (color >> 10) & 31;	tempg = g = (color >> 5) & 31;
 		tempr = r = (color) & 31;
@@ -69,14 +69,14 @@ void PA_ReloadKeyboardCol(void) {
 // Clavier, avec 5 lignes de 12 touches...
 const u8 PA_Keyboard[2][5][24] = {
 	{
-		{'1', '1', '2', '2', '3', '3', '4', '4', '5', '5', '6', '6', '7', '7', '8', '8', '9', '9', '0', '0', '-', '-', '=', '='}, // Touches de 0 à 9, puis - et =
+		{'1', '1', '2', '2', '3', '3', '4', '4', '5', '5', '6', '6', '7', '7', '8', '8', '9', '9', '0', '0', '-', '-', '=', '='}, // Touches de 0 Ã  9, puis - et =
 		{PA_TAB, 'q', 'q', 'w', 'w', 'e', 'e', 'r', 'r', 't', 't', 'y', 'y', 'u', 'u', 'i', 'i', 'o', 'o', 'p', 'p', PA_BACKSPACE, PA_BACKSPACE, PA_BACKSPACE}, // qwertyuiop, Backspace
 		{PA_CAPS, PA_CAPS, 'a', 'a', 's', 's', 'd', 'd', 'f', 'f', 'g', 'g', 'h', 'h', 'j', 'j', 'k', 'k', 'l', 'l', PA_ENTER, PA_ENTER, PA_ENTER, PA_ENTER}, // Caps, asdfghjkl, Enter
 		{PA_SHIFT, PA_SHIFT, PA_SHIFT, 'z', 'z', 'x', 'x', 'c', 'c', 'v', 'v', 'b', 'b', 'n', 'n', 'm', 'm', ',', ',', '.', '.', '/', '/', PA_RIEN},  // Shift, zxcvbnm , . /
 		{PA_RIEN, PA_RIEN, '`', '`', ';', ';', '\'', '\'', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '[', '[', ']', ']', '\\', '\\'}
 	},
 	{
-		{'!', '!' , '@', '@', '#', '#', '$', '$', '%', '%', '^', '^', '&', '&', '*', '*', '(', '(', ')', ')', '_', '_', '+', '+'}, // Touches de 0 à 9, puis - et =
+		{'!', '!' , '@', '@', '#', '#', '$', '$', '%', '%', '^', '^', '&', '&', '*', '*', '(', '(', ')', ')', '_', '_', '+', '+'}, // Touches de 0 Ã  9, puis - et =
 		{PA_TAB, 'Q', 'Q', 'W', 'W', 'E', 'E', 'R', 'R', 'T', 'T', 'Y', 'Y', 'U', 'U', 'I', 'I', 'O', 'O', 'P', 'P', PA_BACKSPACE, PA_BACKSPACE, PA_BACKSPACE}, // qwertyuiop, Backspace
 		{PA_CAPS, PA_CAPS, 'A', 'A', 'S', 'S', 'D', 'D', 'F', 'F', 'G', 'G', 'H', 'H', 'J', 'J', 'K', 'K', 'L', 'L', PA_ENTER, PA_ENTER, PA_ENTER, PA_ENTER}, // Caps, asdfghjkl, Enter
 		{PA_SHIFT, PA_SHIFT, PA_SHIFT, 'Z', 'Z', 'X', 'X', 'C', 'C', 'V', 'V', 'B', 'B', 'N', 'N', 'M', 'M', '<', '<', '>', '>', '?', '?', PA_RIEN},  // Shift, zxcvbnm , . /
@@ -84,7 +84,7 @@ const u8 PA_Keyboard[2][5][24] = {
 	}
 }; // On prend en compte les trous...
 
-// A noter : début du clavier : x = 57, y = 109... fin du clavier : x = 250, y = 186
+// A noter : dÃ©but du clavier : x = 57, y = 109... fin du clavier : x = 250, y = 186
 
 
 
@@ -109,13 +109,13 @@ void PA_ChangeKeyboardType(void) {
 
 
 
-char PA_CheckKeyboard(void) {  // Vérifier si on appuye sur le clavier avec ces touches...
+char PA_CheckKeyboard(void) {  // VÃ©rifier si on appuye sur le clavier avec ces touches...
 // Vont prendre la position que l'on appuye sur le clavier...
 	int x = Stylus.X;
 	int y = Stylus.Y;
-	x -= PA_Keyboard_Struct.ScrollX + 8; // Ca commence à 57, donc c'est comme si en 57 on était à 0
+	x -= PA_Keyboard_Struct.ScrollX + 8; // Ca commence Ã  57, donc c'est comme si en 57 on Ã©tait Ã  0
 	y -= PA_Keyboard_Struct.ScrollY + 8; // Pareil mais pour y...
-	// On commence par vérifier si on est bien sur le clavier... Si ce n'est pas le cas, on renverra 0.
+	// On commence par vÃ©rifier si on est bien sur le clavier... Si ce n'est pas le cas, on renverra 0.
 	if ((x >= 0) && (x < 192) && (y >= 0) && (y < 80)) {
 		//Les cases font 8 de largeur, donc de 0-7 c'est la case 0... il faut diviser par 8
 		y = y >> 4;
@@ -130,7 +130,7 @@ char PA_CheckKeyboard(void) {  // Vérifier si on appuye sur le clavier avec ces 
 				PA_ChangeKeyboardType();
 			}
 
-			// Majuscule si jamais c'est Shift appuyé
+			// Majuscule si jamais c'est Shift appuyÃ©
 			if (PA_Keyboard_Struct.Letter == PA_SHIFT) {
 				// Si on rappuye sur Shift ca le vire sans rien faire
 				if (PA_Keyboard[PA_Keyboard_Struct.Type][y][x] == PA_SHIFT) PA_Keyboard_Struct.Letter = 0;

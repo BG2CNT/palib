@@ -21,10 +21,10 @@ BGAFF_EX _m7_bgaff_ex[192];  // affine parameters for each line
 /*! \fn void PA_InitMode7(u8 bg_select)
     \brief
          \~english Initialize Mode 7 for a given background. You MUST be in video mode 1 or 2
-         \~french Initialise le Mode 7 pour un fond donné. Vous devez etre en mode 1 ou 2 impérativement !
+         \~french Initialise le Mode 7 pour un fond donnÃ©. Vous devez etre en mode 1 ou 2 impÃ©rativement !
     \param bg_select
          \~english Bg number, 2 in mode 1, 2 or 3 in mode 2
-         \~french Numéro du fond. 2 en mode 1, 2 ou 3 en mode 2
+         \~french NumÃ©ro du fond. 2 en mode 1, 2 ou 3 en mode 2
 */
 
 void PA_InitMode7(u8 bg_select) {

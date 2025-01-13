@@ -58,9 +58,9 @@ typedef struct{
 typedef struct{
 	// Memory management info...
 
-	u32 tilesetsize; // Place utilisée pour chaque tileset
-	u16 mapsize; // Place utilisée pour chaque map
-	u8 mapchar;  // Emplacement mémoire de chaque map
+	u32 tilesetsize; // Place utilisÃ©e pour chaque tileset
+	u16 mapsize; // Place utilisÃ©e pour chaque map
+	u8 mapchar;  // Emplacement mÃ©moire de chaque map
 	u8 TileSetChar;
 
 	u32 Map; // Map pointer
@@ -78,7 +78,7 @@ extern PA_BgInfos PA_BgInfo[2][4];
 
 extern u8 charblocks[2][70];
 
-// Quantité de données à charger en fonction de la taille de la map...
+// QuantitÃ© de donnÃ©es Ã  charger en fonction de la taille de la map...
 extern u16 *PA_DrawBg[2]; // Fond dessinable
 
 extern u16 bg_sizes[4];
@@ -89,14 +89,14 @@ extern s32 PA_parallaxX[2][4];
 extern s32 PA_parallaxY[2][4];
 
 typedef struct {
-	u8 infscroll; // Passe à 1 si scrolling infini activé...
+	u8 infscroll; // Passe Ã  1 si scrolling infini activÃ©...
 	u16* bg_map; // Map
 	s32 lx, ly;
 	s32 scrollx, scrolly;
 	s32 maxx; // 32 ou 64, en fonction de la largeur...
 }scrollpositions;
 
-extern scrollpositions scrollpos[2][4]; // Pour chaque écran et pour chaque fond :)
+extern scrollpositions scrollpos[2][4]; // Pour chaque Ã©cran et pour chaque fond :)
 
 // Mode de couleur
 #define BG_COLOR16 0x00
@@ -106,18 +106,18 @@ extern scrollpositions scrollpos[2][4]; // Pour chaque écran et pour chaque fond
 #define SCREEN_SHIFT 8
 #define WRAPAROUND 0x1
 
-#define SCREEN_TILES 24576  // Taille à convertir pour avoir un écran complet...
+#define SCREEN_TILES 24576  // Taille Ã  convertir pour avoir un Ã©cran complet...
 
 //scrolling registers for background 0
 
-// Registre pour les controles de chaque écran
+// Registre pour les controles de chaque Ã©cran
 #define REG_BGSCREEN0  0x04000000
 #define REG_BGSCREEN1  0x04001000
 #define REG_BGSCREEN(screen) (0x04000000 + (screen * 0x1000))
 
 #define REG_BGCNT(screen, bg_number) (0x4000008 + (screen * 0x1000) + (bg_number << 1))
 
-// Premier registre pour les scroll. On en déduit les autres en ajoutant pour le screen et le numéro du Bg
+// Premier registre pour les scroll. On en dÃ©duit les autres en ajoutant pour le screen et le numÃ©ro du Bg
 #define REG_BGSCROLLX 0x4000010
 #define REG_BGSCROLLY 0x4000012
 
@@ -150,10 +150,10 @@ void PA_ResetBgSys(void);
     \fn void PA_ResetBgSysScreen(u8 screen)
     \brief
       \~english Reset the background system on 1 screen
-      \~french Reinitialise le systeme de fonds pour 1 écran
+      \~french Reinitialise le systeme de fonds pour 1 Ã©cran
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
 */
 void PA_ResetBgSysScreen(u8 screen);
 
@@ -161,16 +161,16 @@ void PA_ResetBgSysScreen(u8 screen);
     \fn void PA_InitBg(u8 screen, u8 bg_select, u8 bg_size, u8 wraparound, u8 color_mode)
     \brief
       \~english Initialise a given background. Do this only after having loaded a tileset and a map.
-      \~french Initialise un fond. A faire uniquement après avoir chargé un tileset et une map.
+      \~french Initialise un fond. A faire uniquement aprÃ¨s avoir chargÃ© un tileset et une map.
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
     \~\param bg_size
       \~english Background size. This is important, because it also determines whether the Bg is rotatable or not. To use a normal background, use the macros BG_256X256, BG_256X512, etc... For a rotatable Bg, use the macros BG_ROT_128X128...
-      \~french Taille du fond. Ceci est très important, car ça détermine aussi si le Bg est rotatif ou non. Pour un fond normal, on utilise les macros BG_256X256, BG_256X512, etc... Pour un fond rotatif, il suffit d'utiliser BG_ROT_128X128...
+      \~french Taille du fond. Ceci est trÃ¨s important, car Ã§a dÃ©termine aussi si le Bg est rotatif ou non. Pour un fond normal, on utilise les macros BG_256X256, BG_256X512, etc... Pour un fond rotatif, il suffit d'utiliser BG_ROT_128X128...
     \~\param wraparound
       \~english If the background wraps around or not. More important for rotating backgrounds.
       \~french Si le fond boucle ou non. C'est plus important pour les fonds rotatifs...
@@ -188,10 +188,10 @@ void PA_InitBg(u8 screen, u8 bg_select, u8 bg_size, u8 wraparound, u8 color_mode
       \~french Cacher un fond.
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
 */
 #define PA_HideBg(screen, bg_select) _REG16(REG_BGSCREEN(screen)) &= ~(0x100 << (bg_select))
 
@@ -199,13 +199,13 @@ void PA_InitBg(u8 screen, u8 bg_select, u8 bg_size, u8 wraparound, u8 color_mode
     \def PA_ShowBg(screen, bg_select)
     \brief
       \~english Show a hidden background.
-      \~french Afficher un fond auparavant caché.
+      \~french Afficher un fond auparavant cachÃ©.
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
 */
 #define PA_ShowBg(screen, bg_select) _REG16(REG_BGSCREEN(screen)) |= (0x100 << (bg_select))
 
@@ -213,10 +213,10 @@ void PA_InitBg(u8 screen, u8 bg_select, u8 bg_size, u8 wraparound, u8 color_mode
     \def PA_ResetBg(screen)
     \brief
       \~english Reinitialize de Bg system of a screen. It only hides all the backgrounds in reality...
-      \~french Reinitialiser les fonds d'un écran. En fait ca ne fait que cacher tous les fonds
+      \~french Reinitialiser les fonds d'un Ã©cran. En fait ca ne fait que cacher tous les fonds
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
 */
 #define PA_ResetBg(screen) _REG16(REG_BGSCREEN(screen)) &= ~(0xF00)
 
@@ -225,13 +225,13 @@ void PA_InitBg(u8 screen, u8 bg_select, u8 bg_size, u8 wraparound, u8 color_mode
 	\deprecated
     \brief
       \~english [DEPRECATED] Load a tileset into memory
-      \~french [DEPRECATED] Charger un tileset en mémoire
+      \~french [DEPRECATED] Charger un tileset en mÃ©moire
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
     \~\param bg_tiles
       \~english Name of the tiles' info (example: ship_Tiles)
       \~french Nom du tableau contenant les tiles (exemple: ship_Tiles)
@@ -242,13 +242,13 @@ void PA_InitBg(u8 screen, u8 bg_select, u8 bg_size, u8 wraparound, u8 color_mode
     \fn void PA_LoadBgTilesEx(u8 screen, u8 bg_select, void* bg_tiles, u32 size)
     \brief
       \~english Load a tileset into memory with a given size
-      \~french Charger un tileset en mémoire avec une taille donnée
+      \~french Charger un tileset en mÃ©moire avec une taille donnÃ©e
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
     \~\param bg_tiles
       \~english Name of the tiles' info (example: ship_Tiles)
       \~french Nom du tableau contenant les tiles (exemple: ship_Tiles)
@@ -263,13 +263,13 @@ void PA_LoadBgTilesEx(u8 screen, u8 bg_select, void* bg_tiles, u32 size);
     \fn void PA_ReLoadBgTiles(u8 screen, u8 bg_select, void* bg_tiles)
     \brief
       \~english ReLoad a tileset into memory
-      \~french ReCharger un tileset en mémoire
+      \~french ReCharger un tileset en mÃ©moire
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
     \~\param bg_tiles
       \~english Name of the tiles' info (example: ship_Tiles)
       \~french Nom du tableau contenant les tiles (exemple: ship_Tiles)
@@ -280,13 +280,13 @@ void PA_ReLoadBgTiles(u8 screen, u8 bg_select, void* bg_tiles);
     \fn void PA_DeleteTiles(u8 screen, u8 bg_select)
     \brief
       \~english Delete a tilest in memory. Note that loading a tileset automatically deletes the preceding one, so you won't need to use this function often
-      \~french Effacer un tileset en mémoire. A noter que charger un tileset efface automatiquement le tileset précédent, donc on n'aura pas souvent besoin de cette fonction...
+      \~french Effacer un tileset en mÃ©moire. A noter que charger un tileset efface automatiquement le tileset prÃ©cÃ©dent, donc on n'aura pas souvent besoin de cette fonction...
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
 */
 void PA_DeleteTiles(u8 screen, u8 bg_select);
 
@@ -294,13 +294,13 @@ void PA_DeleteTiles(u8 screen, u8 bg_select);
     \fn void PA_DeleteMap(u8 screen, u8 bg_select)
     \brief
       \~english Delete a map in memory. Note that loading a map automatically deletes the preceding one, so you won't need to use this function often
-      \~french Effacer une map en mémoire. A noter que charger une map efface automatiquement la map précédent, donc on n'aura pas souvent besoin de cette fonction...
+      \~french Effacer une map en mÃ©moire. A noter que charger une map efface automatiquement la map prÃ©cÃ©dent, donc on n'aura pas souvent besoin de cette fonction...
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
 */
 void PA_DeleteMap(u8 screen, u8 bg_select);
 
@@ -308,13 +308,13 @@ void PA_DeleteMap(u8 screen, u8 bg_select);
     \fn static inline void PA_DeleteBg(u8 screen, u8 bg_select)
     \brief
       \~english Delete and reset a complete background
-      \~french Effacer et reinitialiser un fond complètement
+      \~french Effacer et reinitialiser un fond complÃ¨tement
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
 */
 static inline void PA_DeleteBg(u8 screen, u8 bg_select) {
 	// By Maple, June 2008
@@ -340,16 +340,16 @@ static inline void PA_DeleteBg(u8 screen, u8 bg_select) {
       \~french Charge la carte d'un fond
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
     \~\param bg_map
       \~english Name of the map's info (example : (void*)ship_Map) Don't forget the void...
       \~french Nom du tableau contenant les infos sur la map (exemple : (void*)ship_Map) n'oublie pas le void...
     \~\param bg_size
       \~english Background size. This is important, because it also determines whether the Bg is rotatable or not. To use a normal background, use the macros BG_256X256, BG_256X512, etc... 
-      \~french Taille du fond. Ceci est très important, car ça détermine aussi si le Bg est rotatif ou non. Pour un fond normal, on utilise les macros BG_256X256, BG_256X512, etc...
+      \~french Taille du fond. Ceci est trÃ¨s important, car Ã§a dÃ©termine aussi si le Bg est rotatif ou non. Pour un fond normal, on utilise les macros BG_256X256, BG_256X512, etc...
 */
 
 void PA_LoadBgMap(u8 screen, u8 bg_select, void* bg_map, u8 bg_size);
@@ -360,10 +360,10 @@ void PA_LoadBgMap(u8 screen, u8 bg_select, void* bg_map, u8 bg_size);
          \~french Charger un fond (EasyBg ou RotBg).
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_number
          \~english Background number... (0-3)
-         \~french Numéro du fond...	 (0-3)
+         \~french NumÃ©ro du fond...	 (0-3)
     \~\param bg_name
          \~english Pointer to the background (struct)
          \~french Pointeur vers le fond
@@ -379,10 +379,10 @@ void PA_LoadBackground(u8 screen, u8 bg_select, const PA_BgStruct* bg_name);
       \~french [DEPRECATED] On ne pourra jamais rendre ca plus simple... Charge un fond de type TiledBg converti avec PAGfx, en mettant les tiles, la map, et meme la palette ! Seulement en mode 256 couleurs
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_number
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
     \~\param bg_name
       \~english Background name, like bg0
       \~french Nom du fond, comme bg0
@@ -398,13 +398,13 @@ void PA_LoadBackground(u8 screen, u8 bg_select, const PA_BgStruct* bg_name);
 	\deprecated
     \brief
       \~english [DEPRECATED] Simple way to load a Background. Combines PA_InitBg, PA_LoadBgTiles, and PA_LoadBgMap
-      \~french [DEPRECATED] Façon simple de cahrger un fond. Combine PA_InitBg, PA_LoadBgTiles, et PA_LoadBgMap
+      \~french [DEPRECATED] FaÃ§on simple de cahrger un fond. Combine PA_InitBg, PA_LoadBgTiles, et PA_LoadBgMap
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
     \~\param bg_tiles
       \~english Name of the tiles' info (example: ship_Tiles)
       \~french Nom du tableau contenant les tiles (exemple: ship_Tiles)
@@ -438,10 +438,10 @@ void PA_LoadBackground(u8 screen, u8 bg_select, const PA_BgStruct* bg_name);
       \~french [DEPRECATED] Facon la plus simple de cahrger un fond. Combine PA_InitBg, PA_LoadBgTiles, et PA_LoadBgMap
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
       \~english Background number to load (from 0 to 3)
-      \~french Numéro du fond que l'on veut charger (de 0 à 3 en mode 0, uniquement 2 et 3 en mode 2)
+      \~french NumÃ©ro du fond que l'on veut charger (de 0 Ã  3 en mode 0, uniquement 2 et 3 en mode 2)
     \~\param bg_tiles
       \~english Name of the tiles' info (example: ship_Tiles)
       \~french Nom du tableau contenant les tiles (exemple: ship_Tiles)
@@ -453,7 +453,7 @@ void PA_LoadBackground(u8 screen, u8 bg_select, const PA_BgStruct* bg_name);
       \~french Nom du tableau contenant les infos sur la map (exemple : ship_Map)
     \~\param bg_size
       \~english Background size. This is important, because it also determines whether the Bg is rotatable or not. To use a normal background, use the macros BG_256X256, BG_256X512, etc... For a rotatable Bg, use the macros BG_ROT_128X128...
-      \~french Taille du fond. Ceci est très important, car ça détermine aussi si le Bg est rotatif ou non. Pour un fond normal, on utilise les macros BG_256X256, BG_256X512, etc... Por un fond rotatif, il suffit d'utiliser BG_ROT_128X128...
+      \~french Taille du fond. Ceci est trÃ¨s important, car Ã§a dÃ©termine aussi si le Bg est rotatif ou non. Pour un fond normal, on utilise les macros BG_256X256, BG_256X512, etc... Por un fond rotatif, il suffit d'utiliser BG_ROT_128X128...
     \~\param wraparound
       \~english If the background wraps around or not. More important for rotating backgrounds. 
       \~french Si le fond boucle ou non. C'est plus important pour les fonds rotatifs... 
@@ -476,13 +476,13 @@ void PA_LoadBackground(u8 screen, u8 bg_select, const PA_BgStruct* bg_name);
       \~french Scroll horizontal d'un fond de type Tiled
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_number
       \~english Background number (0-3)
-      \~french Numéro du fond que l'on veut tourner (0-3)
+      \~french NumÃ©ro du fond que l'on veut tourner (0-3)
     \~\param x
       \~english X value to scroll
-      \~french Valeur X à déplacer, horizontalement...
+      \~french Valeur X Ã  dÃ©placer, horizontalement...
 */
 static inline void PA_BGScrollX(u8 screen, u8 bg_number, s32 x) {
 	PA_BgInfo[screen][bg_number].ScrollX = (x)&1023;
@@ -496,13 +496,13 @@ static inline void PA_BGScrollX(u8 screen, u8 bg_number, s32 x) {
       \~french Scroll vertical d'un fond de type Tiled
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_number
       \~english Background number (0-3)
-      \~french Numéro du fond que l'on veut tourner (0-3)
+      \~french NumÃ©ro du fond que l'on veut tourner (0-3)
     \~\param y
       \~english Y value to scroll
-      \~french Valeur Y à déplacer, verticalement...
+      \~french Valeur Y Ã  dÃ©placer, verticalement...
 */
 static inline void PA_BGScrollY(u8 screen, u8 bg_number, s32 y) {
 	PA_BgInfo[screen][bg_number].ScrollY = (y)&1023;
@@ -516,16 +516,16 @@ static inline void PA_BGScrollY(u8 screen, u8 bg_number, s32 y) {
       \~french Scroll horizontal et vertical d'un fond de type Tiled
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_number
       \~english Background number (0-3)
-      \~french Numéro du fond que l'on veut tourner (0-3)
+      \~french NumÃ©ro du fond que l'on veut tourner (0-3)
     \~\param x
       \~english X value to scroll
-      \~french Valeur X à déplacer, horizontalement...
+      \~french Valeur X Ã  dÃ©placer, horizontalement...
     \~\param y
       \~english Y value to scroll
-      \~french Valeur Y à déplacer, verticalement...
+      \~french Valeur Y Ã  dÃ©placer, verticalement...
 */
 static inline void PA_BGScrollXY(u8 screen, u8 bg_number, s32 x, s32 y) {
 	PA_BGScrollX(screen, bg_number, x); 
@@ -536,22 +536,22 @@ static inline void PA_BGScrollXY(u8 screen, u8 bg_number, s32 x, s32 y) {
     \fn static inline void PA_SetMapTile(u8 screen, u8 bg_select, s16 x, s16 y, s16 tile_number)
     \brief
       \~english Change the tile gfx used by a given tile in the map
-      \~french Change la tile gfx utilisée pour une tile donnée dans la map
+      \~french Change la tile gfx utilisÃ©e pour une tile donnÃ©e dans la map
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
       \~english Background number (0-3)
-      \~french Numéro du fond que l'on veut tourner (0-3)
+      \~french NumÃ©ro du fond que l'on veut tourner (0-3)
     \~\param x
       \~english X value of the tile to change
-      \~french Valeur X de la tile à changer
+      \~french Valeur X de la tile Ã  changer
     \~\param y
       \~english Y value of the map tile to change
-      \~french Valeur Y de la tile à changer dans la carte
+      \~french Valeur Y de la tile Ã  changer dans la carte
     \~\param tile_number
       \~english New tile number to put
-      \~french Nouveau numéro de tile que l'on veut mettre
+      \~french Nouveau numÃ©ro de tile que l'on veut mettre
 */
 static inline void PA_SetMapTile(u8 screen, u8 bg_select, s16 x, s16 y, s16 tile_number) {
 	*(u16*)(PA_BgInfo[screen][bg_select].Map + ((x) << 1) + ((y) << 6)) &= ~(TILE_N); 
@@ -562,22 +562,22 @@ static inline void PA_SetMapTile(u8 screen, u8 bg_select, s16 x, s16 y, s16 tile
     \def PA_SetMapTileAll(screen, bg_select, x, y, tile_info)
     \brief
       \~english Change the tile info used by a given tile in the map
-      \~french Change les infos tiles utilisée pour une tile donnée dans la map
+      \~french Change les infos tiles utilisÃ©e pour une tile donnÃ©e dans la map
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
       \~english Background number (0-3)
-      \~french Numéro du fond que l'on veut tourner (0-3)
+      \~french NumÃ©ro du fond que l'on veut tourner (0-3)
     \~\param x
       \~english X value of the tile to change
-      \~french Valeur X de la tile à changer
+      \~french Valeur X de la tile Ã  changer
     \~\param y
       \~english Y value of the map tile to change
-      \~french Valeur Y de la tile à changer dans la carte
+      \~french Valeur Y de la tile Ã  changer dans la carte
     \~\param tile_info
       \~english New tile to put (tile + palette + flips...)
-      \~french Nouveau numéro de tile que l'on veut mettre (tile + palette + flips...)
+      \~french Nouveau numÃ©ro de tile que l'on veut mettre (tile + palette + flips...)
 */
 #define PA_SetMapTileAll(screen, bg_select, x, y, tile_info) *(u16*)(PA_BgInfo[screen][bg_select].Map + ((x) << 1) + ((y) << 6)) = (tile_info)
 
@@ -585,22 +585,22 @@ static inline void PA_SetMapTile(u8 screen, u8 bg_select, s16 x, s16 y, s16 tile
     \fn static inline void PA_SetLargeMapTile(u8 screen, u8 bg_select, s32 x, s32 y, u32 tile_info)
     \brief
       \~english Change the tile info used by a given tile in the map, only for big background (512 large or wide)
-      \~french Change les infos tiles utilisée pour une tile donnée dans la map, seulement pour les grands fonds (512 de large ou haut)
+      \~french Change les infos tiles utilisÃ©e pour une tile donnÃ©e dans la map, seulement pour les grands fonds (512 de large ou haut)
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
       \~english Background number (0-3)
-      \~french Numéro du fond que l'on veut tourner (0-3)
+      \~french NumÃ©ro du fond que l'on veut tourner (0-3)
     \~\param x
       \~english X value of the tile to change
-      \~french Valeur X de la tile à changer
+      \~french Valeur X de la tile Ã  changer
     \~\param y
       \~english Y value of the map tile to change
-      \~french Valeur Y de la tile à changer dans la carte
+      \~french Valeur Y de la tile Ã  changer dans la carte
     \~\param tile_info
       \~english New tile to put (tile + palette + flips...)
-      \~french Nouveau numéro de tile que l'on veut mettre (tile + palette + flips...)
+      \~french Nouveau numÃ©ro de tile que l'on veut mettre (tile + palette + flips...)
 */
 static inline void PA_SetLargeMapTile(u8 screen, u8 bg_select, s32 x, s32 y, u32 tile_info) {
 	u32 truex;
@@ -618,16 +618,16 @@ static inline void PA_SetLargeMapTile(u8 screen, u8 bg_select, s32 x, s32 y, u32
       \~french Flipper une tile de la carte, horizontalement
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
       \~english Background number (0-3)
-      \~french Numéro du fond que l'on veut tourner (0-3)
+      \~french NumÃ©ro du fond que l'on veut tourner (0-3)
     \~\param x
       \~english X value of the tile to change
-      \~french Valeur X de la tile à changer
+      \~french Valeur X de la tile Ã  changer
     \~\param y
       \~english Y value of the map tile to change
-      \~french Valeur Y de la tile à changer dans la carte
+      \~french Valeur Y de la tile Ã  changer dans la carte
     \~\param hflip
       \~english Set the map tile to horizontal flip
       \~french Mettre la tile de la carte en flip horizontal
@@ -645,16 +645,16 @@ static inline void PA_SetMapTileHflip(u8 screen, u8 bg_select, u8 x, u8 y, u8 hf
       \~french Flipper une tile de la carte, verticalement
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
       \~english Background number (0-3)
-      \~french Numéro du fond que l'on veut tourner (0-3)
+      \~french NumÃ©ro du fond que l'on veut tourner (0-3)
     \~\param x
       \~english X value of the tile to change
-      \~french Valeur X de la tile à changer
+      \~french Valeur X de la tile Ã  changer
     \~\param y
       \~english Y value of the map tile to change
-      \~french Valeur Y de la tile à changer dans la carte
+      \~french Valeur Y de la tile Ã  changer dans la carte
     \~\param vflip
       \~english Set the map tile to vertical flip
       \~french Mettre la tile de la carte en flip vertical
@@ -669,22 +669,22 @@ static inline void PA_SetMapTileVflip(u8 screen, u8 bg_select, u8 x, u8 y, u8 vf
     \fn static inline void PA_SetMapTilePal(u8 screen, u8 bg_select, u8 x, u8 y, u8 palette_number)
     \brief
       \~english Change the 16 color palette used by a tile. Works only if the Bg is in 16 colors...
-      \~french Changer la palette de 16 couleurs utilisée par une tile de la carte. Marche uniquement en mode 16 couleurs pour le Bg.
+      \~french Changer la palette de 16 couleurs utilisÃ©e par une tile de la carte. Marche uniquement en mode 16 couleurs pour le Bg.
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
       \~english Background number (0-3)
-      \~french Numéro du fond que l'on veut tourner (0-3)
+      \~french NumÃ©ro du fond que l'on veut tourner (0-3)
     \~\param x
       \~english X value of the tile to change
-      \~french Valeur X de la tile à changer
+      \~french Valeur X de la tile Ã  changer
     \~\param y
       \~english Y value of the map tile to change
-      \~french Valeur Y de la tile à changer dans la carte
+      \~french Valeur Y de la tile Ã  changer dans la carte
     \~\param palette_number
       \~english Palette number (0-15)
-      \~french Numéro de la palette (0-15)
+      \~french NumÃ©ro de la palette (0-15)
 */
 static inline void PA_SetMapTilePal(u8 screen, u8 bg_select, u8 x, u8 y, u8 palette_number) {
 	u16 *pointer = (u16*)(PA_BgInfo[screen][bg_select].Map + ((x) << 1) + ((y) << 6));	
@@ -696,22 +696,22 @@ static inline void PA_SetMapTilePal(u8 screen, u8 bg_select, u8 x, u8 y, u8 pale
     \def PA_SetMapTileEx(screen, bg_select, x, y, tile_number, hflip, vflip, palette_number)
     \brief
       \~english Change every aspect of a given map tile
-      \~french Changer tous les aspect d'une tile donnée dans la map.
+      \~french Changer tous les aspect d'une tile donnÃ©e dans la map.
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
       \~english Background number (0-3)
-      \~french Numéro du fond que l'on veut tourner (0-3)
+      \~french NumÃ©ro du fond que l'on veut tourner (0-3)
     \~\param x
       \~english X value of the tile to change
-      \~french Valeur X de la tile à changer
+      \~french Valeur X de la tile Ã  changer
     \~\param y
       \~english Y value of the map tile to change
-      \~french Valeur Y de la tile à changer dans la carte
+      \~french Valeur Y de la tile Ã  changer dans la carte
     \~\param tile_number
       \~english New tile number to put
-      \~french Nouveau numéro de tile que l'on veut mettre
+      \~french Nouveau numÃ©ro de tile que l'on veut mettre
     \~\param hflip
       \~english Set the map tile to horizontal flip
       \~french Mettre la tile de la carte en flip horizontal
@@ -720,7 +720,7 @@ static inline void PA_SetMapTilePal(u8 screen, u8 bg_select, u8 x, u8 y, u8 pale
       \~french Mettre la tile de la carte en flip vertical
     \~\param palette_number
       \~english Palette number (0-15)
-      \~french Numéro de la palette (0-15)
+      \~french NumÃ©ro de la palette (0-15)
 */
 static inline void PA_SetMapTileEx(u8 screen, u8 bg_select, s16 x, s16 y, u16 tile_number, u8 hflip, u8 vflip, u8 palette_number) {
 	*(u16*)(PA_BgInfo[screen][bg_select].Map + ((x) << 1) + ((y) << 6)) = (tile_number) + ((hflip) << 10) + ((vflip) << 11) + ((palette_number) << 12);
@@ -730,16 +730,16 @@ static inline void PA_SetMapTileEx(u8 screen, u8 bg_select, s16 x, s16 y, u16 ti
     \fn static inline void PA_SetBgPrio(u8 screen, u8 bg, u8 prio)
     \brief
       \~english Change a backgrounds priority
-      \~french Changer la priorité d'un fond
+      \~french Changer la prioritÃ© d'un fond
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg
       \~english Background...
-      \~french Numéro du fond...
+      \~french NumÃ©ro du fond...
     \~\param prio
       \~english Priority level (0-3, 0 being the highest)
-      \~french Niveau de priorité, de 0 à 3, 0 étant priorité la plus élevée
+      \~french Niveau de prioritÃ©, de 0 Ã  3, 0 Ã©tant prioritÃ© la plus Ã©levÃ©e
 */
 static inline void PA_SetBgPrio(u8 screen, u8 bg, u8 prio) {
 	_REG16(REG_BGCNT(screen, bg)) &= ~3;
@@ -748,7 +748,7 @@ static inline void PA_SetBgPrio(u8 screen, u8 bg, u8 prio) {
 
 static inline void PA_CreateBgFromTiles(u8 screen, u8 bg_select, u8 bg_tiles, void *bg_map, u8 bg_size){
 	PA_LoadBgMap(screen, bg_select, bg_map, bg_size);
-	scrollpos[screen][bg_select].infscroll = 0; // Par défaut pas de scrolling infini...
+	scrollpos[screen][bg_select].infscroll = 0; // Par dÃ©faut pas de scrolling infini...
 	PA_BgInfo[screen][bg_select].Map = ScreenBaseBlock(screen, PA_BgInfo[screen][bg_select].mapchar);
 	PA_BgInfo[screen][bg_select].TileSetChar = PA_BgInfo[screen][bg_tiles].TileSetChar;
 	PA_BgInfo[screen][bg_select].tilesetsize = PA_BgInfo[screen][bg_tiles].tilesetsize;
@@ -762,13 +762,13 @@ static inline void PA_CreateBgFromTiles(u8 screen, u8 bg_select, u8 bg_tiles, vo
     \fn static inline void PA_SetBgPrioSeq(u8 screen, u8 priority0, u8 priority1, u8 priority2, u8 priority3)
     \brief
       \~english Change all the background priorities to a given background order
-      \~french Changer la priorité des fonds pour qu'ils soient dans un ordre donné
+      \~french Changer la prioritÃ© des fonds pour qu'ils soient dans un ordre donnÃ©
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param priority0      
 	  \~english Background to show on top
-      \~french Fond à mettre en premier
+      \~french Fond Ã  mettre en premier
     \~\param priority1
       \~english Next one...
       \~french Suivant...
@@ -790,10 +790,10 @@ static inline void PA_SetBgPrioSeq(u8 screen, u8 priority0, u8 priority1, u8 pri
 /*! \fn static inline void PA_ClearBg(u8 screen, u8 bg_select)
     \brief
          \~english Erase a given background (just the tilemap)
-         \~french Effacer un fond donné (juste la map)
+         \~french Effacer un fond donnÃ© (juste la map)
     \~\param screen
          \~english Choose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_select
          \~english Background...
          \~french Fond...	 
@@ -807,13 +807,13 @@ static inline void PA_ClearBg(u8 screen, u8 bg_select){
 	\deprecated
     \brief
          \~english [DEPRECATED] Easiest way to load a background converted with PAGfx...
-         \~french [DEPRECATED] Moyen le plus simple de charger un fond créé avec PAGfx
+         \~french [DEPRECATED] Moyen le plus simple de charger un fond crÃ©Ã© avec PAGfx
     \~\param screen
          \~english Choose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_number
          \~english Background number... (0-3)
-         \~french Numéro du fond...	 (0-3)
+         \~french NumÃ©ro du fond...	 (0-3)
     \~\param bg_name
          \~english Background name
          \~french Nom du fond	 
@@ -828,13 +828,13 @@ static inline void PA_ClearBg(u8 screen, u8 bg_select){
 	\deprecated
     \brief
          \~english [DEPRECATED] Easiest way to load a background converted with PAGfx... Can take pointers !
-         \~french [DEPRECATED] Moyen le plus simple de charger un fond créé avec PAGfx... Peut prendre des pointeurs !
+         \~french [DEPRECATED] Moyen le plus simple de charger un fond crÃ©Ã© avec PAGfx... Peut prendre des pointeurs !
     \~\param screen
          \~english Choose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_number
          \~english Background number... (0-3)
-         \~french Numéro du fond...	 (0-3)
+         \~french NumÃ©ro du fond...	 (0-3)
     \~\param bg_name
          \~english Background, like &bg0
          \~french Fond, par exemple &bg0
@@ -851,13 +851,13 @@ static inline void PA_ClearBg(u8 screen, u8 bg_select){
       \~french Scroll horizontal de n'importe quel fond
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_number
       \~english Background number (0-3)
-      \~french Numéro du fond que l'on veut tourner (0-3)
+      \~french NumÃ©ro du fond que l'on veut tourner (0-3)
     \~\param x
       \~english X value to scroll
-      \~french Valeur X à déplacer, horizontalement...
+      \~french Valeur X Ã  dÃ©placer, horizontalement...
 */
 void PA_EasyBgScrollX(u8 screen, u8 bg_number, s32 x);
 
@@ -868,13 +868,13 @@ void PA_EasyBgScrollX(u8 screen, u8 bg_number, s32 x);
       \~french Scroll vertical de n'importe quel fond
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_number
       \~english Background number (0-3)
-      \~french Numéro du fond que l'on veut tourner (0-3)
+      \~french NumÃ©ro du fond que l'on veut tourner (0-3)
     \~\param y
       \~english Y value to scroll
-      \~french Valeur Y à déplacer, verticalement...
+      \~french Valeur Y Ã  dÃ©placer, verticalement...
 */
 void PA_EasyBgScrollY(u8 screen, u8 bg_number, s32 y);
 
@@ -885,16 +885,16 @@ void PA_EasyBgScrollY(u8 screen, u8 bg_number, s32 y);
       \~french Scroll horizontal et vertical de n'importe quel fond
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_number
       \~english Background number (0-3)
-      \~french Numéro du fond que l'on veut tourner (0-3)
+      \~french NumÃ©ro du fond que l'on veut tourner (0-3)
     \~\param x
       \~english X value to scroll
-      \~french Valeur X à déplacer, horizontalement...
+      \~french Valeur X Ã  dÃ©placer, horizontalement...
     \~\param y
       \~english Y value to scroll
-      \~french Valeur Y à déplacer, verticalement...
+      \~french Valeur Y Ã  dÃ©placer, verticalement...
 */
 static inline void PA_EasyBgScrollXY(u8 screen, u8 bg_number, s32 x, s32 y){
 	PA_EasyBgScrollX(screen, bg_number, x);
@@ -905,19 +905,19 @@ static inline void PA_EasyBgScrollXY(u8 screen, u8 bg_number, s32 x, s32 y){
     \fn static inline u8 PA_EasyBgGetPixel(u8 screen, u8 bg_number, s32 x, s32 y)
     \brief
       \~english Returns the color (number in the palette) of the screen pixel...
-      \~french Renvoie le numéro dans la palette du pixel à l'écran...
+      \~french Renvoie le numÃ©ro dans la palette du pixel Ã  l'Ã©cran...
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_number
       \~english Background number (0-3)
-      \~french Numéro du fond que l'on veut tourner (0-3)
+      \~french NumÃ©ro du fond que l'on veut tourner (0-3)
     \~\param x
       \~english X screen pixel position
-      \~french Valeur X du pixel à l'écran
+      \~french Valeur X du pixel Ã  l'Ã©cran
     \~\param y
       \~english Y screen pixel position
-      \~french Valeur Y du pixel à l'écran
+      \~french Valeur Y du pixel Ã  l'Ã©cran
 */
 static inline u8 PA_EasyBgGetPixel(u8 screen, u8 bg_number, s32 x, s32 y){
 	return PA_EasyBgPixel[PA_BgInfo[screen][bg_number].Infos.Type](screen, bg_number, x, y);
@@ -927,19 +927,19 @@ static inline u8 PA_EasyBgGetPixel(u8 screen, u8 bg_number, s32 x, s32 y){
     \fn static inline u16 PA_EasyBgGetPixelCol(u8 screen, u8 bg_number, s32 x, s32 y)
     \brief
       \~english Returns the color (u16 value) of the screen pixel...
-      \~french Renvoie la couleur (valeur u16) du pixel à l'écran...
+      \~french Renvoie la couleur (valeur u16) du pixel Ã  l'Ã©cran...
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_number
       \~english Background number (0-3)
-      \~french Numéro du fond que l'on veut tourner (0-3)
+      \~french NumÃ©ro du fond que l'on veut tourner (0-3)
     \~\param x
       \~english X screen pixel position
-      \~french Valeur X du pixel à l'écran
+      \~french Valeur X du pixel Ã  l'Ã©cran
     \~\param y
       \~english Y screen pixel position
-      \~french Valeur Y du pixel à l'écran
+      \~french Valeur Y du pixel Ã  l'Ã©cran
 */
 static inline u16 PA_EasyBgGetPixelCol(u8 screen, u8 bg_number, s32 x, s32 y){
 	return ((u16*)(PA_BgInfo[screen][bg_number].Infos.Palette))[PA_EasyBgGetPixel(screen, bg_number, x, y)];
@@ -952,13 +952,13 @@ static inline u16 PA_EasyBgGetPixelCol(u8 screen, u8 bg_number, s32 x, s32 y){
       \~french Active ou non le wrapping des fonds (rotatifs, 8bit, et 16bit)
     \~\param screen
          \~english Choose the screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg
       \~english Background number (0-3)
-      \~french Numéro du fond que l'on veut tourner (0-3)
+      \~french NumÃ©ro du fond que l'on veut tourner (0-3)
     \~\param wrap
       \~english Wrap around on or off...
-      \~french Wrap activé ou désactivé...
+      \~french Wrap activÃ© ou dÃ©sactivÃ©...
 */
 static inline void PA_SetBgWrap(u8 screen, u8 bg, u8 wrap){
 	_REG16(REG_BGCNT(screen, bg)) &= ~(1<<13); // Remove
@@ -970,13 +970,13 @@ static inline void PA_SetBgWrap(u8 screen, u8 bg, u8 wrap){
     \fn static inline void PA_InitParallaxX(u8 screen, s32 bg0, s32 bg1, s32 bg2, s32 bg3)
     \brief
       \~english Initialise Parallax Scrolling for multiple backgrounds, horizontaly. Chose the speed at which each background will scroll compared to the others. Then use PA_ParallaxScrollX to scroll...
-      \~french Initialiser le Parallax Scrolling pour plusieurs fonds, horizontalement. Choix de la vitesse à laquelle les fonds vont défiler par rapport aux autres... Utiliser PA_ParallaxScrollX par la suite pour scroller
+      \~french Initialiser le Parallax Scrolling pour plusieurs fonds, horizontalement. Choix de la vitesse Ã  laquelle les fonds vont dÃ©filer par rapport aux autres... Utiliser PA_ParallaxScrollX par la suite pour scroller
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg0
       \~english Value for the first background (0). Set to 256 for normal scroll speed, lower for lower speed (128 is half speed...), higher for faster (512 is twice as fast...). You can set negative values. 0 inactivates parallax scrolling for this background
-      \~french Valeur pour le premier fond (0). 256 met en vitesse normal, moins pour moins lent (128 pour moitié de vitesse), plus pour plus rapide (512 équivaut à 2 fois plus vite). On peut utiliser des valeurs négatives. 0 désactive le scrolling parallax pour ce fond
+      \~french Valeur pour le premier fond (0). 256 met en vitesse normal, moins pour moins lent (128 pour moitiÃ© de vitesse), plus pour plus rapide (512 Ã©quivaut Ã  2 fois plus vite). On peut utiliser des valeurs nÃ©gatives. 0 dÃ©sactive le scrolling parallax pour ce fond
     \~\param bg1
       \~english Same thing for Background 1
       \~french Idem, pour le Fond 1
@@ -998,13 +998,13 @@ static inline void PA_InitParallaxX(u8 screen, s32 bg0, s32 bg1, s32 bg2, s32 bg
     \fn static inline void PA_InitParallaxY(u8 screen, s32 bg0, s32 bg1, s32 bg2, s32 bg3)
     \brief
       \~english Initialise Parallax Scrolling for multiple backgrounds, horizontaly. Chose the speed at which each background will scroll compared to the others. Then use PA_ParallaxScrollX to scroll...
-      \~french Initialiser le Parallax Scrolling pour plusieurs fonds, horizontalement. Choix de la vitesse à laquelle les fonds vont défiler par rapport aux autres... Utiliser PA_ParallaxScrollX par la suite pour scroller
+      \~french Initialiser le Parallax Scrolling pour plusieurs fonds, horizontalement. Choix de la vitesse Ã  laquelle les fonds vont dÃ©filer par rapport aux autres... Utiliser PA_ParallaxScrollX par la suite pour scroller
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg0
       \~english Value for the first background (0). Set to 256 for normal scroll speed, lower for lower speed (128 is half speed...), higher for faster (512 is twice as fast...). You can set negative values. 0 inactivates parallax scrolling for this background
-      \~french Valeur pour le premier fond (0). 256 met en vitesse normal, moins pour moins lent (128 pour moitié de vitesse), plus pour plus rapide (512 équivaut à 2 fois plus vite). On peut utiliser des valeurs négatives. 0 désactive le scrolling parallax pour ce fond
+      \~french Valeur pour le premier fond (0). 256 met en vitesse normal, moins pour moins lent (128 pour moitiÃ© de vitesse), plus pour plus rapide (512 Ã©quivaut Ã  2 fois plus vite). On peut utiliser des valeurs nÃ©gatives. 0 dÃ©sactive le scrolling parallax pour ce fond
     \~\param bg1
       \~english Same thing for Background 1
       \~french Idem, pour le Fond 1
@@ -1028,13 +1028,13 @@ static inline void PA_InitParallaxY(u8 screen, s32 bg0, s32 bg1, s32 bg2, s32 bg
     \fn static inline void PA_ParallaxScrollX(u8 screen, s32 x)
     \brief
       \~english Scroll the backgrounds
-      \~french Déplacer les fonds activés pour le parallax...
+      \~french DÃ©placer les fonds activÃ©s pour le parallax...
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param x
       \~english X value to scroll
-      \~french Valeur X à déplacer
+      \~french Valeur X Ã  dÃ©placer
 */
 static inline void PA_ParallaxScrollX(u8 screen, s32 x){
 	int i;
@@ -1050,13 +1050,13 @@ static inline void PA_ParallaxScrollX(u8 screen, s32 x){
     \fn static inline void PA_ParallaxScrollY(u8 screen, s32 y)
     \brief
       \~english Scroll the backgrounds
-      \~french Déplacer les fonds activés pour le parallax...
+      \~french DÃ©placer les fonds activÃ©s pour le parallax...
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param y
       \~english Y value to scroll
-      \~french Valeur Y à déplacer
+      \~french Valeur Y Ã  dÃ©placer
 */
 static inline void PA_ParallaxScrollY(u8 screen, s32 y){
 	int i;
@@ -1072,16 +1072,16 @@ static inline void PA_ParallaxScrollY(u8 screen, s32 y){
     \fn static inline void PA_ParallaxScrollXY(u8 screen, s32 x, s32 y)
     \brief
       \~english Scroll the backgrounds
-      \~french Déplacer les fonds activés pour le parallax...
+      \~french DÃ©placer les fonds activÃ©s pour le parallax...
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param x
       \~english X value to scroll
-      \~french Valeur X à déplacer
+      \~french Valeur X Ã  dÃ©placer
     \~\param y
       \~english Y value to scroll
-      \~french Valeur Y à déplacer
+      \~french Valeur Y Ã  dÃ©placer
 */
 static inline void PA_ParallaxScrollXY(u8 screen, s32 x, s32 y){
 	PA_ParallaxScrollX(screen, x);

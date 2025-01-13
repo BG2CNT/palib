@@ -44,7 +44,7 @@ int DecodeGif(const u8 *userData, u8 *ScreenBuff, u16* Palette, u8 nBits, s16 SW
 /*! \fn static inline u16 PA_GetGifWidth(void* gif)
     \brief
          \~english Get a Gif's width in pixels
-         \~french Récupérer la largeur d'un Gif en pixels
+         \~french RÃ©cupÃ©rer la largeur d'un Gif en pixels
     \~\param gif
          \~english Gif image...
          \~french image au format Gif...	 
@@ -58,7 +58,7 @@ static inline u16 PA_GetGifWidth(void* gif){
 /*! \fn static inline u16 PA_GetGifHeight(void* gif)
     \brief
          \~english Get a Gif's height in pixels
-         \~french Récupérer la hauteur d'un Gif en pixels
+         \~french RÃ©cupÃ©rer la hauteur d'un Gif en pixels
     \~\param gif
          \~english Gif image...
          \~french image au format Gif...	 
@@ -75,13 +75,13 @@ static inline u16 PA_GetGifHeight(void* gif){
          \~french Charger un Gif sur un fond de 16 bits... Faut pas oublier de charger ce fond avant !
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)	
+         \~french Choix de l'Ã©cran (0 ou 1)	
     \~\param x
          \~english X position on the screen
-         \~french Position X à l'écran
+         \~french Position X Ã  l'Ã©cran
     \~\param y
          \~english Y position on the screen
-         \~french Position Y à l'écran	 
+         \~french Position Y Ã  l'Ã©cran	 
     \~\param gif
          \~english Gif image...
          \~french image au format Gif...	 
@@ -97,7 +97,7 @@ static inline void PA_LoadGifXY(u8 screen, s16 x, s16 y, void *gif){
          \~french Charger un Gif sur un fond de 16 bits... Faut pas oublier de charger ce fond avant !
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)		 
+         \~french Choix de l'Ã©cran (0 ou 1)		 
     \~\param gif
          \~english Gif image...
          \~french image au format Gif...	 
@@ -112,7 +112,7 @@ static inline void PA_LoadGif(u8 screen, void *gif){
          \~french Changer la vitesse d'un gif
     \~\param speed
          \~english 1 for normal, 2 for 2x, 0.5 for half speed...
-         \~french 1 pour normal, 2 pour 2x, 0.5 pour la moitié... 
+         \~french 1 pour normal, 2 pour 2x, 0.5 pour la moitiÃ©... 
 */
 static inline void PA_GifAnimSpeed(float speed){
 	PA_GifInfo.Speed = speed;
@@ -121,7 +121,7 @@ static inline void PA_GifAnimSpeed(float speed){
 /*! \fn static inline void PA_GifAnimStop(void)
     \brief
          \~english Stop a Gif animation
-         \~french Arrêter l'animation d'un gif
+         \~french ArrÃªter l'animation d'un gif
 */
 static inline void PA_GifAnimStop(void){
 	PA_GifInfo.Play = 0;
@@ -148,10 +148,10 @@ static inline void PA_GifAnimPlay(void){
 /*! \fn static inline void PA_GifSetStartFrame(s32 StartFrame)
     \brief
          \~english Set the Gif's starting frame number 
-         \~french Régler à partir de quelle image commencer le gif
+         \~french RÃ©gler Ã  partir de quelle image commencer le gif
     \~\param StartFrame
          \~english Starting frame... (0 to start from beginning)
-         \~french Image où démarrer... (0 pour le début)
+         \~french Image oÃ¹ dÃ©marrer... (0 pour le dÃ©but)
 */
 static inline void PA_GifSetStartFrame(s32 StartFrame){
 	PA_GifInfo.StartFrame = StartFrame;
@@ -160,10 +160,10 @@ static inline void PA_GifSetStartFrame(s32 StartFrame){
 /*! \fn static inline void PA_GifSetEndFrame(s32 EndFrame)
     \brief
          \~english Set the Gif's ending frame number 
-         \~french Régler à partir de quelle image arrêter le gif
+         \~french RÃ©gler Ã  partir de quelle image arrÃªter le gif
     \~\param EndFrame
          \~english Ending frame... (100000 if you want to be sure ^^)
-         \~french Image où démarrer... (100000 si vous voulez être sure de finir ^^)
+         \~french Image oÃ¹ dÃ©marrer... (100000 si vous voulez Ãªtre sure de finir ^^)
 */
 static inline void PA_GifSetEndFrame(s32 EndFrame){
 	PA_GifInfo.EndFrame = EndFrame;
@@ -171,7 +171,7 @@ static inline void PA_GifSetEndFrame(s32 EndFrame){
 /*! \fn static inline s16 PA_GifGetFrame(void)
     \brief
          \~english Return's the gif's current frame
-         \~french Renvoie le numéro d'image du gif en cours
+         \~french Renvoie le numÃ©ro d'image du gif en cours
 */
 static inline s32 PA_GifGetFrame(void){
 	return PA_GifInfo.CurrentFrame;
@@ -181,13 +181,13 @@ static inline s32 PA_GifGetFrame(void){
 /N! \fn void PA_GifToTiles(void *gif, u16 *temppal)
     \brief
          \~english Export Gif to a friendly 8x8 tile format, allowing it to be used to create sprites and backgrounds ! Returns a pointer towards your sprite gfx
-         \~french Exporter un Gif au format de tiles de 8x8 pixels, ce qui permet de l'utiliser pour créer des sprites ou des fonds ! Renvoie un pointeur vers le gfx du sprite
+         \~french Exporter un Gif au format de tiles de 8x8 pixels, ce qui permet de l'utiliser pour crÃ©er des sprites ou des fonds ! Renvoie un pointeur vers le gfx du sprite
     \~\param gif
          \~english Your gif file...
          \~french Fichier gif...
     \~\param temppal
          \~english A 256 u16 array that will receive the palette info to load
-         \~french Un tableau de 256 entrée en u16, qui recevra les infos de la palette à charger	 
+         \~french Un tableau de 256 entrÃ©e en u16, qui recevra les infos de la palette Ã  charger	 
 		 
 		 
 N/

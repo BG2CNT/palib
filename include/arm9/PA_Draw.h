@@ -61,10 +61,10 @@ extern u16 PA_temppal[256];
 /*! \fn void PA_Init8bitBg(u8 screen, u8 bg_priority)
     \brief
          \~english Initialise 8 bit draw mode (palette mode)... Chose the screen and the background priority (0-3). This drawable background will replace Background 3, and must be loaded before all other backgrounds. Takes about 3/8 of the VRAM.
-         \~french Initialise le mode de dessin 8 bit (avec palette). Il suffit de choisir l'écran et la priorité de ce font (de 0 à 3). Ce fond sera placé sur le fond 3 (le remplacant), et doit etre chargé avant tout autre fond ! Prend environ 3/8 de la VRAM
+         \~french Initialise le mode de dessin 8 bit (avec palette). Il suffit de choisir l'Ã©cran et la prioritÃ© de ce font (de 0 Ã  3). Ce fond sera placÃ© sur le fond 3 (le remplacant), et doit etre chargÃ© avant tout autre fond ! Prend environ 3/8 de la VRAM
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_priority
          \~english Background priority (0-3)
          \~english Background priority (0-3) 
@@ -74,10 +74,10 @@ void PA_Init8bitBg(u8 screen, u8 bg_priority);
 /*! \fn void PA_InitBig8bitBg(u8 screen, u8 bg_priority)
     \brief
          \~english Same as PA_Init8bitBg, but with an available size of 256x256. Takes up a little more space but allows correct vertical scrolling...
-         \~french Similaire à PA_Init8bitBg, mais avec une taille de 256x256. Ceci prend un peu plus de mémoire, mais autorise le scrolling vertical
+         \~french Similaire Ã  PA_Init8bitBg, mais avec une taille de 256x256. Ceci prend un peu plus de mÃ©moire, mais autorise le scrolling vertical
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_priority
          \~english Background priority (0-3)
          \~english Background priority (0-3) 
@@ -91,10 +91,10 @@ void PA_Init8bitDblBuffer(u8 screen, u8 bg_priority);
 /*! \fn void PA_Init16bitBg(u8 screen, u8 bg_priority)
     \brief
          \~english Initialise 16 bit draw mode (no palette mode, true colors)... Chose the screen and the background priority (0-3). This drawable background will replace Background 3, and must be loaded before all other backgrounds. Takes about 6/8 of the VRAM, so almost all the space !
-         \~french Initialise le mode de dessin 16 bit (sans palettes, couleurs RGB). Il suffit de choisir l'écran et la priorité de ce font (de 0 à 3). Ce fond sera placé sur le fond 3 (le remplacant), et doit etre chargé avant tout autre fond ! Prend environ 3/8 de la VRAM
+         \~french Initialise le mode de dessin 16 bit (sans palettes, couleurs RGB). Il suffit de choisir l'Ã©cran et la prioritÃ© de ce font (de 0 Ã  3). Ce fond sera placÃ© sur le fond 3 (le remplacant), et doit etre chargÃ© avant tout autre fond ! Prend environ 3/8 de la VRAM
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param bg_priority
          \~english Background priority (0-3)
          \~english Background priority (0-3) 
@@ -107,10 +107,10 @@ void PA_16bitSwapBuffer(u8 screen);
 /*! \fn static inline void PA_Put8bitPixel(u8 screen, s16 x, s16 y, u8 color) 
     \brief
          \~english Draw a pixel on screen, on an 8 bit background
-         \~french Dessine un pixel à l'écran, sur un fond de 8 bits
+         \~french Dessine un pixel Ã  l'Ã©cran, sur un fond de 8 bits
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param x
          \~english X position (0-255)
          \~french Position X (0-255)
@@ -132,10 +132,10 @@ static inline void PA_Put8bitPixel(u8 screen, s16 x, s16 y, u8 color) {
 /*! \fn static inline void PA_Put2_8bitPixels(u8 screen, s16 x, s16 y, u16 colors)
     \brief
          \~english Draw 2 pixels on screen, on an 8 bit background. These pixels are next to another, and the first pixel must be with a pair X. WAY faster than drawing both pixels separately
-         \~french Dessine deux pixels à l'écran, sur un fond de 8 bits. Ces pixels sont contigus, et le premier doit avoir une position X pair. Beaucoup plus rapide que de dessiner les 2 pixels séparemment
+         \~french Dessine deux pixels Ã  l'Ã©cran, sur un fond de 8 bits. Ces pixels sont contigus, et le premier doit avoir une position X pair. Beaucoup plus rapide que de dessiner les 2 pixels sÃ©paremment
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1) 
+         \~french Choix de l'Ã©cran (0 ou 1) 
    \~\param x
          \~english X position (0-254), must be PAIR
          \~french Position X (0-254), doit etre PAIR
@@ -144,7 +144,7 @@ static inline void PA_Put8bitPixel(u8 screen, s16 x, s16 y, u8 color) {
          \~french Position Y (0-191)	
     \~\param colors
          \~english Colors of the first and second pixels (*256 for the second)
-         \~french Couleurs des premier et deuxième pixels (*256 pour le deuxième)
+         \~french Couleurs des premier et deuxiÃ¨me pixels (*256 pour le deuxiÃ¨me)
 	 
 */
 static inline void PA_Put2_8bitPixels(u8 screen, s16 x, s16 y, u16 colors) {		
@@ -154,10 +154,10 @@ static inline void PA_Put2_8bitPixels(u8 screen, s16 x, s16 y, u16 colors) {
 /*! \fn static inline void PA_PutDouble8bitPixels(u8 screen, s16 x, s16 y, u8 color1, u8 color2)
     \brief
          \~english Draw 2 pixels on screen, on an 8 bit background. These pixels are next to another, and the first pixel must be with a pair X. WAY faster than drawing both pixels separately
-         \~french Dessine deux pixels à l'écran, sur un fond de 8 bits. Ces pixels sont contigus, et le premier doit avoir une position X pair. Beaucoup plus rapide que de dessiner les 2 pixels séparemment
+         \~french Dessine deux pixels Ã  l'Ã©cran, sur un fond de 8 bits. Ces pixels sont contigus, et le premier doit avoir une position X pair. Beaucoup plus rapide que de dessiner les 2 pixels sÃ©paremment
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1) 
+         \~french Choix de l'Ã©cran (0 ou 1) 
    \~\param x
          \~english X position (0-254), must be PAIR
          \~french Position X (0-254), doit etre PAIR
@@ -169,7 +169,7 @@ static inline void PA_Put2_8bitPixels(u8 screen, s16 x, s16 y, u16 colors) {
          \~french Couleur de la palette du fond (0-255) pour le premier pixel
     \~\param color2
          \~english Color of the second pixel, in the background palette (0-255)
-         \~french Couleur de la palette du fond (0-255) pour le deuxième pixel		 
+         \~french Couleur de la palette du fond (0-255) pour le deuxiÃ¨me pixel		 
 */
 static inline void PA_PutDouble8bitPixels(u8 screen, s16 x, s16 y, u8 color1, u8 color2) {
 	PA_Put2_8bitPixels(screen, x, y, color1 + (color2 << 8));		
@@ -178,10 +178,10 @@ static inline void PA_PutDouble8bitPixels(u8 screen, s16 x, s16 y, u8 color1, u8
 /*! \fn static inline void PA_Put4_8bitPixels(u8 screen, s16 x, s16 y, u32 colors)
     \brief
          \~english Draw 4 pixels on screen, on an 8 bit background. These pixels are next to another, and the first pixel must be with a pair X. Fastest way to draw on the screen...
-         \~french Dessine 4 pixels à l'écran, sur un fond de 8 bits. Ces pixels sont contigus, et le premier doit avoir une position X pair. Façon la plus rapide de dessiner à l'écran
+         \~french Dessine 4 pixels Ã  l'Ã©cran, sur un fond de 8 bits. Ces pixels sont contigus, et le premier doit avoir une position X pair. FaÃ§on la plus rapide de dessiner Ã  l'Ã©cran
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1) 
+         \~french Choix de l'Ã©cran (0 ou 1) 
    \~\param x
          \~english X position (0-254), must be PAIR
          \~french Position X (0-254), doit etre PAIR
@@ -200,16 +200,16 @@ static inline void PA_Put4_8bitPixels(u8 screen, s16 x, s16 y, u32 colors) {
 /*! \fn static inline u8 PA_Get8bitPixel(u8 screen, u8 x, u8 y)
     \brief
          \~english Get the pixel's color in 8 bit Draw mode... 
-         \~french Récupérer la couleur d'un pixel, en mode dessin 8 bit
+         \~french RÃ©cupÃ©rer la couleur d'un pixel, en mode dessin 8 bit
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1) 
+         \~french Choix de l'Ã©cran (0 ou 1) 
     \~\param x
          \~english X position. Be carefull, if X is not between 0 and 255, it'll give unwanted results
-         \~french Position X. Attention, si X n'est pas compris entre 0 et 255, le résultat ne sera pas celui escompté
+         \~french Position X. Attention, si X n'est pas compris entre 0 et 255, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param y
          \~english Y position. Be carefull, if Y is not between 0 and 191, it'll give unwanted results
-         \~french Position Y. Attention, si Y n'est pas compris entre 0 et 191, le résultat ne sera pas celui escompté
+         \~french Position Y. Attention, si Y n'est pas compris entre 0 et 191, le rÃ©sultat ne sera pas celui escomptÃ©
  */
 static inline u8 PA_Get8bitPixel(u8 screen, u8 x, u8 y) {
 	u16 pos = (x >> 1) + (y << 7);
@@ -222,10 +222,10 @@ static inline u8 PA_Get8bitPixel(u8 screen, u8 x, u8 y) {
 /*! \fn static inline void PA_Put16bitPixel(u8 screen, s16 x, s16 y, u16 color)
     \brief
          \~english Draw a pixel on screen, on an 16 bit background
-         \~french Dessine un pixel à l'écran, sur un fond de 16 bits
+         \~french Dessine un pixel Ã  l'Ã©cran, sur un fond de 16 bits
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)
+         \~french Choix de l'Ã©cran (0 ou 1)
     \~\param x
          \~english X position (0-255)
          \~french Position X (0-255)
@@ -243,16 +243,16 @@ static inline void PA_Put16bitPixel(u8 screen, s16 x, s16 y, u16 color) {
 /*! \def PA_Get16bitPixel(x, y)
     \brief
          \~english Get the pixel's color in 16 bit Draw mode... 
-         \~french Récupérer la couleur d'un pixel, en mode dessin 16 bit
+         \~french RÃ©cupÃ©rer la couleur d'un pixel, en mode dessin 16 bit
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1) 
+         \~french Choix de l'Ã©cran (0 ou 1) 
     \~\param x
          \~english X position. Be carefull, if X is not between 0 and 255, it'll give unwanted results
-         \~french Position X. Attention, si X n'est pas compris entre 0 et 255, le résultat ne sera pas celui escompté
+         \~french Position X. Attention, si X n'est pas compris entre 0 et 255, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param y
          \~english Y position. Be carefull, if Y is not between 0 and 191, it'll give unwanted results
-         \~french Position Y. Attention, si Y n'est pas compris entre 0 et 191, le résultat ne sera pas celui escompté
+         \~french Position Y. Attention, si Y n'est pas compris entre 0 et 191, le rÃ©sultat ne sera pas celui escomptÃ©
  */
 #define PA_Get16bitPixel(screen, x, y) PA_DrawBg[screen][(x) + ((y) << 8)]
 
@@ -262,19 +262,19 @@ static inline void PA_Put16bitPixel(u8 screen, s16 x, s16 y, u16 color) {
          \~french Dessiner une ligne en mode dessin... pour le mode dessin 8 bit
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1) 
+         \~french Choix de l'Ã©cran (0 ou 1) 
     \~\param x1
          \~english X position of the first point. Be carefull, if X is not between 0 and 255, it'll give unwanted results
-         \~french Position X du premier point. Attention, si X n'est pas compris entre 0 et 255, le résultat ne sera pas celui escompté
+         \~french Position X du premier point. Attention, si X n'est pas compris entre 0 et 255, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param y1
          \~english Y position of the first point. Be carefull, if Y is not between 0 and 191, it'll give unwanted results
-         \~french Position Y du premier point. Attention, si Y n'est pas compris entre 0 et 191, le résultat ne sera pas celui escompté
+         \~french Position Y du premier point. Attention, si Y n'est pas compris entre 0 et 191, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param x2
          \~english X position of the second point. Be carefull, if X is not between 0 and 255, it'll give unwanted results
-         \~french Position X du deuxième point. Attention, si X n'est pas compris entre 0 et 255, le résultat ne sera pas celui escompté
+         \~french Position X du deuxiÃ¨me point. Attention, si X n'est pas compris entre 0 et 255, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param y2
          \~english Y position of the second point. Be carefull, if Y is not between 0 and 191, it'll give unwanted results
-         \~french Position Y du deuxième point. Attention, si Y n'est pas compris entre 0 et 191, le résultat ne sera pas celui escompté
+         \~french Position Y du deuxiÃ¨me point. Attention, si Y n'est pas compris entre 0 et 191, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param color
          \~english Color in the background palette (0-255)
          \~french Couleur de la palette du fond (0-255) 
@@ -287,19 +287,19 @@ void PA_Draw8bitLine(u8 screen, u16 x1, u16 y1, u16 x2, u16 y2, u8 color);
          \~french Dessiner une ligne en mode dessin... pour le mode dessin 16 bit
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1) 
+         \~french Choix de l'Ã©cran (0 ou 1) 
     \~\param x1
          \~english X position of the first point. Be carefull, if X is not between 0 and 255, it'll give unwanted results
-         \~french Position X du premier point. Attention, si X n'est pas compris entre 0 et 255, le résultat ne sera pas celui escompté
+         \~french Position X du premier point. Attention, si X n'est pas compris entre 0 et 255, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param y1
          \~english Y position of the first point. Be carefull, if Y is not between 0 and 191, it'll give unwanted results
-         \~french Position Y du premier point. Attention, si Y n'est pas compris entre 0 et 191, le résultat ne sera pas celui escompté
+         \~french Position Y du premier point. Attention, si Y n'est pas compris entre 0 et 191, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param x2
          \~english X position of the second point. Be carefull, if X is not between 0 and 255, it'll give unwanted results
-         \~french Position X du deuxième point. Attention, si X n'est pas compris entre 0 et 255, le résultat ne sera pas celui escompté
+         \~french Position X du deuxiÃ¨me point. Attention, si X n'est pas compris entre 0 et 255, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param y2
          \~english Y position of the second point. Be carefull, if Y is not between 0 and 191, it'll give unwanted results
-         \~french Position Y du deuxième point. Attention, si Y n'est pas compris entre 0 et 191, le résultat ne sera pas celui escompté
+         \~french Position Y du deuxiÃ¨me point. Attention, si Y n'est pas compris entre 0 et 191, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param color
          \~english 15 bits color. You can use the PA_RGB macro to set the RGB values...
          \~french Couleur de 15 bits.On peut utiliser la macro PA_RGB pour entrer les valeurs RGB...
@@ -309,22 +309,22 @@ void PA_Draw16bitLine(u8 screen, u16 x1, u16 y1, u16 x2, u16 y2, u16 color);
 /*! \fn void PA_Draw16bitLineEx(u8 screen, s16 basex, s16 basey, s16 endx, s16 endy, u16 color, s8 size)
     \brief
          \~english Draw a thick line in Draw mode... for 16 bit drawable background
-         \~french Dessiner une ligne épaisse en mode dessin... pour le mode dessin 16 bit
+         \~french Dessiner une ligne Ã©paisse en mode dessin... pour le mode dessin 16 bit
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1) 
+         \~french Choix de l'Ã©cran (0 ou 1) 
     \~\param basex
          \~english X position of the first point. Be carefull, if X is not between 0 and 255, it'll give unwanted results
-         \~french Position X du premier point. Attention, si X n'est pas compris entre 0 et 255, le résultat ne sera pas celui escompté
+         \~french Position X du premier point. Attention, si X n'est pas compris entre 0 et 255, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param basey
          \~english Y position of the first point. Be carefull, if Y is not between 0 and 191, it'll give unwanted results
-         \~french Position Y du premier point. Attention, si Y n'est pas compris entre 0 et 191, le résultat ne sera pas celui escompté
+         \~french Position Y du premier point. Attention, si Y n'est pas compris entre 0 et 191, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param endx
          \~english X position of the second point. Be carefull, if X is not between 0 and 255, it'll give unwanted results
-         \~french Position X du deuxième point. Attention, si X n'est pas compris entre 0 et 255, le résultat ne sera pas celui escompté
+         \~french Position X du deuxiÃ¨me point. Attention, si X n'est pas compris entre 0 et 255, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param endy
          \~english Y position of the second point. Be carefull, if Y is not between 0 and 191, it'll give unwanted results
-         \~french Position Y du deuxième point. Attention, si Y n'est pas compris entre 0 et 191, le résultat ne sera pas celui escompté
+         \~french Position Y du deuxiÃ¨me point. Attention, si Y n'est pas compris entre 0 et 191, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param color
          \~english 15 bits color. You can use the PA_RGB macro to set the RGB values...
          \~french Couleur de 15 bits.On peut utiliser la macro PA_RGB pour entrer les valeurs RGB...
@@ -337,22 +337,22 @@ void PA_Draw16bitLineEx(u8 screen, s16 basex, s16 basey, s16 endx, s16 endy, u16
 /*! \fn void PA_Draw8bitLineEx(u8 screen, s16 basex, s16 basey, s16 endx, s16 endy, u8 color, s8 size)
     \brief
          \~english Draw a thick line in Draw mode... for 8 bit drawable background
-         \~french Dessiner une ligne épaisse en mode dessin... pour le mode dessin 8 bit
+         \~french Dessiner une ligne Ã©paisse en mode dessin... pour le mode dessin 8 bit
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1) 
+         \~french Choix de l'Ã©cran (0 ou 1) 
     \~\param basex
          \~english X position of the first point. Be carefull, if X is not between 0 and 255, it'll give unwanted results
-         \~french Position X du premier point. Attention, si X n'est pas compris entre 0 et 255, le résultat ne sera pas celui escompté
+         \~french Position X du premier point. Attention, si X n'est pas compris entre 0 et 255, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param basey
          \~english Y position of the first point. Be carefull, if Y is not between 0 and 191, it'll give unwanted results
-         \~french Position Y du premier point. Attention, si Y n'est pas compris entre 0 et 191, le résultat ne sera pas celui escompté
+         \~french Position Y du premier point. Attention, si Y n'est pas compris entre 0 et 191, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param endx
          \~english X position of the second point. Be carefull, if X is not between 0 and 255, it'll give unwanted results
-         \~french Position X du deuxième point. Attention, si X n'est pas compris entre 0 et 255, le résultat ne sera pas celui escompté
+         \~french Position X du deuxiÃ¨me point. Attention, si X n'est pas compris entre 0 et 255, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param endy
          \~english Y position of the second point. Be carefull, if Y is not between 0 and 191, it'll give unwanted results
-         \~french Position Y du deuxième point. Attention, si Y n'est pas compris entre 0 et 191, le résultat ne sera pas celui escompté
+         \~french Position Y du deuxiÃ¨me point. Attention, si Y n'est pas compris entre 0 et 191, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param color
          \~english 15 bits color. You can use the PA_RGB macro to set the RGB values...
          \~french Couleur de 15 bits.On peut utiliser la macro PA_RGB pour entrer les valeurs RGB...
@@ -368,19 +368,19 @@ void PA_Draw8bitLineEx(u8 screen, s16 basex, s16 basey, s16 endx, s16 endy, u8 c
          \~french Dessiner rectangle en mode dessin... pour le mode dessin 16 bit
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1) 
+         \~french Choix de l'Ã©cran (0 ou 1) 
     \~\param basex
          \~english X position of the first point. Be carefull, if X is not between 0 and 255, it'll give unwanted results
-         \~french Position X du premier point. Attention, si X n'est pas compris entre 0 et 255, le résultat ne sera pas celui escompté
+         \~french Position X du premier point. Attention, si X n'est pas compris entre 0 et 255, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param basey
          \~english Y position of the first point. Be carefull, if Y is not between 0 and 191, it'll give unwanted results
-         \~french Position Y du premier point. Attention, si Y n'est pas compris entre 0 et 191, le résultat ne sera pas celui escompté
+         \~french Position Y du premier point. Attention, si Y n'est pas compris entre 0 et 191, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param endx
          \~english X position of the second point. Be carefull, if X is not between 0 and 255, it'll give unwanted results
-         \~french Position X du deuxième point. Attention, si X n'est pas compris entre 0 et 255, le résultat ne sera pas celui escompté
+         \~french Position X du deuxiÃ¨me point. Attention, si X n'est pas compris entre 0 et 255, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param endy
          \~english Y position of the second point. Be carefull, if Y is not between 0 and 191, it'll give unwanted results
-         \~french Position Y du deuxième point. Attention, si Y n'est pas compris entre 0 et 191, le résultat ne sera pas celui escompté
+         \~french Position Y du deuxiÃ¨me point. Attention, si Y n'est pas compris entre 0 et 191, le rÃ©sultat ne sera pas celui escomptÃ©
     \~\param color
          \~english 15 bits color. You can use the PA_RGB macro to set the RGB values...
          \~french Couleur de 15 bits.On peut utiliser la macro PA_RGB pour entrer les valeurs RGB...		 
@@ -390,23 +390,23 @@ void PA_Draw16bitRect(u8 screen, s16 basex, s16 basey, s16 endx, s16 endy, u16 c
 /*! \fn PA_8bitDraw(u8 screen, u8 color)
     \brief
          \~english For 8 bit background : Nice little function that draws on screen ! All you need to do is chose the color, it'll do the rest. If the PA VBL isn't initialised, don't forget to update the stylus position every frame... Juste execute PA_Draw every cycle...
-         \~french Pour 8 bit : Jolie petite fonction qui dessine à l'écran ! Tout ce qu'il reste à faire, c'est de choisir la couleur. Si le VBL PA n'est pas initialiser, ne pas oublier de rafraichir le Stylet à chaque cycle (et non, pas avec des glacons !). Il suffit d'executer PA_Draw à chaque cycle pour dessiner...
+         \~french Pour 8 bit : Jolie petite fonction qui dessine Ã  l'Ã©cran ! Tout ce qu'il reste Ã  faire, c'est de choisir la couleur. Si le VBL PA n'est pas initialiser, ne pas oublier de rafraichir le Stylet Ã  chaque cycle (et non, pas avec des glacons !). Il suffit d'executer PA_Draw Ã  chaque cycle pour dessiner...
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1) 
+         \~french Choix de l'Ã©cran (0 ou 1) 
     \~\param color
          \~english Color number in the palette (0-255)
-         \~french Numéro de la couleur dans la palette (0-255)
+         \~french NumÃ©ro de la couleur dans la palette (0-255)
  */
 void PA_8bitDraw(u8 screen, u8 color);
 
 /*! \fn PA_16bitDraw(u8 screen, u16 color)
     \brief
          \~english For 16 bit : Nice little function that draws on screen ! All you need to do is chose the color, it'll do the rest. If the PA VBL isn't initialised, don't forget to update the stylus position every frame... Juste execute PA_Draw every cycle...
-         \~french Pour 16 bit : Jolie petite fonction qui dessine à l'écran ! Tout ce qu'il reste à faire, c'est de choisir la couleur. Si le VBL PA n'est pas initialiser, ne pas oublier de rafraichir le Stylet à chaque cycle (et non, pas avec des glacons !). Il suffit d'executer PA_Draw à chaque cycle pour dessiner...
+         \~french Pour 16 bit : Jolie petite fonction qui dessine Ã  l'Ã©cran ! Tout ce qu'il reste Ã  faire, c'est de choisir la couleur. Si le VBL PA n'est pas initialiser, ne pas oublier de rafraichir le Stylet Ã  chaque cycle (et non, pas avec des glacons !). Il suffit d'executer PA_Draw Ã  chaque cycle pour dessiner...
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1) 
+         \~french Choix de l'Ã©cran (0 ou 1) 
     \~\param color
          \~english 15 bits color. You can use the PA_RGB macro to set the RGB values...
          \~french Couleur de 15 bits.On peut utiliser la macro PA_RGB pour entrer les valeurs RGB...
@@ -419,7 +419,7 @@ void PA_16bitDraw(u8 screen, u16 color);
          \~french Regler la taille du stylo quand on dessine.
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1) 		 
+         \~french Choix de l'Ã©cran (0 ou 1) 		 
     \~\param draw_size
          \~english Size...
          \~french Taille...
@@ -429,10 +429,10 @@ void PA_16bitDraw(u8 screen, u16 color);
 /*! \def PA_Load8bitBitmap(screen, bitmap)
     \brief
          \~english Load a bitmap on the screen for an 8 bit drawable background
-         \~french Charger une image à l'écran... pour une fond dessinable de 8 bits
+         \~french Charger une image Ã  l'Ã©cran... pour une fond dessinable de 8 bits
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)	
+         \~french Choix de l'Ã©cran (0 ou 1)	
     \~\param bitmap
          \~english Bitmap name
          \~french Nom du bitmap
@@ -445,10 +445,10 @@ void PA_16bitDraw(u8 screen, u16 color);
 /*! \def PA_Load16bitBitmap(screen, bitmap)
     \brief
          \~english Load a bitmap on the screen for an 16 bit drawable background
-         \~french Charger une image à l'écran... pour une fond dessinable de 16 bits
+         \~french Charger une image Ã  l'Ã©cran... pour une fond dessinable de 16 bits
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)	
+         \~french Choix de l'Ã©cran (0 ou 1)	
     \~\param bitmap
          \~english Bitmap name
          \~french Nom du bitmap
@@ -461,20 +461,20 @@ void PA_16bitDraw(u8 screen, u16 color);
 /*! \def PA_Clear8bitBg(screen)
     \brief
          \~english Clears the screen... for an 8 bit drawable background
-         \~french Efface l'écran... pour une fond dessinable de 8 bits
+         \~french Efface l'Ã©cran... pour une fond dessinable de 8 bits
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)		 
+         \~french Choix de l'Ã©cran (0 ou 1)		 
 */
 #define PA_Clear8bitBg(screen) dmaFillWords(0, (void*)PA_DrawBg[screen], 256*96*2);
 
 /*! \def PA_Clear16bitBg(screen)
     \brief
          \~english Clears the screen... for an 16 bit drawable background
-         \~french Efface l'écran... pour une fond dessinable de 16 bits
+         \~french Efface l'Ã©cran... pour une fond dessinable de 16 bits
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)		 
+         \~french Choix de l'Ã©cran (0 ou 1)		 
 */
 #define PA_Clear16bitBg(screen) dmaFillWords(0, (void*)PA_DrawBg[screen], 256*192*2)
 
@@ -485,7 +485,7 @@ void PA_16bitDraw(u8 screen, u16 color);
          \~french Charger un jpeg sur un fond de 16 bits... Faut pas oublier de charger ce fond avant !
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)	
+         \~french Choix de l'Ã©cran (0 ou 1)	
     \~\param jpeg
          \~english jpeg image...
          \~french image au format jpeg...	 
@@ -507,16 +507,16 @@ static inline void PA_LoadJpeg(u8 screen, void *jpeg) {
          \~french Buffer...
     \~\param x
          \~english X position of the top left corner
-         \~french Position X du coin supérieur gauche	
+         \~french Position X du coin supÃ©rieur gauche	
     \~\param y
          \~english Y position of the top left corner
-         \~french Position Y du coin supérieur gauche		 
+         \~french Position Y du coin supÃ©rieur gauche		 
     \~\param bmp
          \~english BMP image...
          \~french image au format BMP...
     \~\param SWidth
          \~english Buffer width to use (256 for screen width...)
-         \~french Largeur du buffer, en pixels (256 pour la taille de l'écran...) 
+         \~french Largeur du buffer, en pixels (256 pour la taille de l'Ã©cran...) 
 */
 void PA_LoadBmpToBuffer(u16 *Buffer, s16 x, s16 y, void *bmp, s16 SWidth);
 
@@ -527,13 +527,13 @@ void PA_LoadBmpToBuffer(u16 *Buffer, s16 x, s16 y, void *bmp, s16 SWidth);
          \~french Charger un BMP sur un fond de 16 bits... Faut pas oublier de charger ce fond avant !
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)	
+         \~french Choix de l'Ã©cran (0 ou 1)	
     \~\param x
          \~english X position of the top left corner
-         \~french Position X du coin supérieur gauche	
+         \~french Position X du coin supÃ©rieur gauche	
     \~\param y
          \~english Y position of the top left corner
-         \~french Position Y du coin supérieur gauche		 
+         \~french Position Y du coin supÃ©rieur gauche		 
     \~\param bmp
          \~english BMP image...
          \~french image au format BMP...	 
@@ -550,7 +550,7 @@ static inline void PA_LoadBmpEx(u8 screen, s16 x, s16 y, void *bmp){
          \~french Charger un BMP sur un fond de 16 bits... Faut pas oublier de charger ce fond avant !
     \~\param screen
          \~english Chose de screen (0 or 1)
-         \~french Choix de l'écran (0 ou 1)		 
+         \~french Choix de l'Ã©cran (0 ou 1)		 
     \~\param bmp
          \~english BMP image...
          \~french image au format BMP...	 
@@ -562,7 +562,7 @@ static inline void PA_LoadBmp(u8 screen, void *bmp){
 /*! \fn static inline u16 PA_GetBmpWidth(void *bmp)
     \brief
          \~english Get a BMP's width in pixels
-         \~french Récupérer la largeur d'un BMP en pixels
+         \~french RÃ©cupÃ©rer la largeur d'un BMP en pixels
     \~\param bmp
          \~english BMP image...
          \~french image au format BMP...	 
@@ -577,7 +577,7 @@ static inline u16 PA_GetBmpWidth(void *bmpdata){
 /*! \fn static inline u16 PA_GetBmpHeight(void *bmp)
     \brief
          \~english Get a BMP's height in pixels
-         \~french Récupérer la hauteur d'un BMP en pixels
+         \~french RÃ©cupÃ©rer la hauteur d'un BMP en pixels
     \~\param bmp
          \~english BMP image...
          \~french image au format BMP...	 

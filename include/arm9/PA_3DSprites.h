@@ -255,25 +255,25 @@ static inline void PA_3DSetSpriteAlpha(u16 sprite, u8 alpha){
 /*! \fn void PA_3DStartSpriteAnimEx(u16 sprite, s16 firstframe, s16 lastframe, s16 speed, u8 type, s16 ncycles)
     \brief
          \~english Start a 3D sprite animation. Once started, it continues on and on by itself until you stop it !
-         \~french Démarre une animation de sprite. Une fois démarrée, elle continue tant qu'on ne l'arrête pas !
+         \~french DÃ©marre une animation de sprite. Une fois dÃ©marrÃ©e, elle continue tant qu'on ne l'arrÃªte pas !
     \~\param sprite
          \~english sprite number in the sprite system
-         \~french Numéro du sprite dans le systeme de sprite	 
+         \~french NumÃ©ro du sprite dans le systeme de sprite	 
     \~\param firstframe
          \~english First frame of the animation sequence, most of the time 0...
-         \~french Premières image de l'animation, généralement 0....
+         \~french PremiÃ¨res image de l'animation, gÃ©nÃ©ralement 0....
     \~\param lastframe
          \~english Last frame to be displayed. When it gets there, it loops back to the first frame
-         \~french Dernière image à afficher. Une fois atteinte, ca retourne à la première
+         \~french DerniÃ¨re image Ã  afficher. Une fois atteinte, ca retourne Ã  la premiÃ¨re
     \~\param speed
          \~english Speed, in frames per second. So speed 1 would mean 1 image per second, so 1 image every game frame
          \~french Vitesse, en frames par seconde (fps). 1 signifie donc 1 image par seconde... 
     \~\param type
          \~english Defines how you want it to loop. ANIM_LOOP (0) for a normal loop, ANIM_UPDOWN (1) for back and forth animation.
-         \~french Défini de quelle manière on veut boucler. ANIM_LOOP (0) pour normal, et ANIM_UPDOWN (1) pour d'avant en arrière
+         \~french DÃ©fini de quelle maniÃ¨re on veut boucler. ANIM_LOOP (0) pour normal, et ANIM_UPDOWN (1) pour d'avant en arriÃ¨re
     \~\param ncycles
          \~english Number of animation cycles before stopping. If using ANIM_UPDOWN, it takes 2 cycles to come back to the original image
-         \~french Nombres de cycles d'animations avant l'arrêt. Si on utilise ANIM_UPDOWN, il faut 2 cycles pour que l'animation revienne à l'image de base
+         \~french Nombres de cycles d'animations avant l'arrÃªt. Si on utilise ANIM_UPDOWN, il faut 2 cycles pour que l'animation revienne Ã  l'image de base
 */
 
 void PA_3DStartSpriteAnimEx(u16 sprite, s16 firstframe, s16 lastframe, s16 speed, u8 type, s16 ncycles);
@@ -281,16 +281,16 @@ void PA_3DStartSpriteAnimEx(u16 sprite, s16 firstframe, s16 lastframe, s16 speed
 /*! \fn static inline void PA_3DStartSpriteAnim(u16 sprite, s16 firstframe, s16 lastframe, s16 speed)
     \brief
          \~english Start a sprite animation. Once started, it continues on and on by itself until you stop it !
-         \~french Démarre une animation de sprite. Une fois démarrée, elle continue tant qu'on ne l'arrête pas !
+         \~french DÃ©marre une animation de sprite. Une fois dÃ©marrÃ©e, elle continue tant qu'on ne l'arrÃªte pas !
     \~\param sprite
          \~english sprite number in the sprite system
-         \~french Numéro du sprite dans le systeme de sprite	 
+         \~french NumÃ©ro du sprite dans le systeme de sprite	 
     \~\param firstframe
          \~english First frame of the animation sequence, most of the time 0...
-         \~french Premières image de l'animation, généralement 0....
+         \~french PremiÃ¨res image de l'animation, gÃ©nÃ©ralement 0....
     \~\param lastframe
          \~english Last frame to be displayed. When it gets there, it loops back to the first frame
-         \~french Dernière image à afficher. Une fois atteinte, ca retourne à la première
+         \~french DerniÃ¨re image Ã  afficher. Une fois atteinte, ca retourne Ã  la premiÃ¨re
     \~\param speed
          \~english Speed, in frames per second. So speed 1 would mean 1 image per second, so 1 image every game frame
          \~french Vitesse, en frames par seconde (fps). 1 signifie donc 1 image par seconde... 
@@ -302,10 +302,10 @@ static inline void PA_3DStartSpriteAnim(u16 sprite, s16 firstframe, s16 lastfram
 /*! \fn static inline void PA_3DStopSpriteAnim(u16 sprite)
     \brief
          \~english Stop a sprite animation
-         \~french Arrêter une animation de sprite
+         \~french ArrÃªter une animation de sprite
     \~\param sprite
          \~english sprite number in the sprite system
-         \~french Numéro du sprite dans le systeme de sprite	
+         \~french NumÃ©ro du sprite dans le systeme de sprite	
 */
 
 static inline void PA_3DStopSpriteAnim(u16 sprite){
@@ -316,13 +316,13 @@ static inline void PA_3DStopSpriteAnim(u16 sprite){
 /*! \fn static inline void PA_3DSetSpriteAnimFrame(u16 sprite, u16 frame)
     \brief
          \~english Set the current animation frame number
-         \~french Changer le numéro actuel de la frame d'animation
+         \~french Changer le numÃ©ro actuel de la frame d'animation
     \~\param sprite
          \~english sprite number in the sprite system
-         \~french Numéro du sprite dans le systeme de sprite	
+         \~french NumÃ©ro du sprite dans le systeme de sprite	
     \~\param frame
          \~english Frame number to use...
-         \~french Numéro de frame...	 
+         \~french NumÃ©ro de frame...	 
 */
 
 static inline void PA_3DSetSpriteAnimFrame(u16 sprite, u16 frame){
@@ -335,10 +335,10 @@ static inline void PA_3DSetSpriteAnimFrame(u16 sprite, u16 frame){
 /*! \fn static inline u16 PA_3DGetSpriteAnimFrame( u16 sprite)
     \brief
          \~english Returns the current animation frame number
-         \~french Renvoie le numéro actuel de la frame d'animation
+         \~french Renvoie le numÃ©ro actuel de la frame d'animation
     \~\param sprite
          \~english sprite number in the sprite system
-         \~french Numéro du sprite dans le systeme de sprite	 
+         \~french NumÃ©ro du sprite dans le systeme de sprite	 
 */
 
 static inline u16 PA_3DGetSpriteAnimFrame(u16 sprite){
@@ -351,7 +351,7 @@ static inline u16 PA_3DGetSpriteAnimFrame(u16 sprite){
          \~french Changer la vitesse de l'animation
     \~\param sprite
          \~english sprite number in the sprite system
-         \~french Numéro du sprite dans le systeme de sprite	
+         \~french NumÃ©ro du sprite dans le systeme de sprite	
     \~\param speed
          \~english Speed, in fps...
          \~french Vitesse, en fps...		 
@@ -366,7 +366,7 @@ static inline void PA_3DSetSpriteAnimSpeed(u16 sprite, s16 speed){
          \~french Renvoie la vitesse de l'animation
     \~\param sprite
          \~english sprite number in the sprite system
-         \~french Numéro du sprite dans le systeme de sprite	
+         \~french NumÃ©ro du sprite dans le systeme de sprite	
 */
 static inline u16 PA_3DGetSpriteAnimSpeed(u16 sprite){
 	return sprite3danims[sprite].speed;
@@ -379,7 +379,7 @@ static inline u16 PA_3DGetSpriteAnimSpeed(u16 sprite){
          \~french Changer le nombre de cycles d'animation restant (-1 pour inifini)
     \~\param sprite
          \~english sprite number in the sprite system
-         \~french Numéro du sprite dans le systeme de sprite	
+         \~french NumÃ©ro du sprite dans le systeme de sprite	
     \~\param NCycles
          \~english Number of cycles
          \~french Nombre de cycles		 
@@ -394,7 +394,7 @@ static inline void PA_3DSetSpriteNCycles(u16 sprite, s16 NCycles){
          \~french Renvoie le nombre de cycles d'animation restants
     \~\param sprite
          \~english sprite number in the sprite system
-         \~french Numéro du sprite dans le systeme de sprite	
+         \~french NumÃ©ro du sprite dans le systeme de sprite	
 */
 static inline u16 PA_3DGetSpriteNCycles(u16 sprite){
 	return sprite3danims[sprite].speed;
@@ -406,7 +406,7 @@ static inline u16 PA_3DGetSpriteNCycles(u16 sprite){
          \~french Mettre en Pause en remettre en lecture une animation de sprite
     \~\param sprite
          \~english sprite number in the sprite system
-         \~french Numéro du sprite dans le systeme de sprite	
+         \~french NumÃ©ro du sprite dans le systeme de sprite	
      \~\param pause
          \~english 1 for pause, 0 for unpause
          \~french 1 pour pause, 0 pour reprendre la lecture...

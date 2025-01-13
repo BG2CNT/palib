@@ -17,9 +17,9 @@ void PA_Init8bitBg(u8 screen, u8 bg_priority) {
 	PA_DrawBg[screen] = (u16*)(0x06000000 + (0x200000 *  screen) + 320 * 256);
 	PA_DrawBg32[screen] = (u32*)PA_DrawBg[screen];
 	dmaFillWords(0, (void*)PA_DrawBg[screen], 256*96*2);
-	charsetstart[screen] = 5; // On se réserve la moitié de la mémoire...
+	charsetstart[screen] = 5; // On se rÃ©serve la moitiÃ© de la mÃ©moire...
 
-	int i; for (i = 40; i < 64; i++)	charblocks[screen][i] = 1; // Block la mémoire
+	int i; for (i = 40; i < 64; i++)	charblocks[screen][i] = 1; // Block la mÃ©moire
 
 	_REG16(REG_BGCNT(screen, 3)) = bg_priority | BG_BMP8_256x256 | BG_BMP_BASE(5);
 	PA_SetDrawSize(screen, 1);
@@ -30,9 +30,9 @@ void PA_InitBig8bitBg(u8 screen, u8 bg_priority) {
 	PA_DrawBg[screen] = (u16*)(0x06000000 + (0x200000 *  screen) + 256 * 256);
 	PA_DrawBg32[screen] = (u32*)PA_DrawBg[screen];
 	dmaFillWords(0, (void*)PA_DrawBg[screen], 256*128*2);
-	charsetstart[screen] = 4; // On se réserve la moitié de la mémoire...
+	charsetstart[screen] = 4; // On se rÃ©serve la moitiÃ© de la mÃ©moire...
 
-	int i; for (i = 32; i < 64; i++)	charblocks[screen][i] = 1; // Block la mémoire
+	int i; for (i = 32; i < 64; i++)	charblocks[screen][i] = 1; // Block la mÃ©moire
 
 	_REG16(REG_BGCNT(screen, 3)) = bg_priority | BG_BMP8_256x256 | BG_BMP_BASE(4);
 	PA_SetDrawSize(screen, 1);
@@ -54,9 +54,9 @@ void PA_Init8bitDblBuffer(u8 screen, u8 bg_priority) {
 	PA_DrawBg[screen] = (u16*)(0x06000000 + (0x200000 *  screen) + 320 * 256);
 	PA_DrawBg32[screen] = (u32*)PA_DrawBg[screen];
 	pa8bitbuffer[screen] = 0; // First buffer...
-	charsetstart[screen] = 2; // On se réserve la moitié de la mémoire...
+	charsetstart[screen] = 2; // On se rÃ©serve la moitiÃ© de la mÃ©moire...
 
-	int i; for (i = 8; i < 64; i++)	charblocks[screen][i] = 1; // Block la mémoire
+	int i; for (i = 8; i < 64; i++)	charblocks[screen][i] = 1; // Block la mÃ©moire
 
 	_REG16(REG_BGCNT(screen, 3)) = bg_priority | BG_BMP8_256x256 | BG_BMP_BASE(2);
 	PA_SetDrawSize(screen, 1);

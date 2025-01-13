@@ -40,7 +40,7 @@ int main()
 				"Hello World", // Text
 				1, // Text palette color (0-255)
 				0, // Text size (0-4)
-				1, // Text mode (0 - normal, 1 - transparent, 2 - no text, 3 - rotated 90°, 4 - 90° other way)
+				1, // Text mode (0 - normal, 1 - transparent, 2 - no text, 3 - rotated 90Â°, 4 - 90Â° other way)
 				100); // Maximum number of characters, if you want to right letter by letter...
 	PA_SmartText(1, 0, 20, 255, 40, "Hello World", 2, 1, 1, 100);
 	PA_SmartText(1, 0, 40, 255, 60, "Hello World", 3, 2, 1, 100);

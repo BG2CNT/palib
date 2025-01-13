@@ -25,7 +25,7 @@ extern funcpointer CustomVBL;
 /*! \fn void PA_vblFunc()
     \brief
          \~english The standard PAlib VBL function. This will update the pad, the stylus, the RTC, etc... You could/should use this function if you do your own custom VBL.
-         \~french Fonction standard du VBL PAlib. Ceci met à jour le pad, le stylet, le RTC... Utilisez cette fonction si vous faites votre propre VBL.
+         \~french Fonction standard du VBL PAlib. Ceci met Ã  jour le pad, le stylet, le RTC... Utilisez cette fonction si vous faites votre propre VBL.
 */
 void PA_vblFunc();
 
@@ -33,7 +33,7 @@ void PA_vblFunc();
 	\deprecated
     \brief
          \~english [DEPRECATED] In previous PAlib versions this initialized the VBlank system, but it now does nothing since it's automatically done at PA_Init().
-         \~french [DEPRECATED] Initialise une fonction VBL basique. Ca met à jour l'OAM (les sprites), les touches, et le stylet chaque frame.
+         \~french [DEPRECATED] Initialise une fonction VBL basique. Ca met Ã  jour l'OAM (les sprites), les touches, et le stylet chaque frame.
 
 */
 static inline void PA_InitVBL(){
@@ -45,24 +45,24 @@ static inline void PA_InitVBL(){
 /*! \def PA_GetVcount()
     \brief
          \~english Get the vertical line count...
-         \~french Récupérer le numéro de ligne tracée
+         \~french RÃ©cupÃ©rer le numÃ©ro de ligne tracÃ©e
 */
 #define PA_GetVcount() (REG_VCOUNT&511)
 
 /*! \fn void PA_VBLCountersReset()
     \brief
          \~english Resets the VBL counters
-         \~french Remet à 0 les compteurs VBL
+         \~french Remet Ã  0 les compteurs VBL
 */
 void PA_VBLCountersReset();
 
 /*! \fn static inline void PA_VBLCounterStart(u8 nCounter)
     \brief
          \~english Resets a given counter and starts running
-         \~french Remet à 0 un compteur donné et le démarre
+         \~french Remet Ã  0 un compteur donnÃ© et le dÃ©marre
     \~\param nCounter
          \~english Counter number (0-15)
-         \~french Numéro du compteur (0-15)
+         \~french NumÃ©ro du compteur (0-15)
 */
 static inline void PA_VBLCounterStart(u8 nCounter){
 	PA_VBLCounter[nCounter]   = 0;
@@ -72,10 +72,10 @@ static inline void PA_VBLCounterStart(u8 nCounter){
 /*! \fn static inline void PA_VBLCounterPause(u8 nCounter)
     \brief
          \~english Pauses a given VBL counter
-         \~french Met en pause un compteur VBL donné
+         \~french Met en pause un compteur VBL donnÃ©
     \~\param nCounter
          \~english Counter number (0-15)
-         \~french Numéro du compteur (0-15)
+         \~french NumÃ©ro du compteur (0-15)
 */
 static inline void PA_VBLCounterPause(u8 nCounter){
 	PA_VBLCounterOn[nCounter] = 0;
@@ -84,10 +84,10 @@ static inline void PA_VBLCounterPause(u8 nCounter){
 /*! \fn static inline void PA_VBLCounterUnpause(u8 nCounter)
     \brief
          \~english Unpauses a given VBL counter
-         \~french Refait tourner un compteur VBL donné
+         \~french Refait tourner un compteur VBL donnÃ©
     \~\param nCounter
          \~english Counter number (0-15)
-         \~french Numéro du compteur (0-15)
+         \~french NumÃ©ro du compteur (0-15)
 */
 static inline void PA_VBLCounterUnpause(u8 nCounter){
 	PA_VBLCounterOn[nCounter] = 1;

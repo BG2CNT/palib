@@ -28,7 +28,7 @@ void PA_LoadBmpToBuffer(u16 *Buffer, s16 x, s16 y, void *bmp, s16 SWidth) {
 	s32 r, g, b;  s16 tempx, tempy;
 	s16 lx = Bmpinfo->Width;   s16 ly = Bmpinfo->Height;
 	u16 Bits = Bmpinfo->BitsperPixel;
-	//Buffer = (u16*)(Buffer + ((x + (y*SWidth)) << 1)); // Position de départ
+	//Buffer = (u16*)(Buffer + ((x + (y*SWidth)) << 1)); // Position de dÃ©part
 	s32 i = 0;
 
 	if (Bits > 16) { // Pour 24 et 32 bits

@@ -19,7 +19,7 @@
 /*! \fn static inline void PA_MicStartRecording(u8 *Buffer, u32 Length)
     \brief
          \~english Start recording from the microphone.
-         \~french Commencer � enregistrer avec le microphone.
+         \~french Commencer à enregistrer avec le microphone.
     \~\param Buffer
          \~english 8bit buffer in which to record the sound
          \~french Buffer dans lequel enregistrer le son
@@ -38,7 +38,7 @@ static inline void PA_MicStartRecording(u8* buffer, u32 length){
 /*! \def PA_MicStopRecording()
     \brief
          \~english Stop recording from the microphone.
-         \~french Arr�te l'enregistrement.
+         \~french Arrête l'enregistrement.
 */
 
 #define PA_MicStopRecording() PA_SendFifoCmd(PA_MSG_MICSTOP)
@@ -50,7 +50,7 @@ static inline void PA_MicStartRecording(u8* buffer, u32 length){
          \~french Rejouer un son enregistrer
     \~\param Buffer
          \~english 8bit buffer in which the sound was recorded
-         \~french Buffer dans lequel on a enregistr� le son
+         \~french Buffer dans lequel on a enregistré le son
     \~\param Length
          \~english Buffer length
          \~french Longueur du buffer

@@ -7,15 +7,15 @@ u16 pa_giftotexcolor = 0;
 volatile PA_IPCType PA_IPC; // This is deprecated
 
 typedef struct{
-	s16 x, y, oldx, oldy, vx, vy; // Coordonnées
-	u8 stylus; // Si on déplace ou non
+	s16 x, y, oldx, oldy, vx, vy; // CoordonnÃ©es
+	u8 stylus; // Si on dÃ©place ou non
 	u8 moving; // Si la boule est en mouvement ou non
 }positions;
 
 u32 PA_bgmap[2][4]; // Pointeur vers les maps, 4 maps par screen
 u8 PA_Screen = 0;
 
-s16 PA_ScreenSpace; // Espace entre les 2 écrans...+192
+s16 PA_ScreenSpace; // Espace entre les 2 Ã©crans...+192
 
 PA_GifInfos PA_GifInfo;
 

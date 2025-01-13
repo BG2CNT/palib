@@ -16,7 +16,7 @@ void PA_LargeScrollXN(u8 screen, u8 bg_select, s32 x) {
 
 // Dans un sens...
 	while (x - scrollpos[screen][bg_select].scrollx >= 8) {  // Tant qu'on a du retour sur l'affichage de la carte, on fait afficher la ligne suivante
-		scrollpos[screen][bg_select].scrollx += 8; // On a décalé de la taille d'un tile...
+		scrollpos[screen][bg_select].scrollx += 8; // On a dÃ©calÃ© de la taille d'un tile...
 		tempx = scrollpos[screen][bg_select].scrollx >> 3;
 		// On fait le decallage en copiant tout comme il faut
 		i = (tempx + 34) & 63;
@@ -27,7 +27,7 @@ void PA_LargeScrollXN(u8 screen, u8 bg_select, s32 x) {
 
 // Et dans l'autre
 	while (x - scrollpos[screen][bg_select].scrollx <= -8) {  // Tant qu'on a du retour sur l'affichage de la carte, on fait afficher la ligne suivante
-		scrollpos[screen][bg_select].scrollx -= 8; // On a décalé de la taille d'un tile...
+		scrollpos[screen][bg_select].scrollx -= 8; // On a dÃ©calÃ© de la taille d'un tile...
 		tempx = scrollpos[screen][bg_select].scrollx >> 3;
 		// On fait le decallage en copiant tout comme il faut
 		i = (tempx - 2) & 63;
@@ -55,7 +55,7 @@ void PA_LargeScrollYN(u8 screen, u8 bg_select, s32 y) {
 // Verticalement
 // Dans un sens...
 	while (y - scrollpos[screen][bg_select].scrolly >= 8) {  // Tant qu'on a du retour sur l'affichage de la carte, on fait afficher la ligne suivante
-		scrollpos[screen][bg_select].scrolly += 8; // On a décalé de la taille d'un tile...
+		scrollpos[screen][bg_select].scrolly += 8; // On a dÃ©calÃ© de la taille d'un tile...
 		tempy = scrollpos[screen][bg_select].scrolly >> 3;
 		// On fait le decallage en copiant tout comme il faut
 		j = (tempy + 25) & 31;
@@ -66,7 +66,7 @@ void PA_LargeScrollYN(u8 screen, u8 bg_select, s32 y) {
 
 // Et dans l'autre
 	while (y - scrollpos[screen][bg_select].scrolly <= -8) {  // Tant qu'on a du retour sur l'affichage de la carte, on fait afficher la ligne suivante
-		scrollpos[screen][bg_select].scrolly -= 8; // On a décalé de la taille d'un tile...
+		scrollpos[screen][bg_select].scrolly -= 8; // On a dÃ©calÃ© de la taille d'un tile...
 		tempy = scrollpos[screen][bg_select].scrolly >> 3;
 		// On fait le decallage en copiant tout comme il faut
 		j = (tempy - 2) & 31;
@@ -85,7 +85,7 @@ void PA_InfLargeScrollXN(u8 screen, u8 bg_select, s32 x) {
 	tempy = scrollpos[screen][bg_select].scrolly >> 3;
 // Dans un sens...
 	while (x - scrollpos[screen][bg_select].scrollx >= 8) {  // Tant qu'on a du retour sur l'affichage de la carte, on fait afficher la ligne suivante
-		scrollpos[screen][bg_select].scrollx += 8; // On a décalé de la taille d'un tile...
+		scrollpos[screen][bg_select].scrollx += 8; // On a dÃ©calÃ© de la taille d'un tile...
 		tempx = scrollpos[screen][bg_select].scrollx >> 3;
 		// On fait le decallage en copiant tout comme il faut
 		i = (tempx + 34) & 63;
@@ -96,7 +96,7 @@ void PA_InfLargeScrollXN(u8 screen, u8 bg_select, s32 x) {
 
 // Et dans l'autre
 	while (x - scrollpos[screen][bg_select].scrollx <= -8) {  // Tant qu'on a du retour sur l'affichage de la carte, on fait afficher la ligne suivante
-		scrollpos[screen][bg_select].scrollx -= 8; // On a décalé de la taille d'un tile...
+		scrollpos[screen][bg_select].scrollx -= 8; // On a dÃ©calÃ© de la taille d'un tile...
 		tempx = scrollpos[screen][bg_select].scrollx >> 3;
 		// On fait le decallage en copiant tout comme il faut
 		i = (tempx - 2) & 63;
@@ -119,7 +119,7 @@ void PA_InfLargeScrollYN(u8 screen, u8 bg_select, s32 y) {
 // Verticalement
 // Dans un sens...
 	while (y - scrollpos[screen][bg_select].scrolly >= 8) {  // Tant qu'on a du retour sur l'affichage de la carte, on fait afficher la ligne suivante
-		scrollpos[screen][bg_select].scrolly += 8; // On a décalé de la taille d'un tile...
+		scrollpos[screen][bg_select].scrolly += 8; // On a dÃ©calÃ© de la taille d'un tile...
 		tempy = scrollpos[screen][bg_select].scrolly >> 3;
 		// On fait le decallage en copiant tout comme il faut
 		j = (tempy + 25) & 31;
@@ -130,7 +130,7 @@ void PA_InfLargeScrollYN(u8 screen, u8 bg_select, s32 y) {
 
 // Et dans l'autre
 	while (y - scrollpos[screen][bg_select].scrolly <= -8) {  // Tant qu'on a du retour sur l'affichage de la carte, on fait afficher la ligne suivante
-		scrollpos[screen][bg_select].scrolly -= 8; // On a décalé de la taille d'un tile...
+		scrollpos[screen][bg_select].scrolly -= 8; // On a dÃ©calÃ© de la taille d'un tile...
 		tempy = scrollpos[screen][bg_select].scrolly >> 3;
 		// On fait le decallage en copiant tout comme il faut
 		j = (tempy - 2) & 31;

@@ -1,12 +1,12 @@
 #include <PA9.h>
 
 //////////////////////////////////////////////////////////////////////
-// SystËme de sprites
+// Syst√®me de sprites
 //////////////////////////////////////////////////////////////////////
 
 u16 n_free_mem[2]; // nombre d'emplacements libres
-u8 used_mem[2][1024]; // Note la quantitÈ de mÈmoire utilisÈe en chaque point de la mÈmoire pour pouvoir effacer les gfx...
-u8 obj_per_gfx[2][1024]; // Nombre de sprites utilisant un gfx donnÈ...
+u8 used_mem[2][1024]; // Note la quantit√© de m√©moire utilis√©e en chaque point de la m√©moire pour pouvoir effacer les gfx...
+u8 obj_per_gfx[2][1024]; // Nombre de sprites utilisant un gfx donn√©...
 mem_usage free_mem[2][1024];
 u8 pa_obj_created[2][128];
 u16 FirstGfx[2] = {0, 0};
@@ -20,7 +20,7 @@ spriteanim spriteanims[2][128]; // Init the array on PAlib init...
 const PA_sizes PA_size[3][4] = {{{8, 8}, {16, 16}, {32, 32}, {64, 64}}, {{16, 8}, {32, 8}, {32, 16}, {64, 32}}, {{8, 16}, {8, 32}, {16, 32}, {32, 64}}};
 
 
-// UtilisÈ pour dÈterminer la taille en mÈmoire en fonction de la taille du sprite
+// Utilis√© pour d√©terminer la taille en m√©moire en fonction de la taille du sprite
 const u16 PA_obj_sizes[4][3] = {
 	{64, 128, 128},
 	{256, 256, 256},
@@ -28,7 +28,7 @@ const u16 PA_obj_sizes[4][3] = {
 	{4096, 2048, 2048}
 };
 
-obj_inf PA_obj[2][128] __attribute__((aligned(4)));    // Les 128 premiers pour l'Ècran du haut, et encore 128 pour l'Ècran du bas...
+obj_inf PA_obj[2][128] __attribute__((aligned(4)));    // Les 128 premiers pour l'√©cran du haut, et encore 128 pour l'√©cran du bas...
 
 
 s16 DualSpriteX[128]; // memorize 128 pixel positions for dual sprites
@@ -79,7 +79,7 @@ void PA_ResetSpriteSysScreen(u8 screen) {
 	}
 
 	for (n = 0; n < 32; n++) {
-		PA_SetRotset(screen, n, 0, 256, 256);  // Pas de zoom ou de rotation par dÈfaut
+		PA_SetRotset(screen, n, 0, 256, 256);  // Pas de zoom ou de rotation par d√©faut
 	}
 
 	FirstGfx[screen] = 0;
@@ -129,13 +129,13 @@ u16 PA_CreateGfx(u8 screen, void* obj_data, u8 obj_shape, u8 obj_size, u8 color_
 		    "   Alternatively you can use 16c\n"
 		    "                        sprites.\n"
 		    "\n"
-		    "   DesolÈ, mais l‡ il n'y a plus\n"
+		    "   Desol√©, mais l√† il n'y a plus\n"
 		    "  assez de VRAM pour charger les\n"
 		    "       sprites ! Charge moins de\n"
 		    "   sprites, ou alors sers-toi de\n"
 		    "  PA_CloneSprite ou PA_CreateGfx\n"
 		    "  et PA_CreateSpriteFromGfx pour\n"
-		    "  optimiser la place nÈcessaire.\n"
+		    "  optimiser la place n√©cessaire.\n"
 		    "  Tu peux aussi utiliser des 16c\n"
 		    "                        sprites.\n"
 		);
@@ -143,7 +143,7 @@ u16 PA_CreateGfx(u8 screen, void* obj_data, u8 obj_shape, u8 obj_size, u8 color_
 		for (;;) swiWaitForVBlank();
 	}
 
-	i = free_mem[screen][n_mem].mem_block; // On met la valeur de cotÈ pour la renvoyer...
+	i = free_mem[screen][n_mem].mem_block; // On met la valeur de cot√© pour la renvoyer...
 	truenumber = i + FirstGfx[screen];
 	DC_FlushRange(obj_data, (4 * mem_size) << MEM_DECAL);
 	dmaCopyWords(3, obj_data, (void*)(SPRITE_GFX1 + (0x200000 *  screen) + (truenumber << NUMBER_DECAL)), (4 * mem_size) << MEM_DECAL);
@@ -152,7 +152,7 @@ u16 PA_CreateGfx(u8 screen, void* obj_data, u8 obj_shape, u8 obj_size, u8 color_
 	free_mem[screen][n_mem].free -= mem_size;
 
 	if (free_mem[screen][n_mem].free > 0) free_mem[screen][n_mem].mem_block += mem_size; // S'il reste un bout libre, on garde...
-	else {// On doit tout dÈcaler d'un cran... vers la gauche
+	else {// On doit tout d√©caler d'un cran... vers la gauche
 		for (i = n_mem; i < n_free_mem[screen]; i++) {// On recopie la liste plus loin...
 			free_mem[screen][i] = free_mem[screen][i + 1];
 		}
@@ -160,7 +160,7 @@ u16 PA_CreateGfx(u8 screen, void* obj_data, u8 obj_shape, u8 obj_size, u8 color_
 		--n_free_mem[screen];
 	}
 
-	PA_SpriteAnimP[screen][truenumber] = (u16*)obj_data; // mÈmorise la source de l'image...
+	PA_SpriteAnimP[screen][truenumber] = (u16*)obj_data; // m√©morise la source de l'image...
 	return truenumber;
 }
 
@@ -197,37 +197,37 @@ void PA_DeleteGfx(u8 screen, u16 obj_gfx) {
 	u16 i;
 	u16 j;
 	u8 exit = 0;
-	s8 decal = 0; // DÈcalage que l'on aura ‡ faire pour classer le tableau...
+	s8 decal = 0; // D√©calage que l'on aura √† faire pour classer le tableau...
 	obj_gfx -= FirstGfx[screen];
 	obj_per_gfx[screen][obj_gfx] = 0;
 
-	// Gestion dynamique de la mÈmoire...
-	for (i = 0; ((i < n_free_mem[screen]) & !exit); i++) { // On regarde les diffÈrents emplacements mÈmoire pour ajouter le morceau libre dans le tas...
-		if (obj_gfx < free_mem[screen][i].mem_block) { // Si on a un trou qui prÈcËde le premier trou dispo, on va devoir tout dÈcaler...peut-etre !
-			exit = 1; // On va pourvoir sortir, aprËs avir ordonnÈ le tableau...
+	// Gestion dynamique de la m√©moire...
+	for (i = 0; ((i < n_free_mem[screen]) & !exit); i++) { // On regarde les diff√©rents emplacements m√©moire pour ajouter le morceau libre dans le tas...
+		if (obj_gfx < free_mem[screen][i].mem_block) { // Si on a un trou qui pr√©c√®de le premier trou dispo, on va devoir tout d√©caler...peut-etre !
+			exit = 1; // On va pourvoir sortir, apr√®s avir ordonn√© le tableau...
 			decal = 1;
 
-			if ((obj_gfx > 0) & (free_mem[screen][i - 1].mem_block + free_mem[screen][i - 1].free == obj_gfx)) { // On a 2 cases cÙtes ‡ cÙtes, donc pas besoin de dÈcaler, on ajouter la mem dispo...
+			if ((obj_gfx > 0) & (free_mem[screen][i - 1].mem_block + free_mem[screen][i - 1].free == obj_gfx)) { // On a 2 cases c√¥tes √† c√¥tes, donc pas besoin de d√©caler, on ajouter la mem dispo...
 				free_mem[screen][i-1].free += used_mem[screen][obj_gfx];
 				obj_gfx = free_mem[screen][i-1].mem_block;
 				used_mem[screen][obj_gfx] = free_mem[screen][i-1].free;
 				decal = 0;
 			}
 
-			if (obj_gfx + used_mem[screen][obj_gfx] == free_mem[screen][i].mem_block) { // Si le bloc d'aprËs suit parfaitement le bloc qu'on vient d'ajouter...
+			if (obj_gfx + used_mem[screen][obj_gfx] == free_mem[screen][i].mem_block) { // Si le bloc d'apr√®s suit parfaitement le bloc qu'on vient d'ajouter...
 				-- decal;
 				free_mem[screen][i].mem_block = obj_gfx;
 				free_mem[screen][i].free += used_mem[screen][obj_gfx];
 			}
 
-			// Si le dÈcalage est de 0, on touche ‡ rien
-			if (decal == -1) { // On doit dÈcaler vers la gauche... les donnÈes sont dÈj‡ dans le tableau
+			// Si le d√©calage est de 0, on touche √† rien
+			if (decal == -1) { // On doit d√©caler vers la gauche... les donn√©es sont d√©j√† dans le tableau
 				for (j = i - 1; j < n_free_mem[screen]; j++) {// On recopie la liste plus loin...
 					free_mem[screen][j] = free_mem[screen][j + 1];
 				}
 
 				-- n_free_mem[screen];
-			} else if (decal == 1) { // On doit tout dÈcaler pour faire rentrer la case vide...
+			} else if (decal == 1) { // On doit tout d√©caler pour faire rentrer la case vide...
 				++n_free_mem[screen];
 
 				for (j = n_free_mem[screen]; j > i; j--) {// On recopie la liste plus loin...
@@ -240,7 +240,7 @@ void PA_DeleteGfx(u8 screen, u16 obj_gfx) {
 		}
 	}
 
-	// Effacage de la mÈmoire
+	// Effacage de la m√©moire
 	dmaFillWords(0, (void*)(SPRITE_GFX1 + (0x200000 *  screen) + (obj_gfx << NUMBER_DECAL)), (used_mem[screen][obj_gfx] << MEM_DECAL)*2);
 	used_mem[screen][obj_gfx] = 0;
 }
@@ -316,7 +316,7 @@ static inline void PA_UpdateMoveSprite(void) {
 VoidFn VBLSpriteAnims = PA_Nothing;
 
 void PA_UpdateSpriteVBL(void) {
-	PA_UpdateMoveSprite(); // Met ‡ jour les infos sur les dÈplacements de sprites
+	PA_UpdateMoveSprite(); // Met √† jour les infos sur les d√©placements de sprites
 	PA_UpdateOAM(); // Updates the Object on screen
 	VBLSpriteAnims();
 }
