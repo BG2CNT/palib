@@ -2,8 +2,6 @@
 
 ## Introduction
 
-Welcome to PAlib 250107!
-
 PAlib (Programmer's Arsenal library) is a Nintendo DS library used to create
 homebrew games. It is designed to be easily used by anyone. However, nowadays
 there are better alternatives and PAlib should only be used to build old
@@ -15,7 +13,7 @@ To install PAlib you'll need to install BlocksDS first. Then, clone this
 repository, enter that directory and run:
 
 ```sh
-make install
+make -j`nproc` install
 ```
 
 ## Directory structure
