@@ -7,10 +7,18 @@ homebrew games. It is designed to be easily used by anyone. However, nowadays
 there are better alternatives and PAlib should only be used to build old
 projects that depend on it to be built.
 
+This repository contains a port of PAlib to BlocksDS to keep this library alive.
+
 ## Installation
 
-To install PAlib you'll need to install BlocksDS first. Then, clone this
-repository, enter that directory and run:
+You can install PAlib directly with `wf-pacman`:
+
+```sh
+wf-pacman -Sy blocksds-palib
+```
+
+If you want to build it from source, clone this repository, enter that directory
+and run:
 
 ```sh
 make -j`nproc` install
