@@ -1,3 +1,15 @@
+---------------------
+| PAlib 250114 beta | AntonioND
+---------------------
+
+[Fix] Flush cache whenever a DMA copy is made so that users of PAlib don't need to worry about it.
+
+[ASlib] Flush data cache when a MP3 file is played from RAM so that the developer doesn't need to do it.
+
+[DMA_Copy] Use safe BlocksDS libnds DMA functions instead of the old PAlib macros.
+
+[Fix] Actually send temperature and battery level to the ARM9 from the ARM7.
+
 -------------------------------------
 | PAlib 250107 beta: PAlib lives on | AntonioND
 -------------------------------------
