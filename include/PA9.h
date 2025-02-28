@@ -2,7 +2,7 @@
 #define _PA_MAIN
 
 /*!
-	\mainpage PAlib 250114 Documentation
+	\mainpage PAlib 250228 Documentation
 
 	\section intro Introduction
 	Welcome to the PAlib documentation. Here you'll find

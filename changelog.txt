@@ -1,4 +1,10 @@
 ---------------------
+| PAlib 250228 beta | AntonioND
+---------------------
+
+[Fix] Fix code that sets the LED blink speed.
+
+---------------------
 | PAlib 250114 beta | AntonioND
 ---------------------
 
