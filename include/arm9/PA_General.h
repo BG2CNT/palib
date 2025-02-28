@@ -364,7 +364,7 @@ static inline void PA_SetScreenLight(u8 screen, u8 light){
          \~french Vitesse : 0 pour lent, 1 pour rapide
 */
 static inline void PA_SetLedBlink(u8 blink, u8 speed){
-	ledBlink(((blink&1) | ((speed&1) << 1)) << 4);
+	ledBlink((PM_LedStates)((blink & 1) | ((speed & 1) << 1)));
 }
 
 /*! \def PA_WaitFor(something)

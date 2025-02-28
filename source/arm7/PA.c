@@ -32,7 +32,7 @@ void PA_Init(void){
 	PA_InitFifo();
 
 	// Stop LED blinking
-	ledBlink(0);
+	ledBlink(LED_ALWAYS_ON);
 
 	// Wait until the IPC buffer has been sent from the ARM9
 	while (PA_Transfer == NULL);
