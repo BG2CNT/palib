@@ -459,10 +459,6 @@ void AS_SoundVBL()
     // refill mp3 file  buffer if needed
     if(IPC_Sound->mp3.needdata) {
 
-        // Reading from the filesystem may cause a yield from this thread, so
-        // interrupts need to be enabled for the yield to ever end.
-        REG_IME= 1;
-
         // Fill only half of the buffer
         if(AS_MP3FillBuffer(IPC_Sound->mp3.mp3buffer + AS_FILEBUFFER_SIZE, AS_FILEBUFFER_SIZE))
             IPC_Sound->mp3.needdata = false;
