@@ -1,4 +1,14 @@
 ---------------------
+| PAlib 250711 beta | AntonioND
+---------------------
+
+[Documentation] Publish documentation with GitHub actions.
+
+[ASlib] Stop enabling interrupts in the VBL handler. It is no longer needed by libnds.
+
+[ASlib] Extract AS_StereoDesinterleave() to its own file so that it can be labeled properly. Without the right labels the compiler doesn't know if it needs to jump to it in ARM mode or Thumb mode.
+
+---------------------
 | PAlib 250228 beta | AntonioND
 ---------------------
 
