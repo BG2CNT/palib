@@ -62,7 +62,7 @@ INCLUDEDIRS	?= gfx
 GFXDIRS		?=
 BINDIRS		?= gfx/bin data
 AUDIODIRS	?=
-NITROFSDIR	?=
+NITROFSDIR	?= filesystem
 
 # Defines passed to all files
 # ---------------------------
