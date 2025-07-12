@@ -1,3 +1,7 @@
+# This is a modified Makefile based around the
+# Makefile_example. This is here to improve backwards
+# compatibility.
+
 
 # SPDX-License-Identifier: CC0-1.0
 #
@@ -14,13 +18,33 @@ ARM_NONE_EABI_PATH	?= $(WONDERFUL_TOOLCHAIN)/toolchain/gcc-arm-none-eabi/bin/
 
 NAME		?= $(shell basename $(CURDIR))
 
+# These match PAlib's default Makefile version 2
 GAME_TITLE 		?= $(TEXT1)
 GAME_SUBTITLE 	?= $(TEXT2)
 GAME_AUTHOR 	?= $(TEXT3)
 
 GAME_ICON	?= $(BLOCKSDSEXT)/palib/defaultlogo.bmp
 
-ARM7ELF		?= $(BLOCKSDSEXT)/palib/sys/arm7_maxmod_dswifi.elf
+# ARM7 Core
+LIBDIRS		:= $(BLOCKSDS)/libs/maxmod \
+		   $(BLOCKSDS)/libs/dswifi \
+		   $(BLOCKSDS)/libs/libnds \
+		   $(BLOCKSDSEXT)/palib
+
+ifeq ($(strip $(ARM7_SELECTED)), ARM7_MP3)
+	ARM7ELF := $(BLOCKSDSEXT)/palib/sys/arm7_mp3.elf
+	LIBS		:= -lnds9 -lpa9
+endif
+ifeq ($(strip $(ARM7_SELECTED)), ARM7_MP3_DSWIFI)
+	ARM7ELF := $(BLOCKSDSEXT)/palib/sys/arm7_mp3_dswifi.elf
+	LIBS		:= -lnds9 -ldswifi9 -lpa9
+endif
+ifeq ($(strip $(ARM7_SELECTED)), ARM7_MAXMOD_DSWIFI)
+	ARM7ELF := $(BLOCKSDSEXT)/palib/sys/arm7_maxmod_dswifi.elf
+	LIBS		:= -lmm9 -lnds9 -ldswifi9 -lpa9
+endif
+
+
 
 # DLDI and internal SD slot of DSi
 # --------------------------------
@@ -44,15 +68,6 @@ NITROFSDIR	?=
 # ---------------------------
 
 DEFINES		:= -DPA_NO_DEPRECATION
-
-# Libraries
-# ---------
-
-LIBS		:= -lmm9 -lnds9 -ldswifi9 -lpa9
-LIBDIRS		:= $(BLOCKSDS)/libs/maxmod \
-		   $(BLOCKSDS)/libs/dswifi \
-		   $(BLOCKSDS)/libs/libnds \
-		   $(BLOCKSDSEXT)/palib
 
 # Build artifacts
 # ---------------

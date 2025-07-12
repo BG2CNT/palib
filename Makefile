@@ -59,5 +59,5 @@ install: sys
 	$(V)$(INSTALL) -d $(BLOCKSDSEXT)/$(INSTALLNAME)/
 	+$(MAKE) -C sys install INSTALLDIR=$(BLOCKSDSEXT)/$(INSTALLNAME)/sys
 	$(V)$(CP) -r defaultlogo.bmp $(BLOCKSDSEXT)/$(INSTALLNAME)/
-	# Add PA_Makefile
+	# BG2CNT: Add PA_Makefile to install rule
 	$(V)$(CP) -r sys/PA_Makefile $(BLOCKSDSEXT)/$(INSTALLNAME)/sys
