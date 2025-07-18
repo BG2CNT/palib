@@ -1,5 +1,5 @@
 # PAlib
-
+This fork is a experiment to try to add PA_Makefile on BlocksDS, it was rather successful but it sucks so it's unmaintained now.
 ## Introduction
 
 PAlib (Programmer's Arsenal library) is a Nintendo DS library used to create
